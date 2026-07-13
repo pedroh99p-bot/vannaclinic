@@ -135,16 +135,16 @@
 
     /* === TYPOGRAPHY === */
     h1, h2, h3, h4 {
-      font-family: var(--f-display);
+      font-family: var(--font-display);
       font-weight: 400;
       line-height: 1.2;
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
     }
     .section-label {
-      font-family: var(--f-body);
-      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-size: var(--fs-section-eyebrow);
       font-weight: 500;
-      letter-spacing: 0.18em;
+      letter-spacing: var(--tracking-section-eyebrow);
       text-transform: uppercase;
       color: var(--c-primary-dark);  /* Ouro Escuro — contraste e peso visual */
       display: flex;
@@ -159,9 +159,13 @@
       background: var(--c-primary-dark);
     }
     .section-title {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-family: var(--font-display);
+      font-size: var(--fs-section-title);
+      line-height: var(--lh-section-title);
       color: var(--c-text);
       margin-top: var(--s-sm);
+      max-width: 13.5ch;
+      text-wrap: balance;
     }
     .section-title em {
       font-style: italic;

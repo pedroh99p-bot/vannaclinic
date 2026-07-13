@@ -88,6 +88,59 @@ export function renderSEO() {
   jsonLdScript.textContent = JSON.stringify(ldData, null, 2);
 }
 
+function escapeHTML(value) {
+  return String(value || '').replace(/[&<>"']/g, function(char) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char];
+  });
+}
+
+function renderPortfolioCard(item, isClone) {
+  var objectPosition = item.objectPosition ? ' style="--portfolio-object-position: ' + escapeHTML(item.objectPosition) + ';"' : '';
+  var hidden = isClone ? ' aria-hidden="true"' : '';
+  var alt = isClone ? '' : escapeHTML(item.alt);
+
+  return [
+    '<figure class="portfolio-result-card" role="listitem" data-portfolio-item="' + escapeHTML(item.id) + '"' + hidden + objectPosition + '>',
+    '  <img src="' + escapeHTML(item.src) + '" alt="' + alt + '" loading="lazy" decoding="async">',
+    '</figure>'
+  ].join('\n');
+}
+
+function renderPortfolioGroup(group) {
+  var titleId = 'portfolio-group-' + escapeHTML(group.id);
+  var items = Array.isArray(group.items) ? group.items : [];
+  var originalCards = items.map(function(item) {
+    return renderPortfolioCard(item, false);
+  }).join('\n');
+  var clonedCards = items.map(function(item) {
+    return renderPortfolioCard(item, true);
+  }).join('\n');
+
+  return [
+    '<section class="portfolio-group animate" aria-labelledby="' + titleId + '">',
+    '  <div class="portfolio-group-heading">',
+    '    <h3 class="portfolio-group-title" id="' + titleId + '">' + escapeHTML(group.title) + '</h3>',
+    '  </div>',
+    '  <div class="portfolio-marquee" role="region" aria-label="' + escapeHTML(group.ariaLabel || group.title) + '" tabindex="0" style="--portfolio-duration: ' + escapeHTML(group.speed || '38s') + ';">',
+    '    <div class="portfolio-marquee-track">',
+    '      <div class="portfolio-marquee-sequence" role="list">',
+    originalCards,
+    '      </div>',
+    '      <div class="portfolio-marquee-sequence" aria-hidden="true">',
+    clonedCards,
+    '      </div>',
+    '    </div>',
+    '  </div>',
+    '</section>'
+  ].join('\n');
+}
+
 export function renderUI() {
   // Helper to set text content
   var setText = function(selector, text, isHTML) {
@@ -189,7 +242,6 @@ export function renderUI() {
     });
   };
 
-  renderRoller('[data-roller="top"]', client.rollers.top);
   renderRoller('[data-roller="specialist"]', client.rollers.bottom); // maps bottom list to specialist
   renderRoller('[data-roller="bottom"]', client.rollers.bottom);
 
@@ -359,9 +411,7 @@ export function renderUI() {
   setText('.cta-final .btn-outline', client.ctaFinal.ctaQuiz);
   setText('.cta-final .cta-micro', client.ctaFinal.micro);
 
-  // Hydrate CTA Final logo and letreiro roller
-  setAttr('.cta-final-logo img', 'src', client.branding.logoIcon);
-  setAttr('.cta-final-logo img', 'alt', client.branding.name);
+  // Hydrate CTA Final letreiro roller
   renderRoller('[data-roller="cta-keywords"]', ['Naturalidade', 'Segurança', 'Sofisticação', 'Elegância', 'Exclusividade']);
 
   // Footer
@@ -379,35 +429,18 @@ export function renderUI() {
   setAttr('.contact-float--whatsapp', 'data-wa-message', client.whatsappMessages.floatingCta);
 
   // Portfolio dynamic render
-  var portfolioTrack = document.getElementById('portfolio-track');
-  if (portfolioTrack && client.portfolio && client.portfolio.items) {
+  var portfolioGroups = document.getElementById('portfolio-groups');
+  if (portfolioGroups && client.portfolio && client.portfolio.groups) {
+    setText('#portfolio-label', client.portfolio.sectionLabel);
     setText('#portfolio-title', client.portfolio.sectionTitle, true);
     setText('#portfolio-intro', client.portfolio.sectionSubtitle);
 
-    portfolioTrack.innerHTML = client.portfolio.items.map(function(item) {
-      if (client.portfolio.type === 'before_after_gallery') {
-        return [
-          '<article class="portfolio-card before-after-card animate-scale">',
-          '  <div class="before-after-container">',
-          '    <div class="before-img">',
-          '      <img src="' + item.before + '" alt="Antes" loading="lazy" decoding="async">',
-          '    </div>',
-          '    <div class="after-img">',
-          '      <img src="' + item.after + '" alt="Depois" loading="lazy" decoding="async">',
-          '    </div>',
-          '  </div>',
-          '</article>'
-        ].join('\n');
-      } else {
-        return [
-          '<article class="portfolio-card animate-scale">',
-          '  <div class="portfolio-image-wrap">',
-          '    <img src="' + item.image + '" alt="' + item.alt + '" loading="lazy" decoding="async">',
-          '  </div>',
-          '</article>'
-        ].join('\n');
-      }
-    }).join('\n');
+    var groups = [
+      client.portfolio.groups.advancedAesthetics,
+      client.portfolio.groups.brows
+    ].filter(Boolean);
+
+    portfolioGroups.innerHTML = groups.map(renderPortfolioGroup).join('\n');
   }
 
   // Dynamically render services protocols

@@ -44,6 +44,7 @@
   --c-primary-rgb: 160, 126, 76;
   --c-primary-hover-rgb: 118, 90, 52;
   --c-primary-dark-rgb: 118, 90, 52;
+  --c-gold-dark-rgb: 118, 90, 52;
   --c-secondary-rgb: 234, 214, 205;
   --c-success-rgb: 79, 138, 91;
   --c-warning-rgb: 160, 111, 43;
@@ -58,14 +59,16 @@
   --c-bg-alt-rgb: 246, 236, 230;
   --c-surface-rgb: 255, 255, 255;
 
-  --nav-glass-bg: rgba(255, 251, 247, .68);
-  --nav-glass-bg-scrolled: rgba(255, 251, 247, .9);
-  --nav-glass-border: rgba(90, 67, 59, .12);
-  --nav-glass-shadow: 0 10px 30px rgba(44, 36, 24, .08);
-  --nav-glass-blur: 18px;
+  --nav-glass-bg: rgba(var(--c-gold-dark-rgb), .68);
+  --nav-glass-bg-scrolled: rgba(var(--c-gold-dark-rgb), .84);
+  --nav-glass-border: rgba(var(--c-bg-rgb), .18);
+  --nav-glass-shadow: 0 12px 28px rgba(var(--c-accent-deep-rgb), .14);
+  --nav-glass-blur: 16px;
 
   --f-display: 'Cormorant Garamond', Georgia, serif;
   --f-body: 'Outfit', system-ui, sans-serif;
+  --font-display: var(--f-display);
+  --font-body: var(--f-body);
 
   --f-size-base: 1rem;
   --f-size-sm: 0.875rem;
@@ -74,6 +77,10 @@
   --f-size-2xl: 2rem;
   --f-size-3xl: 2.75rem;
   --f-size-hero: clamp(2.4rem, 5.5vw, 4rem);
+  --fs-section-title: 2.15rem;
+  --fs-section-eyebrow: .75rem;
+  --lh-section-title: 1.08;
+  --tracking-section-eyebrow: .16em;
 
   --s-xs: 0.25rem;
   --s-sm: 0.5rem;
@@ -133,6 +140,7 @@ html.dark-theme {
   --c-primary-rgb: 200, 161, 106;
   --c-primary-hover-rgb: 224, 190, 134;
   --c-primary-dark-rgb: 224, 190, 134;
+  --c-gold-dark-rgb: 118, 90, 52;
   --c-secondary-rgb: 94, 67, 59;
   --c-success-rgb: 121, 168, 121;
   --c-warning-rgb: 211, 161, 93;
@@ -143,10 +151,23 @@ html.dark-theme {
   --c-dark-section-rgb: 29, 20, 18;
   --c-bg-alt-rgb: 47, 33, 30;
   --c-surface-rgb: 56, 42, 38;
-  --nav-glass-bg: rgba(35, 25, 23, .72);
-  --nav-glass-bg-scrolled: rgba(35, 25, 23, .9);
+  --nav-glass-bg: rgba(var(--c-gold-dark-rgb), .72);
+  --nav-glass-bg-scrolled: rgba(var(--c-gold-dark-rgb), .9);
   --nav-glass-border: rgba(234, 215, 184, .16);
-  --nav-glass-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+  --nav-glass-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+  --nav-glass-blur: 16px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --fs-section-title: 3.15rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --fs-section-title: 3.65rem;
+  }
 }
 
 html.dark-theme .urgencia-bar,

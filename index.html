@@ -48,11 +48,6 @@
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-hidden="true"></div>
 
-  <!-- Top Roller Marquee -->
-  <div class="roller" data-roller="top" style="--roller-duration:44s;">
-    <div class="roller-track"></div>
-  </div>
-
   <!-- Header & Navbar -->
   <header class="navbar" id="navbar">
     <div class="container">
@@ -214,22 +209,11 @@
     <section class="portfolio-section" id="portfolio">
       <div class="container">
         <header class="portfolio-header animate">
-          <span class="section-label" id="portfolio-label">Portfólio</span>
+          <span class="section-label" id="portfolio-label">Resultados reais</span>
           <h2 class="section-title" id="portfolio-title"></h2>
           <p class="section-intro" id="portfolio-intro"></p>
         </header>
-        <div class="ux-carousel-shell portfolio-carousel animate" data-carousel="portfolio" data-autoplay="true" data-interval="4000">
-          <button type="button" class="carousel-nav" data-carousel-prev aria-label="Ver imagem anterior">
-            <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
-          <button type="button" class="carousel-nav" data-carousel-next aria-label="Ver próxima imagem">
-            <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
-          </button>
-          <div class="ux-carousel-viewport">
-            <div class="ux-carousel-track stagger" id="portfolio-track"></div>
-          </div>
-        </div>
-        <div class="carousel-dots-inline" data-carousel-dots="portfolio"></div>
+        <div class="portfolio-groups" id="portfolio-groups"></div>
       </div>
     </section>
 
@@ -332,10 +316,6 @@
     <!-- Seção CTA Final -->
     <section class="cta-final animate-section">
       <div class="container">
-        <div class="cta-final-logo logo-bubble animate" style="width: 70px; margin-inline: auto; margin-bottom: var(--s-md);">
-          <img src="assets/logo-icon.webp" alt="Vanna Clinic Logo">
-        </div>
-
         <!-- Text Roller above agendamento -->
         <div class="roller roller-inline roller-inline--soft animate" data-roller="cta-keywords" style="--roller-duration:24s; margin-bottom: var(--s-lg); border-radius: var(--radius-md);">
           <div class="roller-track"></div>

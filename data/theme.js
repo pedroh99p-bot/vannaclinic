@@ -39,6 +39,7 @@ export const theme = {
     'primary-rgb': '160, 126, 76',
     'primary-hover-rgb': '118, 90, 52',
     'primary-dark-rgb': '118, 90, 52',
+    'gold-dark-rgb': '118, 90, 52',
     'secondary-rgb': '234, 214, 205',
     'success-rgb': '79, 138, 91',
     'warning-rgb': '160, 111, 43',
@@ -52,11 +53,11 @@ export const theme = {
     'bg-rgb': '255, 251, 247',
     'bg-alt-rgb': '246, 236, 230',
     'surface-rgb': '255, 255, 255',
-    'nav-glass-bg': 'rgba(255, 251, 247, .68)',
-    'nav-glass-bg-scrolled': 'rgba(255, 251, 247, .9)',
-    'nav-glass-border': 'rgba(90, 67, 59, .12)',
-    'nav-glass-shadow': '0 10px 30px rgba(44, 36, 24, .08)',
-    'nav-glass-blur': '18px'
+    'nav-glass-bg': 'rgba(var(--c-gold-dark-rgb), .68)',
+    'nav-glass-bg-scrolled': 'rgba(var(--c-gold-dark-rgb), .84)',
+    'nav-glass-border': 'rgba(var(--c-bg-rgb), .18)',
+    'nav-glass-shadow': '0 12px 28px rgba(var(--c-accent-deep-rgb), .14)',
+    'nav-glass-blur': '16px'
   },
   dark: {
     'bg': '#231917',
@@ -95,6 +96,7 @@ export const theme = {
     'primary-rgb': '200, 161, 106',
     'primary-hover-rgb': '224, 190, 134',
     'primary-dark-rgb': '224, 190, 134',
+    'gold-dark-rgb': '118, 90, 52',
     'secondary-rgb': '94, 67, 59',
     'success-rgb': '121, 168, 121',
     'warning-rgb': '211, 161, 93',
@@ -108,10 +110,10 @@ export const theme = {
     'bg-rgb': '35, 25, 23',
     'bg-alt-rgb': '47, 33, 30',
     'surface-rgb': '56, 42, 38',
-    'nav-glass-bg': 'rgba(35, 25, 23, .72)',
-    'nav-glass-bg-scrolled': 'rgba(35, 25, 23, .9)',
+    'nav-glass-bg': 'rgba(var(--c-gold-dark-rgb), .72)',
+    'nav-glass-bg-scrolled': 'rgba(var(--c-gold-dark-rgb), .9)',
     'nav-glass-border': 'rgba(234, 215, 184, .16)',
-    'nav-glass-shadow': '0 10px 30px rgba(0, 0, 0, .18)',
-    'nav-glass-blur': '18px'
+    'nav-glass-shadow': '0 12px 28px rgba(0, 0, 0, .18)',
+    'nav-glass-blur': '16px'
   }
 };
