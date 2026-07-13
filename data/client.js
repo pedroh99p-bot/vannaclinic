@@ -17,6 +17,7 @@ export const client = {
     city: "Rio de Janeiro",
     neighborhood: "Barra da Tijuca",
     registerNumber: "Reg. Profissional: CRF-RJ 12345", // Exibir obrigatório no rodapé
+    address: "Av. das Américas, 4666 - Barra da Tijuca - Rio de Janeiro - RJ - 22640-102",
     logoHorizontal: "assets/logo-horizontal.webp",
     logoIcon: "assets/logo-icon.webp",
     logoPreloader: "assets/logo-preloader.webp",
@@ -29,13 +30,16 @@ export const client = {
     title: "Vanna Clinic | Estética Avançada com Naturalidade",
     description: "Vanna Clinic na Barra da Tijuca. Procedimentos como Botox, Preenchimento e Bioestimuladores focados em naturalidade, sofisticação e resultados elegantes.",
     keywords: "botox natural, preenchimento barra da tijuca, bioestimuladores, harmonização discreta, rejuvenescimento",
-    ogImage: "assets/og-image.webp"
+    ogImage: "assets/og-image.webp",
+    locale: "pt_BR",
+    telephone: "+55 (21) 99999-9999"
   },
 
   contacts: {
     whatsappNumber: "5521999999999", // Telefone real
     instagramUser: "vannaclinic",
-    address: "Av. das Américas, 4666 - Barra da Tijuca, Rio de Janeiro - RJ, 22640-102",
+    instagramUrl: "https://instagram.com/vannaclinic",
+    address: "Av. das Américas, 4666 - Barra da Tijuca - Rio de Janeiro - RJ - 22640-102",
     googleMapsDirectionsUrl: "https://maps.google.com/?q=Vanna+Clinic+Barra+da+Tijuca",
     googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.748348986877!2d-43.3444!3d-23.0012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAwJzA0LjMiUyA0M8KwMjAnMzkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1711111111111!5m2!1spt-BR!2sbr"
   },
@@ -81,7 +85,7 @@ export const client = {
     cards: [
       {
         icon: "syringe",
-        signal: "Rugas e lines",
+        signal: "Rugas e linhas",
         title: "Marcas de expressão",
         description: "Rugas na testa, entre as sobrancelhas ou pés de galinha que trazem aspecto cansado.",
         protocol: "Protocolo Botox Natural"
