@@ -1,6 +1,6 @@
 import { theme } from './theme.js';
 import { services } from './services.js';
-import { quiz } from './quiz.js';
+import { quiz, quizIcons } from './quiz.js';
 import { faq } from './faq.js';
 import { portfolio } from './portfolio.js';
 import { trackingConfig } from './tracking.js';
@@ -267,6 +267,7 @@ export const client = {
   theme,
   services,
   quiz,
+  quizIcons,
   faq,
   portfolio,
   trackingConfig
