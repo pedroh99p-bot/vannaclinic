@@ -1,138 +1,108 @@
 export const quizIcons = {
-  pulse: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-4 3 8 2-4h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  moon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13.5A6.5 6.5 0 1 1 10.5 6a5 5 0 0 0 7.5 7.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 4.5h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 7.5h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  droplet: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2.7 3.3 5 6 5 9a5 5 0 0 1-10 0c0-3 2.3-5.7 5-9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13c.3 1.4 1.2 2.3 2.7 2.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  sparkles: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.2 3.8L17 8l-3.8 1.2L12 13l-1.2-3.8L7 8l3.8-1.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 14l.7 2.3L21 17l-2.3.7L18 20l-.7-2.3L15 17l2.3-.7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 14l.5 1.8L8.3 16l-1.8.5L6 18.3l-.5-1.8L3.7 16l1.8-.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  body: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 11c2 0 3 1 4 3 1-2 2-3 4-3s3 1 4 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  message: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v9H9l-4 3V6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  spine: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4c2.8 1.2 5.2 1.2 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8c2.8 1.2 5.2 1.2 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12c2.2 1 3.8 1 6 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 16c1.7.8 2.3.8 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3v18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  neck: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4c0 2.5 1 3.5 3 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 9c0 3 1 4.5 4 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 20c1.8-2.6 4.2-4 7-4 1.5 0 2.8.3 4 .9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 7c1.2 1 2.3 1.4 3.5 1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  legs: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4c0 2.5.6 5.2 1.8 8.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 4c0 2.5-.6 5.2-1.8 8.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.8 12.2 9.5 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.2 12.2 14.5 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  bodyAll: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="6" r="2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 20c.5-3.5 1.7-5.6 3.5-6.4 1.8.8 3 2.9 3.5 6.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10.5c1.4 1.1 2.7 1.7 4 1.7s2.6-.6 4-1.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  shieldCheck: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 6.5 5v5.5c0 4 2 7 5.5 9 3.5-2 5.5-5 5.5-9V5L12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 12.2 11 13.7l3.5-3.9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  compass: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m10 10 5-2-2 5-4 2 1-5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  calendar: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 3v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="6" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 10h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  clock: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  chat: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.9 7l-4.1 1 1.1-4A8 8 0 1 1 20 11.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 9.5c1.2 2.4 3 4.2 5.4 5.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.6 13.6c.4.2.8.2 1.1 0l1-.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  syringe: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2-3 3M11 5l8 8M14 8l-6 6M7 11l-3 3M5 19l-3 3M19 14l3 3M12.5 16.5l-5-5"/></svg>`,
+  lips: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12a10 5 0 0 1 4-3 12 6 0 0 0 12 0 10 5 0 0 1 4 3 10 5 0 0 1-4 3 12 6 0 0 0-12 0 10 5 0 0 1-4-3Z"/><path d="M6 10c2.5 1 5.5 1 8 0"/></svg>`,
+  cilios: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10a12 6 0 0 0 20 0"/><path d="m4 11-1.5 2.5M7 12l-.5 3M10 12.5v3M14 12.5v3M17 12l.5 3M20 11l1.5 2.5"/></svg>`,
+  sparkles: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.2 3.8L17 8l-3.8 1.2L12 13l-1.2-3.8L7 8l3.8-1.2Z"/><path d="M18 14l.7 2.3L21 17l-2.3.7L18 20l-.7-2.3L15 17l2.3-.7Z"/><path d="M6 14l.5 1.8L8.3 16l-1.8.5L6 18.3l-.5-1.8L3.7 16l1.8-.2Z"/></svg>`,
+  chat: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+  shieldCheck: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 6.5 5v5.5c0 4 2 7 5.5 9 3.5-2 5.5-5 5.5-9V5L12 3Z"/><path d="M9.5 12.2 11 13.7l3.5-3.9"/></svg>`,
+  calendar: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v3M17 3v3"/><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M4 10h16"/></svg>`,
+  clock: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>`,
+  droplet: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.7 3.3 5 6 5 9a5 5 0 0 1-10 0c0-3 2.3-5.7 5-9Z"/><path d="M9 13c.3 1.4 1.2 2.3 2.7 2.8"/></svg>`,
+  message: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14v9H9l-4 3V6Z"/><path d="M8 10h8M8 13h5"/></svg>`
 };
 
 export const quiz = {
   header: {
     label: "Pré-atendimento",
-    title: "Quer entender qual cuidado combina melhor com o que você sente <em>hoje?</em>",
-    intro: "Responda rápido e envie seu contexto para a Jo pelo WhatsApp antes do agendamento.",
-    note: "Agenda da semana preenchida por ordem de agendamento.",
-    ctaButton: "Responder pré-atendimento"
+    title: "Quer entender qual procedimento combina melhor com você <em>hoje?</em>",
+    intro: "Responda rápido e envie seu contexto para nossa equipe pelo WhatsApp.",
+    note: "Consultas individuais realizadas na Barra da Tijuca.",
+    ctaButton: "Iniciar pré-atendimento"
   },
   result: {
     icon: "chat",
     title: "Pré-atendimento pronto para enviar",
-    desc: "Com essas respostas, a Jo consegue te orientar melhor pelo WhatsApp.",
-    whatsappCta: "Enviar pré-atendimento no WhatsApp",
-    restartCta: "Refazer quiz",
+    desc: "Com essas respostas, a equipe da Vanna Clinic consegue te orientar de forma personalizada.",
+    whatsappCta: "Enviar respostas no WhatsApp",
+    restartCta: "Refazer perguntas",
     summaryGoalLabel: "Objetivo",
-    summaryRegionLabel: "Região",
-    summaryPreferenceLabel: "Preferência",
+    summaryRegionLabel: "Resultado",
+    summaryPreferenceLabel: "Urgência",
     summaryGoalDefault: "Ainda não definido",
-    summaryRegionDefault: "Ainda não definida",
+    summaryRegionDefault: "Ainda não definido",
     summaryPreferenceDefault: "Ainda não definida"
   },
   steps: [
     {
       id: 1,
-      question: "Qual é seu principal objetivo hoje?",
+      question: "O que você gostaria de melhorar hoje?",
       options: [
         {
-          label: "Aliviar dor ou tensão muscular",
-          sublabel: "Quando o desconforto já está atrapalhando o dia.",
-          icon: "pulse"
+          label: "Botox Natural",
+          sublabel: "Suavizar linhas finas mantendo expressões saudáveis.",
+          icon: "syringe"
         },
         {
-          label: "Relaxar e reduzir o estresse",
-          sublabel: "Para quando o corpo não consegue desacelerar.",
-          icon: "moon"
+          label: "Preenchimento Labial",
+          sublabel: "Definição e volume labial sutil e proporcional.",
+          icon: "lips"
         },
         {
-          label: "Reduzir inchaço ou sensação de peso",
-          sublabel: "Quando a leveza corporal é sua prioridade.",
+          label: "Bioestimulador de Colágeno",
+          sublabel: "Recuperar a firmeza e a sustentação natural da pele.",
           icon: "droplet"
         },
         {
-          label: "Cuidar da estética corporal",
-          sublabel: "Quando o foco está em autocuidado e firmeza.",
-          icon: "sparkles"
+          label: "Cílios e Sobrancelhas",
+          sublabel: "Realçar o olhar com extensões discretas.",
+          icon: "cilios"
         },
         {
-          label: "Soltar o corpo e recuperar o bem-estar",
-          sublabel: "Para quando o corpo está cansado, rígido ou sobrecarregado.",
-          icon: "body"
-        },
-        {
-          label: "Tirar dúvidas antes de agendar",
-          sublabel: "Se você ainda quer conversar com calma antes de decidir.",
-          icon: "message"
+          label: "Conversar sobre indicações",
+          sublabel: "Avaliar em consulta qual o procedimento ideal.",
+          icon: "chat"
         }
       ]
     },
     {
       id: 2,
-      question: "Onde você sente mais necessidade de cuidado?",
+      question: "Como você prefere o resultado?",
       options: [
         {
-          label: "Costas ou lombar",
-          sublabel: "Quando a rigidez e o desconforto aparecem nessa área.",
-          icon: "spine"
-        },
-        {
-          label: "Cervical, pescoço ou ombros",
-          sublabel: "Muito comum em rotina corrida e tensão acumulada.",
-          icon: "neck"
-        },
-        {
-          label: "Pernas",
-          sublabel: "Para sensação de peso, cansaço ou drenagem.",
-          icon: "legs"
-        },
-        {
-          label: "Corpo todo",
-          sublabel: "Quando a sobrecarga parece mais geral.",
-          icon: "bodyAll"
-        },
-        {
-          label: "Abdômen, glúteos ou flancos",
-          sublabel: "Quando o foco está mais ligado a cuidado corporal e estética.",
+          label: "100% natural e discreto",
+          sublabel: "Apenas um aspecto descansado e leve.",
           icon: "shieldCheck"
         },
         {
-          label: "Ainda não sei",
-          sublabel: "A orientação inicial ajuda justamente nessa decisão.",
-          icon: "compass"
+          label: "Realce sutil e perceptível",
+          sublabel: "Valorizar traços sem mudar a sua identidade.",
+          icon: "sparkles"
+        },
+        {
+          label: "Definição marcante e segura",
+          sublabel: "Mudança mais nítida sempre dentro da proporção.",
+          icon: "droplet"
         }
       ]
     },
     {
       id: 3,
-      question: "O que você prefere agora?",
+      question: "Quando deseja realizar?",
       options: [
         {
-          label: "Agendar o quanto antes",
-          sublabel: "Para já tentar um horário desta semana.",
+          label: "Esta semana",
+          sublabel: "Desejo consultar horários imediatos.",
           icon: "calendar"
         },
         {
-          label: "Ver horários disponíveis",
-          sublabel: "Se você quer entender a agenda antes de decidir.",
+          label: "Nas próximas semanas",
+          sublabel: "Estou planejando para os próximos 15 dias.",
           icon: "clock"
         },
         {
-          label: "Tirar dúvidas primeiro",
-          sublabel: "Para conversar com calma antes de marcar.",
+          label: "Apenas tirando dúvidas",
+          sublabel: "Quero entender mais antes de decidir.",
           icon: "message"
-        },
-        {
-          label: "Receber indicação do melhor protocolo",
-          sublabel: "Se a prioridade é saber qual cuidado faz mais sentido.",
-          icon: "body"
         }
       ]
     }

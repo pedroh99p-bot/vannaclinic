@@ -1078,3 +1078,61 @@
       transform: scale(1.04);
     }
 
+    /* === BEFORE AND AFTER GALLERY === */
+    .before-after-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--c-border);
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .before-img, .after-img {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+    }
+    .before-img img, .after-img img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .portfolio-card:hover .before-img img,
+    .portfolio-card:hover .after-img img {
+      transform: scale(1.03);
+    }
+    .ba-badge {
+      position: absolute;
+      bottom: 12px;
+      background: rgba(90, 67, 59, 0.85);
+      color: #FFFBF7;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      z-index: 2;
+    }
+    .before-img .ba-badge { left: 12px; }
+    .after-img .ba-badge { right: 12px; }
+    .portfolio-info {
+      padding: var(--s-md) var(--s-lg);
+      text-align: center;
+      background: var(--c-bg-card);
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .portfolio-info h3 {
+      font-size: 15px;
+      color: var(--c-text);
+      font-family: var(--f-body);
+      font-weight: 500;
+    }
+

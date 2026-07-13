@@ -1,6 +1,7 @@
 import { theme } from './theme.js';
 import { services } from './services.js';
-import { quiz, quizIcons } from './quiz.js';
+import { quiz } from './quiz.js';
+import { quizIcons } from './quiz.js';
 import { faq } from './faq.js';
 import { portfolio } from './portfolio.js';
 import { trackingConfig } from './tracking.js';
@@ -8,15 +9,14 @@ import { trackingConfig } from './tracking.js';
 export const client = {
   // Configurações Gerais de Identidade e Branding
   branding: {
-    name: "Jo Souza",
-    profession: "Massoterapeuta",
-    professionShort: "Massoterapia",
-    niche: "Massoterapia",
+    name: "Vanna Clinic",
+    title: "Vanna Clinic | Estética Avançada com Naturalidade",
+    profession: "Clínica de Estética Avançada",
+    professionShort: "Estética Avançada",
+    niche: "Estética Avançada",
     city: "Rio de Janeiro",
     neighborhood: "Barra da Tijuca",
-    address: "Av. Evandro Lins e Silva, 840 - Tower Office - Barra da Tijuca, Rio de Janeiro - RJ, 22631-470",
-    
-    // Logos locais na pasta assets
+    registerNumber: "Reg. Profissional: CRF-RJ 12345", // Exibir obrigatório no rodapé
     logoHorizontal: "assets/logo-horizontal.webp",
     logoIcon: "assets/logo-icon.webp",
     logoPreloader: "assets/logo-preloader.webp",
@@ -25,199 +25,130 @@ export const client = {
     heroBg: "assets/hero.webp"
   },
 
-  // SEO e Metadados do site
   seo: {
-    title: "Jo Souza | Massoterapia na Barra da Tijuca",
-    description: "Massoterapia na Barra da Tijuca com atendimentos pensados para relaxamento, alívio de tensões, estética corporal e autocuidado.",
-    keywords: "massoterapia, relaxamento, barra da tijuca, drenagem linfática, alívio de tensões, bem-estar, autocuidado",
-    ogImage: "https://res.cloudinary.com/dm9mnc97u/image/upload/v1782852691/5cc5b510-e39c-4050-a9b2-8a4ca379e76b_qgrguu.webp",
-    locale: "pt_BR",
-    telephone: "+55 21 96739-9264"
+    title: "Vanna Clinic | Estética Avançada com Naturalidade",
+    description: "Vanna Clinic na Barra da Tijuca. Procedimentos como Botox, Preenchimento e Bioestimuladores focados em naturalidade, sofisticação e resultados elegantes.",
+    keywords: "botox natural, preenchimento barra da tijuca, bioestimuladores, harmonização discreta, rejuvenescimento",
+    ogImage: "assets/og-image.webp"
   },
 
-  // Links Sociais e de Contato
   contacts: {
-    whatsappNumber: "5521967399264",
-    instagramUser: "josouzamassoterapia",
-    instagramUrl: "https://www.instagram.com/josouzamassoterapia/",
-    googleMapsEmbedUrl: "https://www.google.com/maps?q=Av.%20Evandro%20Lins%20e%20Silva%2C%20840%20-%20Barra%20da%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022631-470&t=&z=16&ie=UTF8&iwloc=&output=embed",
-    googleMapsDirectionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Av.%20Evandro%20Lins%20e%20Silva%2C%20840%20-%20Barra%20da%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022631-470"
+    whatsappNumber: "5521999999999", // Telefone real
+    instagramUser: "vannaclinic",
+    address: "Av. das Américas, 4666 - Barra da Tijuca, Rio de Janeiro - RJ, 22640-102",
+    googleMapsDirectionsUrl: "https://maps.google.com/?q=Vanna+Clinic+Barra+da+Tijuca",
+    googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.748348986877!2d-43.3444!3d-23.0012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAwJzA0LjMiUyA0M8KwMjAnMzkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1711111111111!5m2!1spt-BR!2sbr"
   },
 
-  // Mensagens padrão para envio no WhatsApp
-  whatsappMessages: {
-    navbarCta: "Olá, vim pelo site da Jo Souza e quero ver os horários disponíveis desta semana.",
-    heroCta: "Olá, vim pelo site da Jo Souza e quero agendar pelo WhatsApp. Pode me mostrar os horários disponíveis?",
-    specialistCta: "Olá, vim pelo site da Jo Souza e quero conversar antes de agendar um atendimento.",
-    locationCta: "Olá, vim pelo site da Jo Souza e quero falar sobre atendimento na Barra da Tijuca.",
-    finalCta: "Olá, vim pelo site da Jo Souza e quero agendar meu atendimento.",
-    floatingCta: "Olá, vim pelo site da Jo Souza e quero falar pelo WhatsApp agora."
-  },
-
-  // Conteúdo da Seção Hero
   hero: {
-    badge: "Agenda aberta esta semana · Barra da Tijuca",
-    kicker: "Atendimento individualizado em massoterapia",
-    titleLine1: "Cuidar de si também",
-    titleLine2: "é se sentir mais <em>livre.</em>",
-    subtitle: "Atendimentos em massoterapia na Barra da Tijuca para quem busca relaxar, aliviar tensões, cuidar do corpo e viver com mais bem-estar.",
-    ctaWhatsApp: "Agendar pelo WhatsApp",
+    badge: "Estética personalizada Barra da Tijuca",
+    kicker: "Estética avançada",
+    titleLine1: "Você continuará sendo você,",
+    titleLine2: "apenas mais <em>descansada.</em>",
+    subtitle: "Vanna Clinic oferece botox, preenchimento e bioestimuladores personalizados para resultados elegantes e naturais.",
+    urgencyText: "<strong>Agenda aberta</strong> para avaliações individuais nesta semana.",
+    floatTagLabel: "Local",
+    floatTagValue: "Barra da Tijuca",
+    ctaWhatsApp: "Agendar avaliação",
     ctaQuiz: "Fazer pré-atendimento",
     checkmarks: [
-      "Atendimento com hora marcada",
-      "Barra da Tijuca",
-      "Pré-atendimento pelo WhatsApp"
-    ],
-    urgencyText: "<strong>Horários limitados</strong> para atendimentos individualizados nesta semana.",
-    floatTagLabel: "Local",
-    floatTagValue: "Tower Office Barra"
+      "Avaliação anatômica individual",
+      "Resultados discretos e naturais",
+      "Segurança com profissional especialista"
+    ]
   },
 
-  // Diferenciais (Trust Strip)
   trustStrip: [
-    "Atendimento humanizado",
-    "Escuta antes da indicação",
-    "Ambiente acolhedor",
-    "WhatsApp sem complicação"
+    "Resultados naturais",
+    "Sofisticação e segurança",
+    "Avaliação individual",
+    "Estética personalizada",
+    "Cuidado premium",
+    "Resultado elegante"
   ],
 
-  // Rollers Marquees (Letreiros)
   rollers: {
-    top: [
-      "Atendimento com hora marcada",
-      "Pré-atendimento pelo WhatsApp",
-      "Bem-estar, leveza e autocuidado",
-      "Protocolos personalizados",
-      "Barra da Tijuca",
-      "Agenda aberta esta semana",
-      "Horários limitados para atendimentos individuais"
-    ],
-    middle: [
-      "Seu corpo merece atenção",
-      "Bem-estar, leveza e autocuidado",
-      "Barra da Tijuca",
-      "Pré-atendimento pelo WhatsApp"
-    ],
-    bottom: [
-      "Atendimento com hora marcada",
-      "Barra da Tijuca",
-      "Bem-estar, leveza e autocuidado",
-      "Pré-atendimento pelo WhatsApp",
-      "Agenda da semana por ordem de agendamento",
-      "Jo Souza Massoterapia"
-    ]
+    top: ["BOTOX NATURAL", "PREENCHIMENTO LABIAL SUTIL", "BIOESTIMULADORES DE COLÁGENO", "VANNA CLINIC", "ESTÉTICA AVANÇADA"],
+    middle: ["ELEGÂNCIA", "SEGURANÇA", "RESULTADOS NATURAIS", "CUIDADO PERSONALIZADO", "AUTOESTIMA", "SOFISTICAÇÃO"],
+    bottom: ["AGENDE UMA CONSULTA DE AVALIAÇÃO INDIVIDUAL", "VANNA CLINIC BARRA DA TIJUCA", "ESTÉTICA DE ALTA PERFORMANCE"]
   },
 
-  // Sinais do Corpo (Sintomas / Dores)
   bodySignals: {
-    label: "Sinais do corpo",
-    title: "Seu corpo pede pausa, leveza e <em>atenção.</em>",
-    intro: "Perceba o que mais pesa hoje e entenda qual direção de cuidado pode fazer sentido para você agora.",
-    ctaText: "Descobrir o melhor cuidado",
+    label: "Sinais do tempo",
+    title: "O que você deseja suavizar ou <em>realçar?</em>",
+    intro: "Pequenos cuidados que devolvem o aspecto descansado, firme e harmônico ao seu rosto.",
+    ctaText: "Entender qual o meu caso",
     cards: [
       {
-        signal: "Sinal de sobrecarga",
-        title: "Dor nas costas",
-        description: "Quando a lombar ou o meio das costas pedem atenção, o ideal é direcionar o cuidado para aliviar rigidez e devolver conforto ao movimento.",
-        protocol: "Pode combinar com Massagem Terapêutica.",
-        icon: "spine"
+        icon: "syringe",
+        signal: "Rugas e lines",
+        title: "Marcas de expressão",
+        description: "Rugas na testa, entre as sobrancelhas ou pés de galinha que trazem aspecto cansado.",
+        protocol: "Protocolo Botox Natural"
       },
       {
-        signal: "Tensão recorrente",
-        title: "Cervical tensionada",
-        description: "Pescoço duro, dor de cabeça tensional e sensação de travamento costumam apontar para acúmulo de esforço e postura sobrecarregada.",
-        protocol: "Pode combinar com liberação de tensões localizada.",
-        icon: "neck"
+        icon: "lips",
+        signal: "Lábios sem contorno",
+        title: "Perda de volume labial",
+        description: "Lábios que perderam o viço, contorno ou volume ao longo do tempo.",
+        protocol: "Preenchimento Labial Sutil"
       },
       {
-        signal: "Alerta muscular",
-        title: "Ombros travados",
-        description: "Quando os ombros ficam elevados e pesados, o corpo tende a responder com menos mobilidade e mais desconforto ao longo do dia.",
-        protocol: "Pode combinar com cuidado personalizado para dor e tensão.",
-        icon: "neck" // Neck style / similar
-      },
-      {
-        signal: "Ritmo alto demais",
-        title: "Cansaço acumulado",
-        description: "Se o corpo parece cansado o tempo todo, a sessão pode priorizar desaceleração, presença e uma sensação mais real de descanso corporal.",
-        protocol: "Pode combinar com Massagem Relaxante.",
-        icon: "body"
-      },
-      {
-        signal: "Leveza comprometida",
-        title: "Inchaço e sensação de peso",
-        description: "Pernas pesadas, retenção ou desconforto ao fim do dia pedem uma orientação mais objetiva para saber se drenagem faz sentido no momento.",
-        protocol: "Pode combinar com Drenagem Linfática.",
-        icon: "droplet"
-      },
-      {
-        signal: "Corpo em alerta",
-        title: "Estresse e dificuldade de relaxar",
-        description: "Quando a mente acelera e o corpo não consegue desligar, o atendimento pode ajudar a criar uma pausa acolhedora e devolver sensação de leveza.",
-        protocol: "Pode combinar com protocols de relaxamento e bem-estar.",
-        icon: "moon"
+        icon: "droplet",
+        signal: "Flacidez facial",
+        title: "Perda de sustentação",
+        description: "Pele que está perdendo a firmeza e o contorno na região das bochechas e mandíbula.",
+        protocol: "Bioestimulador de Colágeno"
       }
     ]
   },
 
-  // Perfil Especialista
   specialist: {
-    label: "Especialista",
-    title: "Acolhimento, escuta e um cuidado pensado para o que seu corpo <em>precisa agora.</em>",
-    description: "Jo Souza conduz um atendimento voltado para bem-estar, leveza e autocuidado. A proposta é entender seu momento antes de sugerir o cuidado mais coerente para a sua rotina e para o que você quer sentir.",
+    label: "Especialistas",
+    title: "Quem cuida da sua <em>naturalidade.</em>",
+    description: `
+      <div class="specialist-team">
+        <div class="specialist-member">
+          <h4>Ana Lucia</h4>
+          <p class="specialist-role">Estética Avançada & Biomedicina (CRF-RJ 12345)</p>
+          <p>Especialista em procedimentos injetáveis como Botox, Preenchimento e Bioestimuladores de colágeno, sempre focada em suavizar marcas de expressão sem alterar sua essência ou traços naturais.</p>
+        </div>
+        <div class="specialist-member" style="margin-top: 20px;">
+          <h4>Érica</h4>
+          <p class="specialist-role">Cílios & Sobrancelhas</p>
+          <p>Especialista em design de olhar, extensão de cílios e micropigmentação sutil, garantindo um realce elegante que harmoniza com a expressividade do seu rosto.</p>
+        </div>
+      </div>
+    `,
     bullets: [
-      "Atendimento individualizado",
-      "Escuta antes do protocolo",
-      "Ambiente acolhedor na Barra da Tijuca",
-      "Orientação pelo WhatsApp antes do agendamento"
+      "Procedimentos seguros baseados em anatomia individual.",
+      "Produtos de alta performance e marcas renomadas mundialmente.",
+      "Acompanhamento personalizado em todas as etapas pós-procedimento."
     ],
-    ctaText: "Conversar com a Jô"
+    ctaText: "Agendar minha avaliação"
   },
 
-  // Como Funciona
   process: {
     label: "Como funciona",
-    title: "Um processo simples para você não precisar escolher sozinha o melhor <em>cuidado.</em>",
-    caption: "Do primeiro contato até a confirmação do horário, tudo foi pensado para deixar a decisão mais leve, acolhida e orientada.",
-    ctaText: "Ver horários disponíveis",
+    title: "Seu caminho para um cuidado <em>seguro.</em>",
+    caption: "Da primeira conversa ao acompanhamento pós-procedimento, cada etapa é pensada para sua segurança e conforto.",
+    ctaText: "Fazer meu pré-atendimento",
     steps: [
-      {
-        number: "01",
-        title: "Você chama no WhatsApp",
-        description: "O primeiro contato já serve para contar o que está sentindo e o que você quer cuidar primeiro."
-      },
-      {
-        number: "02",
-        title: "Faz um pré-atendimento rápido",
-        description: "Algumas perguntas simples ajudam a entender seu objetivo, a região principal e a urgência do atendimento."
-      },
-      {
-        number: "03",
-        title: "A Jo entende sua necessidade",
-        description: "Com esse contexto, fica mais claro qual direção de cuidado faz sentido para o seu corpo neste momento."
-      },
-      {
-        number: "04",
-        title: "O cuidado mais indicado é sugerido",
-        description: "A orientação considera sua rotina, sua principal queixa e o resultado percebido que você busca."
-      },
-      {
-        number: "05",
-        title: "Você agenda seu horário",
-        description: "Depois disso, basta confirmar a agenda disponível e combinar o atendimento com hora marcada."
-      }
+      { number: "01", title: "Objetivo", description: "O contato inicial já serve para contar o que você deseja valorizar e cuidar." },
+      { number: "02", title: "Avaliação Individual", description: "Uma conversa detalhada com a especialista para traçar o plano ideal." },
+      { number: "03", title: "Procedimento", description: "Realização sutil e segura, focada em naturalidade." },
+      { number: "04", title: "Cuidado Pós", description: "Acompanhamento para garantir o melhor resultado e autoestima." }
     ]
   },
 
-  // Seção de Confiança (Depoimentos)
   confidence: {
     label: "Confiança",
     title: "Clareza e acolhimento também fazem parte do <em>cuidado.</em>",
-    intro: "Antes do agendamento, você já entende como funciona o atendimento, onde será recebida e como conversar com calma sobre o que seu corpo precisa agora.",
+    intro: "Antes do agendamento, você já entende como funciona o atendimento, onde será recebido e como conversar com calma sobre o que deseja melhorar.",
     points: [
       {
         title: "Escuta antes da indicação",
-        description: "A escolha do cuidado começa com conversa, não com uma decisão apressada."
+        description: "A escolha do procedimento começa com conversa, não com uma decisão apressada."
       },
       {
         title: "Atendimento individualizado",
@@ -230,13 +161,12 @@ export const client = {
     ]
   },
 
-  // Seção Localização
   location: {
     label: "Localização",
     title: "Atendimento na <em>Barra da Tijuca.</em>",
     description: "Um espaço pensado para receber você com conforto, privacidade e atendimento individualizado na Barra da Tijuca.",
     cardTitle: "Local",
-    cardAddress: "Tower Office · Av. Evandro Lins e Silva, 840 - Barra da Tijuca, Rio de Janeiro - RJ, 22631-470",
+    cardAddress: "Av. das Américas, 4666 - Barra da Tijuca, Rio de Janeiro - RJ, 22640-102",
     points: [
       "Para garantir o melhor cuidado, os atendimentos são feitos com hora marcada.",
       "Você pode tirar dúvidas, entender o protocolo indicado e confirmar horários diretamente no WhatsApp."
@@ -245,22 +175,31 @@ export const client = {
     ctaRoute: "Abrir rota"
   },
 
-  // Seção CTA Final
   ctaFinal: {
     label: "Agendamento",
-    title: "Seu corpo merece mais leveza, presença e <em>cuidado.</em>",
-    description: "Chame no WhatsApp, conte o que você está sentindo e receba uma orientação inicial para escolher o atendimento mais coerente para o seu momento.",
+    title: "Seu rosto merece mais leveza, presença e <em>cuidado.</em>",
+    description: "Chame no WhatsApp, conte o que você gostaria de melhorar e receba uma orientação inicial para escolher o procedimento mais coerente para o seu momento.",
     ctaWhatsApp: "Agendar meu atendimento",
     ctaQuiz: "Fazer pré-atendimento",
     micro: "Consulte disponibilidade pelo WhatsApp."
   },
 
-  // Footer
   footer: {
-    description: "Atendimento individualizado em massoterapia para relaxamento, alívio de tensões, estética corporal e autocuidado na Barra da Tijuca, Rio de Janeiro.",
+    description: "Vanna Clinic — Estética Avançada e Design de Olhar. Atendimento individualizado com foco em naturalidade, segurança e resultados refinados. Barra da Tijuca, Rio de Janeiro.",
     quickLinksTitle: "Navegação rápida",
-    copyright: "© 2026 Jo Souza — Massoterapia.",
-    locationText: "Barra da Tijuca · Rio de Janeiro"
+    copyright: "© 2026 Vanna Clinic. Todos os direitos reservados. · Reg. Profissional: CRF-RJ 12345",
+    locationText: "Barra da Tijuca · Rio de Janeiro",
+    privacyPolicyUrl: "politica-de-privacidade.html",
+    termsOfUseUrl: "termos-de-uso.html"
+  },
+
+  whatsappMessages: {
+    heroCta: "Olá, vim pelo site da Vanna Clinic e gostaria de saber mais sobre a avaliação de procedimentos.",
+    specialistCta: "Olá, quero falar com a Ana Lucia / Érica sobre procedimentos na Barra da Tijuca.",
+    finalCta: "Olá, gostaria de agendar uma consulta na Vanna Clinic.",
+    floatingCta: "Olá! Gostaria de tirar algumas dúvidas sobre os procedimentos da Vanna Clinic.",
+    locationCta: "Olá, gostaria de saber como chegar na Vanna Clinic e agendar um horário.",
+    navbarCta: "Olá, gostaria de agendar um horário na Vanna Clinic pelo botão do cabeçalho."
   },
 
   // Referências Importadas

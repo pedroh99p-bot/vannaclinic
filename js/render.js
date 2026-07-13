@@ -214,7 +214,7 @@ export function renderUI() {
   setAttr('.especialista-image-wrap img', 'alt', client.branding.name);
   setText('.especialista .section-label', client.specialist.label);
   setText('.especialista .section-title', client.specialist.title, true);
-  setText('.especialista .especialista-copy', client.specialist.description);
+  setText('.especialista .especialista-copy', client.specialist.description, true);
   
   var specialistBullets = document.querySelector('.specialist-bullets');
   if (specialistBullets) {
@@ -331,13 +331,33 @@ export function renderUI() {
     setText('#portfolio-intro', client.portfolio.sectionSubtitle);
     
     portfolioTrack.innerHTML = client.portfolio.items.map(function(item) {
-      return [
-        '<article class="portfolio-card animate-scale">',
-        '  <div class="portfolio-image-wrap">',
-        '    <img src="' + item.image + '" alt="' + item.alt + '" loading="lazy" decoding="async">',
-        '  </div>',
-        '</article>'
-      ].join('\n');
+      if (client.portfolio.type === 'before_after_gallery') {
+        return [
+          '<article class="portfolio-card before-after-card animate-scale">',
+          '  <div class="before-after-container">',
+          '    <div class="before-img">',
+          '      <img src="' + item.before + '" alt="Antes: ' + item.label + '" loading="lazy" decoding="async">',
+          '      <span class="ba-badge">Antes</span>',
+          '    </div>',
+          '    <div class="after-img">',
+          '      <img src="' + item.after + '" alt="Depois: ' + item.label + '" loading="lazy" decoding="async">',
+          '      <span class="ba-badge">Depois</span>',
+          '    </div>',
+          '  </div>',
+          '  <div class="portfolio-info">',
+          '    <h3>' + item.label + '</h3>',
+          '  </div>',
+          '</article>'
+        ].join('\n');
+      } else {
+        return [
+          '<article class="portfolio-card animate-scale">',
+          '  <div class="portfolio-image-wrap">',
+          '    <img src="' + item.image + '" alt="' + item.alt + '" loading="lazy" decoding="async">',
+          '  </div>',
+          '</article>'
+        ].join('\n');
+      }
     }).join('\n');
   }
 

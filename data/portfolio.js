@@ -1,22 +1,17 @@
 export const portfolio = {
-  sectionTitle: "Antes e <em>Depois</em>",
-  sectionSubtitle: "Resultados que inspiram cuidado e revelam a beleza de cada transformação.",
+  sectionTitle: "Resultados reais focados em <em>naturalidade.</em>",
+  sectionSubtitle: "Galeria de antes e depois ilustrando o realce sutil e a suavização harmônica dos nossos procedimentos.",
+  type: "before_after_gallery",
   items: [
     {
-      image: "assets/portfolio/01.webp",
-      alt: "Resultado de Massoterapia 01"
+      before: "assets/portfolio/botox-before.webp",
+      after: "assets/portfolio/botox-after.webp",
+      label: "Suavização de linhas dinâmicas (Botox Natural)"
     },
     {
-      image: "assets/portfolio/02.webp",
-      alt: "Resultado de Massoterapia 02"
-    },
-    {
-      image: "assets/portfolio/03.webp",
-      alt: "Resultado de Massoterapia 03"
-    },
-    {
-      image: "assets/portfolio/04.webp",
-      alt: "Resultado de Massoterapia 04"
+      before: "assets/portfolio/lips-before.webp",
+      after: "assets/portfolio/lips-after.webp",
+      label: "Volume labial sutil e proporcional (Preenchimento)"
     }
   ]
 };

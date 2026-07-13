@@ -1,102 +1,51 @@
 export const services = {
   sectionLabel: "Protocolos",
-  sectionTitle: "Escolha o cuidado de acordo com o que seu corpo <em>precisa agora.</em>",
-  sectionIntro: "Protocolos organizados de forma consultiva, com linguagem direta e foco no que faz sentido para o seu momento.",
+  sectionTitle: "Escolha o procedimento de acordo com o seu <em>objetivo.</em>",
+  sectionIntro: "Protocolos desenvolvidos com foco em naturalidade, sofisticação e segurança para realçar a sua beleza.",
   
   categories: [
-    { id: "tecnologias", name: "Tecnologias", lead: "Tecnologias corporais complementares para quem busca cuidado estético com orientação segura." },
-    { id: "relaxamento", name: "Relaxamento", lead: "Para quando a prioridade é desacelerar, aliviar o estresse e sair com sensação de leveza." },
-    { id: "dor", name: "Dor e tensão", lead: "Para aliviar pontos de sobrecarga, rigidez e tensões que atrapalham o dia." },
-    { id: "estetica", name: "Estética corporal", lead: "Quando o foco está em autocuidado corporal, leveza e protocolos estéticos complementares." },
-    { id: "bemestar", name: "Bem-estar", lead: "Para rotinas intensas, cansaço acumulado e momentos em que o corpo pede recuperação e leveza." }
+    { id: "harmonizacao", name: "Harmonização Facial", lead: "Realce sua beleza natural com procedimentos discretos e seguros." },
+    { id: "complementares", name: "Cílios e Sobrancelhas", lead: "Realce o olhar com design e técnicas sutis." }
   ],
   
   items: {
-    tecnologias: [
+    harmonizacao: [
       {
-        tag: "Tecnologia em destaque",
-        title: "Criofrequência",
-        description: "Tecnologia corporal indicada para quem busca cuidado estético, firmeza e autocuidado com orientação profissional.",
-        list: ["Indicação avaliada conforme objetivo e momento do seu corpo."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero saber se a Criofrequência é ideal para mim."
+        tag: "Tratamento",
+        title: "Botox Natural",
+        description: "Suavização de linhas de expressão mantendo a expressão natural, sem o olhar 'congelado'.",
+        list: ["Indicação avaliada conforme seu objetivo.", "Aplicação sutil nas áreas de maior necessidade."],
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Botox Natural."
       },
       {
-        tag: "Complementar",
-        title: "Tecnologias complementares",
-        description: "Recursos corporais que podem entrar no cuidado quando a avaliação mostra que fazem sentido.",
-        list: ["Tudo é alinhado de forma clara antes do agendamento."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero entender quais tecnologias complementares podem fazer sentido para mim."
+        tag: "Tratamento",
+        title: "Preenchimento Labial",
+        description: "Definição e volume sutil, respeitando a harmonia do seu rosto.",
+        list: ["Indicação avaliada conforme seu objetivo.", "Foco em simetria e hidratação labial."],
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Preenchimento Labial sutil."
+      },
+      {
+        tag: "Procedimento",
+        title: "Bioestimuladores de Colágeno",
+        description: "Rejuvenescimento e firmeza da pele de forma gradual e natural.",
+        list: ["Indicação avaliada conforme seu objetivo.", "Estímulo natural da firmeza cutânea."],
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Bioestimuladores."
       }
     ],
-    relaxamento: [
+    complementares: [
       {
-        tag: "Relaxamento",
-        title: "Massagem Relaxante",
-        description: "Indicada para quem sente o corpo cansado, tenso e com dificuldade de desligar da rotina.",
-        list: ["Favorece pausa, conforto e descanso corporal."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero saber se a Massagem Relaxante é ideal para mim."
-      },
-      {
-        tag: "Bem-estar",
-        title: "Ritual de desaceleração",
-        description: "Uma proposta acolhedora para quem quer presença, conforto e um momento real de autocuidado.",
-        list: ["Formato alinhado de acordo com sua preferência."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero entender se o Ritual de desaceleração é ideal para mim."
-      }
-    ],
-    dor: [
-      {
-        tag: "Dor e tensão",
-        title: "Massagem Terapêutica",
-        description: "Indicada quando dor, rigidez ou tensão aparecem de forma mais localizada.",
-        list: ["Ajuda a devolver conforto e liberdade de movimento."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero saber se a Massagem Terapêutica é ideal para mim."
-      },
-      {
-        tag: "Localizado",
-        title: "Liberação de tensões",
-        description: "Para pescoço, ombros, costas ou lombar quando o corpo pede soltura mais direcionada.",
-        list: ["A direção do cuidado é ajustada após a escuta inicial."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero entender se a liberação de tensões é ideal para mim."
-      }
-    ],
-    estetica: [
-      {
-        tag: "Estética corporal",
-        title: "Drenagem Linfática",
-        description: "Uma possibilidade para quem sente retenção, inchaço ou peso corporal em determinados períodos.",
-        list: ["Ajuda a construir sensação de leveza quando há indicação adequada."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero saber se a Drenagem Linfática é ideal para mim."
-      },
-      {
-        tag: "Estética corporal",
-        title: "Massagem Modeladora",
-        description: "Voltada para quem busca um protocolo corporal mais ativo dentro de uma proposta estética.",
-        list: ["O cuidado respeita a sensibilidade do seu corpo."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero saber se a Massagem Modeladora é ideal para mim."
-      }
-    ],
-    bemestar: [
-      {
-        tag: "Bem-estar",
-        title: "Recuperação corporal",
-        description: "Um cuidado pensado para quem sente o corpo pesado, cansado ou sobrecarregado pela rotina intensa.",
-        list: ["Favorece soltura, conforto e sensação de bem-estar."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero saber se um atendimento de recuperação corporal é ideal para mim."
-      },
-      {
-        tag: "Consultivo",
-        title: "Orientação de protocolo",
-        description: "Ideal para quem ainda não sabe qual cuidado escolher e quer uma indicação mais clara.",
-        list: ["Pode ser feita diretamente pelo WhatsApp."],
-        waMessage: "Olá, vim pelo site da Jo Souza e quero saber qual protocolo pode ser mais coerente para mim."
+        tag: "Cílios",
+        title: "Cílios Elegantes",
+        description: "Extensão de cílios com técnica sutil para um olhar marcante e natural.",
+        list: ["Indicação avaliada conforme seu objetivo.", "Materiais leves que protegem os fios naturais."],
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Cílios Elegantes."
       }
     ]
   },
   
   callout: {
     label: "Cuidado personalizado",
-    title: "Cada indicação começa pela escuta do corpo.",
-    description: "Antes de sugerir o protocolo, a Jo considera sua queixa, sua rotina e o tipo de sensação que você busca para deixar a escolha mais clara."
+    title: "Cada indicação começa com uma avaliação detalhada.",
+    description: "Antes de qualquer aplicação, nossa equipe realiza uma análise anatômica individual para indicar o protocolo mais seguro e coerente para realçar sua beleza natural."
   }
 };
