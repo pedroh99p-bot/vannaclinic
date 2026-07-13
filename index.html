@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title></title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="">
+
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="loading">
+
+  <!-- Page Loader -->
+  <div class="loader-curtain" id="loader-curtain" aria-hidden="true"></div>
+  <div class="page-loader" id="page-loader" role="status" aria-label="Carregando">
+    <div class="loader-logo logo-bubble" style="width: 160px; margin-bottom: 20px;">
+      <img src="" alt="">
+    </div>
+    <div class="loader-sub"></div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+  <!-- Top Roller Marquee -->
+  <div class="roller" data-roller="top" style="--roller-duration:44s;">
+    <div class="roller-track"></div>
+  </div>
+
+  <!-- Header & Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="#inicio" class="navbar-logo logo-bubble" aria-label="">
+          <img src="" alt="">
+        </a>
+        <nav class="navbar-nav" aria-label="Navegação principal">
+          <a href="#inicio">Início</a>
+          <a href="#quiz">Quiz</a>
+          <a href="#servicos">Protocolos</a>
+          <a href="#portfolio">Resultados</a>
+          <a href="#localizacao">Localização</a>
+        </nav>
+        <div class="navbar-actions">
+          <a href="#" class="btn navbar-cta wa-link" data-wa-message="" target="_blank" rel="noopener" id="navbar-cta">Agendar</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="conteudo-principal">
+    
+    <!-- Hero Section -->
+    <section class="hero has-texture" id="inicio">
+      <div class="hero-bg-image mask-reveal"></div>
+      <div class="hero-bg-overlay mask-reveal"></div>
+      <div class="container">
+        <div class="hero-inner hero-inner--focused">
+          <div class="hero-content animate-left">
+            <div class="hero-badge animate"></div>
+            <p class="hero-kicker animate"></p>
+            <h1 aria-label=""></h1>
+            <p class="hero-sub animate"></p>
+            <div class="hero-ctas animate">
+              <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
+              <a href="#quiz" class="btn btn-outline"></a>
+            </div>
+            <ul class="hero-checks animate"></ul>
+            <div class="hero-urgency animate"></div>
+          </div>
+          <div class="hero-image-area animate-right" aria-hidden="true">
+            <div class="hero-float-tag">
+              <div class="tag-label"></div>
+              <div class="tag-value"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Strip Section -->
+    <section class="trust-strip" aria-label="Diferenciais principais">
+      <div class="container">
+        <div class="trust-grid"></div>
+      </div>
+    </section>
+
+    <!-- Sinais do Corpo Section -->
+    <section class="dores-section" id="dores">
+      <div class="container">
+        <header class="dores-header animate">
+          <span class="section-label"></span>
+          <h2 class="section-title"></h2>
+          <p class="section-intro"></p>
+        </header>
+        <div class="ux-carousel-shell animate" data-carousel="sinais">
+          <button type="button" class="carousel-nav" data-carousel-prev aria-label="Ver sinal anterior">
+            <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="carousel-nav" data-carousel-next aria-label="Ver próximo sinal">
+            <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+          <div class="ux-carousel-viewport">
+            <div class="ux-carousel-track stagger"></div>
+          </div>
+        </div>
+        <div class="carousel-dots-inline" data-carousel-dots="sinais"></div>
+        <div class="section-cta animate">
+          <a href="#quiz" class="btn btn-outline"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Middle Letreiro Roller -->
+    <div class="roller roller-inline roller-inline--soft" data-roller="middle" style="--roller-duration:34s;">
+      <div class="roller-track"></div>
+    </div>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section" id="quiz">
+      <div class="container">
+        <header class="quiz-header animate">
+          <span class="section-label"></span>
+          <h2 class="section-title"></h2>
+          <p class="section-intro"></p>
+          <div class="quiz-note"></div>
+          <div class="quiz-header-actions">
+            <a href="#quiz-step-1" class="btn btn-outline"></a>
+          </div>
+        </header>
+        <div class="quiz-box animate"></div>
+      </div>
+    </section>
+
+    <!-- Especialista Section -->
+    <section class="especialista has-texture" id="especialista">
+      <div class="container">
+        <div class="especialista-inner especialista-inner--clean">
+          <div class="especialista-left animate-left">
+            <div class="especialista-image-wrap mask-reveal">
+              <img src="" alt="" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="especialista-right animate-right">
+            <span class="section-label"></span>
+            <h2 class="section-title"></h2>
+            <p class="especialista-copy"></p>
+            <div class="specialist-bullets"></div>
+            <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specialist separator roller -->
+    <div class="roller roller-inline" data-roller="specialist" style="--roller-duration:32s;">
+      <div class="roller-track"></div>
+    </div>
+
+    <!-- Serviços Section -->
+    <section class="servicos" id="servicos">
+      <div class="container">
+        <header class="servicos-header animate">
+          <span class="section-label"></span>
+          <h2 class="section-title"></h2>
+          <p class="section-intro"></p>
+        </header>
+        <div class="service-tabs-bar animate" role="tablist" aria-label="Categorias de protocolos"></div>
+        <div class="service-panels"></div>
+        <aside class="service-method-callout animate"></aside>
+      </div>
+    </section>
+
+    <!-- Portfólio Section (Antes/Depois) -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="container">
+        <header class="portfolio-header animate">
+          <span class="section-label" id="portfolio-label">Portfólio</span>
+          <h2 class="section-title" id="portfolio-title"></h2>
+          <p class="section-intro" id="portfolio-intro"></p>
+        </header>
+        <div class="ux-carousel-shell portfolio-carousel animate" data-carousel="portfolio" data-autoplay="true" data-interval="4000">
+          <button type="button" class="carousel-nav" data-carousel-prev aria-label="Ver imagem anterior">
+            <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="carousel-nav" data-carousel-next aria-label="Ver próxima imagem">
+            <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+          <div class="ux-carousel-viewport">
+            <div class="ux-carousel-track stagger" id="portfolio-track"></div>
+          </div>
+        </div>
+        <div class="carousel-dots-inline" data-carousel-dots="portfolio"></div>
+      </div>
+    </section>
+
+    <!-- Como Funciona Section -->
+    <section class="como-funciona" id="como-funciona">
+      <div class="container">
+        <header class="como-funciona-header animate">
+          <span class="section-label"></span>
+          <h2 class="section-title"></h2>
+        </header>
+        <p class="timeline-caption animate"></p>
+        <div class="timeline" id="timeline"></div>
+        <div class="timeline-actions animate">
+          <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos (Confiança) Section -->
+    <section class="depoimentos" id="depoimentos">
+      <div class="container">
+        <header class="proof-header animate">
+          <span class="section-label"></span>
+          <h2 class="section-title"></h2>
+        </header>
+        <div class="proof-panel animate">
+          <p class="proof-intro"></p>
+          <div class="proof-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <header class="faq-header animate">
+          <span class="section-label"></span>
+          <h2 class="section-title"></h2>
+        </header>
+        <div class="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- Localização Section -->
+    <section class="localizacao" id="localizacao">
+      <div class="container">
+        <div class="localizacao-inner localizacao-inner--mapped">
+          <div class="location-copy animate-left">
+            <span class="section-label"></span>
+            <h2 class="section-title"></h2>
+            <p></p>
+            <div class="location-address-card">
+              <strong></strong>
+              <span></span>
+            </div>
+            <div class="location-points"></div>
+            <div class="location-actions">
+              <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
+              <a href="" class="btn btn-outline" target="_blank" rel="noopener noreferrer"></a>
+            </div>
+          </div>
+          <div class="location-map-card animate-right">
+            <iframe src="" title="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção CTA Final -->
+    <section class="cta-final">
+      <div class="container">
+        <span class="section-label animate"></span>
+        <h2 class="animate"></h2>
+        <p class="animate"></p>
+        <div class="cta-final-actions animate">
+          <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
+          <a href="#quiz" class="btn btn-outline"></a>
+        </div>
+        <div class="cta-micro animate"></div>
+      </div>
+    </section>
+
+    <!-- Bottom letreiro roller -->
+    <div class="roller roller-inline roller-inline--contrast" data-roller="bottom" style="--roller-duration:30s;">
+      <div class="roller-track"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner footer-inner--compact">
+        <div class="footer-brand">
+          <div class="logo-bubble" style="width: 140px; margin-bottom: var(--s-md);">
+            <img src="" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="footer-copy"></p>
+        </div>
+        <div>
+          <div class="footer-title"></div>
+          <div class="footer-quick">
+            <a href="#inicio">Início</a>
+            <a href="#dores">Sinais do corpo</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#especialista">Especialista</a>
+            <a href="#servicos">Protocolos</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#localizacao">Localização</a>
+          </div>
+          <div class="footer-cta" style="margin-top:var(--s-lg);">
+            <a href="#" class="btn btn-primary wa-link" data-wa-message="" target="_blank" rel="noopener">Agendar sessão</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p></p>
+        <span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating social buttons -->
+  <div class="floating-socials" id="floating-socials" aria-label="Atalhos de contato">
+    <a href="#" class="contact-float contact-float--instagram ig-link" target="_blank" rel="noopener noreferrer" aria-label="">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.9"/>
+        <circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.9"/>
+        <circle cx="17.35" cy="6.65" r="1.15" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <a href="#" class="contact-float contact-float--whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener" aria-label="">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.11 0C5.59 0 .29 5.3.29 11.82c0 2.08.54 4.1 1.56 5.88L0 24l6.5-1.7a11.8 11.8 0 0 0 5.61 1.43h.01c6.52 0 11.82-5.3 11.82-11.82 0-3.16-1.23-6.14-3.42-8.43Zm-8.41 18.26h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.22-3.86 1.01 1.03-3.76-.24-.39a9.8 9.8 0 0 1-1.5-5.18c0-5.42 4.41-9.83 9.84-9.83 2.63 0 5.1 1.02 6.96 2.88a9.78 9.78 0 0 1 2.88 6.96c0 5.42-4.41 9.83-9.83 9.83Zm5.39-7.38c-.29-.14-1.72-.85-1.99-.95-.27-.1-.46-.14-.66.15-.19.29-.75.95-.92 1.15-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.36-.02-.51-.07-.14-.66-1.58-.9-2.17-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.51.07-.78.36-.27.29-1.02 1-.1 2.44.92 1.43 2.1 2.82 4.8 3.95.64.28 1.14.45 1.53.58.64.2 1.23.17 1.69.1.52-.08 1.72-.7 1.96-1.37.24-.67.24-1.24.17-1.36-.07-.12-.27-.19-.56-.34Z" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+
+  <!-- Módulos JavaScript principal -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

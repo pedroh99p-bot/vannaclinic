@@ -1,0 +1,75 @@
+    /* === DESIGN TOKENS === */
+    :root {
+      --c-primary: #C9918C;
+      --c-primary-dark: #9E6D66;
+      --c-primary-light: #FAF1EE;
+      --c-accent: #5A433B;
+      --c-text: #4D3833;
+      --c-text-muted: #8B756C;
+      --c-bg: #FFFBF7;
+      --c-bg-alt: #F6ECE6;
+      --c-bg-card: #FFFFFF;
+      --c-border: #E8D8D0;
+      --c-gold-line: #C9918C;
+      --c-whatsapp: #25D366;
+
+      --f-display: 'Cormorant Garamond', Georgia, serif;
+      --f-body: 'Outfit', system-ui, sans-serif;
+
+      --f-size-base: 1rem;
+      --f-size-sm: 0.875rem;
+      --f-size-lg: 1.125rem;
+      --f-size-xl: 1.5rem;
+      --f-size-2xl: 2rem;
+      --f-size-3xl: 2.75rem;
+      --f-size-hero: clamp(2.4rem, 5.5vw, 4rem);
+
+      --s-xs: 0.25rem;
+      --s-sm: 0.5rem;
+      --s-md: 1rem;
+      --s-lg: 1.5rem;
+      --s-xl: 2rem;
+      --s-2xl: 3rem;
+      --s-3xl: 4rem;
+      --s-section: clamp(3.5rem, 9vw, 6.5rem);
+
+      --max-w: 1200px;
+      --radius-sm: 4px;
+      --radius-md: 10px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(44,36,24,.06);
+      --shadow-md: 0 4px 16px rgba(44,36,24,.09);
+      --shadow-lg: 0 8px 32px rgba(44,36,24,.11);
+      --shadow-xl: 0 20px 60px rgba(44,36,24,.14);
+
+      --ease: cubic-bezier(.4,0,.2,1);
+      --duration: 0.35s;
+    }
+
+    /* === DARK THEME TOKENS === */
+    html.dark-theme {
+      --c-primary: #E3B5AE;
+      --c-primary-dark: #C9918C;
+      --c-primary-light: #372621;
+      --c-accent: #F4EDEA;
+      --c-text: #FFF8F4;
+      --c-text-muted: #C8B6AE;
+      --c-bg: #231917;
+      --c-bg-alt: #2F211E;
+      --c-bg-card: #382A26;
+      --c-border: #4B3833;
+    }
+    html.dark-theme .urgencia-bar,
+    html.dark-theme .roller,
+    html.dark-theme .footer,
+    html.dark-theme .cta-final,
+    html.dark-theme .diferenciais {
+      background: var(--c-bg-alt);
+      color: var(--c-text);
+    }
+    html.dark-theme .cta-final h2 { color: var(--c-text); }
+    html.dark-theme .cta-final p { color: var(--c-text-muted); }
+    html.dark-theme .urgencia-bar { border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); color: var(--c-text); }
+    html.dark-theme .urgencia-item { color: var(--c-text-muted); }

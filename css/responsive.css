@@ -1,0 +1,153 @@
+    @media (min-width: 768px) and (max-width: 1099px) {
+      .ux-carousel-track { grid-auto-columns: minmax(48%, 1fr); }
+      .service-panel-grid,
+      .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .specialist-bullets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1100px) {
+      .ux-carousel-track { grid-auto-columns: minmax(31.5%, 1fr); }
+    }
+    @media (max-width: 1023px) {
+      .navbar-cta { display: none; }
+      .hero {
+        min-height: auto;
+        padding-top: calc(70px + env(safe-area-inset-top, 0px));
+      }
+      .hero-inner--focused {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding: 1rem 0 3rem;
+      }
+      .hero-bg-image { background-position: 62% center; }
+      .hero-bg-overlay {
+        background: linear-gradient(90deg, rgba(54,35,31,.88) 0%, rgba(54,35,31,.72) 42%, rgba(54,35,31,.24) 68%, rgba(54,35,31,.03) 100%);
+      }
+      .hero h1 {
+        max-width: 8.7ch;
+        font-size: clamp(2.05rem, 11vw, 3rem);
+      }
+      .hero-sub {
+        max-width: 18rem;
+        font-size: .97rem;
+      }
+      .hero-image-area { display: none; }
+      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-panel-grid,
+      .proof-grid,
+      .specialist-bullets,
+      .quiz-summary,
+      .localizacao-inner--mapped,
+      .footer-inner--compact {
+        grid-template-columns: 1fr;
+      }
+      .location-map-card,
+      .location-map-card iframe {
+        min-height: 300px;
+      }
+    }
+    @media (max-width: 767px) {
+      section[id] { scroll-margin-top: calc(64px + env(safe-area-inset-top, 0px)); }
+      .navbar {
+        padding: calc(env(safe-area-inset-top, 0px) + .12rem) 0 .14rem;
+      }
+      .navbar.scrolled {
+        padding: calc(env(safe-area-inset-top, 0px) + .08rem) 0 .1rem;
+      }
+      .navbar .container { padding-inline: 1.2rem; }
+      .navbar-inner {
+        min-height: 38px;
+        gap: .7rem;
+      }
+      .navbar-logo { width: 74px; }
+      .navbar-nav { display: none !important; }
+      .navbar-actions {
+        margin-left: auto;
+        flex-shrink: 0;
+      }
+      .navbar-cta {
+        display: inline-flex;
+        padding: .45rem .72rem;
+        min-height: 36px;
+        font-size: .52rem;
+        letter-spacing: .1em;
+      }
+      .hero-kicker { display: none; }
+      .hero-badge {
+        max-width: 16.8rem;
+        margin-bottom: .85rem;
+        padding: .72rem 1rem;
+        font-size: .58rem;
+        letter-spacing: .14em;
+      }
+      .hero-content {
+        max-width: min(52vw, 16rem);
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-ctas .btn {
+        width: 100%;
+      }
+      .hero-checks { display: none; }
+      .hero-urgency {
+        max-width: 16rem;
+        font-size: .72rem;
+      }
+      .trust-strip { margin-top: -1.15rem; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .trust-item { font-size: .76rem; }
+      .carousel-nav {
+        top: auto;
+        bottom: calc(100% + .65rem);
+        width: 38px;
+        height: 38px;
+      }
+      .carousel-nav[data-carousel-prev] { left: auto; right: 50px; }
+      .carousel-nav[data-carousel-next] { right: 0; }
+      .quiz-options { grid-template-columns: 1fr; }
+      .quiz-option {
+        min-height: 94px;
+        padding: .95rem;
+      }
+      .quiz-actions { flex-direction: column; }
+      .quiz-actions .btn { width: 100%; justify-content: center; }
+      .section-cta .btn,
+      .quiz-header-actions .btn,
+      .timeline-actions .btn { width: 100%; justify-content: center; }
+      .location-actions { flex-direction: column; }
+      .location-actions .btn { width: 100%; justify-content: center; }
+      .service-tab {
+        font-size: .72rem;
+        padding: .76rem 1rem;
+      }
+      .service-panel-grid { gap: 1rem; }
+      .specialist-bullet { padding: .9rem; }
+      .timeline {
+        padding-left: 1.7rem;
+      }
+      .timeline::before,
+      .timeline-progress {
+        left: .67rem;
+      }
+      .timeline-dot {
+        left: -1.65rem;
+      }
+    }
+    @media (max-width: 520px) {
+      .navbar .container { padding-inline: 1.28rem; }
+      .navbar-logo { width: 70px; }
+      .navbar-cta {
+        padding: .42rem .64rem;
+        font-size: .5rem;
+      }
+      .hero-bg-image { background-position: 58% center; }
+      .hero-bg-overlay {
+        background: linear-gradient(90deg, rgba(54,35,31,.9) 0%, rgba(54,35,31,.74) 48%, rgba(54,35,31,.18) 76%, rgba(54,35,31,.02) 100%);
+      }
+      .hero h1 { font-size: clamp(2rem, 10vw, 2.7rem); }
+      .hero-sub { max-width: 16.5rem; }
+      .container { padding-inline: 1rem; }
+      .ux-carousel-track { grid-auto-columns: minmax(87%, 1fr); }
+    }
+
