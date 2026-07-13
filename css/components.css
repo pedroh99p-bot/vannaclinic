@@ -16,7 +16,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(201,169,110,.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(var(--c-primary-rgb), .08) 0%, transparent 70%);
       pointer-events: none;
     }
     .diferenciais-grid {
@@ -133,7 +133,7 @@
     }
     .depoimento-card:hover {
       box-shadow: var(--shadow-md);
-      border-color: rgba(201,169,110,.4);
+      border-color: var(--c-primary);
     }
     .depoimento-quote {
       color: var(--c-primary);
@@ -171,7 +171,7 @@
       font-weight: 500;
       color: var(--c-primary);
       flex-shrink: 0;
-      border: 1.5px solid rgba(201,169,110,.25);
+      border: 1.5px solid var(--c-border);
     }
     .depoimento-nome { font-weight: 600; font-size: var(--f-size-sm); }
     .depoimento-cargo { font-size: 0.72rem; color: var(--c-text-muted); }
@@ -306,7 +306,7 @@
     }
     .testimonial-card:hover {
       box-shadow: var(--shadow-md);
-      border-color: rgba(201,145,140,.35);
+      border-color: var(--c-primary);
     }
     .testimonial-card-header {
       display: flex;
@@ -337,7 +337,7 @@
       font-weight: 500;
       color: var(--c-primary);
       flex-shrink: 0;
-      border: 1.5px solid rgba(201,145,140,.25);
+      border: 1.5px solid var(--c-border);
     }
     .testimonial-name { font-weight: 600; font-size: var(--f-size-sm); color: var(--c-text); }
     .testimonial-procedure { font-size: 0.72rem; color: var(--c-primary); font-weight: 500; letter-spacing: 0.04em; }
@@ -444,7 +444,7 @@
     /* ============================================
        FAQ
     ============================================ */
-    .faq { padding-block: var(--s-section); background: var(--c-bg-alt); }
+    .faq { padding-block: var(--s-section); background: var(--c-bg); }  /* FAQ: Off-white */
     .faq-header {
       text-align: center;
       max-width: 520px;
@@ -503,14 +503,14 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(201,169,110,.12) 0%, transparent 60%);
+      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(var(--c-primary-rgb), .10) 0%, transparent 60%);
       pointer-events: none;
     }
     .cta-final .section-label {
       justify-content: center;
-      color: rgba(201,169,110,.8);
+      color: var(--c-primary);
     }
-    .cta-final .section-label::before { background: rgba(201,169,110,.5); }
+    .cta-final .section-label::before { background: var(--c-primary); }
     .cta-final h2 {
       font-size: clamp(2rem, 5vw, 3.2rem);
       color: #FDFAF6;

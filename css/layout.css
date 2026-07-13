@@ -132,7 +132,7 @@
       align-items: center;
       gap: var(--s-sm);
       background: var(--c-primary-light);
-      border: 1px solid rgba(201,169,110,.3);
+      border: 1px solid var(--c-border);
       border-radius: var(--radius-full);
       padding: 0.4rem 1rem;
       font-size: 0.72rem;
@@ -293,8 +293,8 @@
       background: linear-gradient(90deg, var(--c-accent) 0%, #3a2f20 50%, var(--c-accent) 100%);
       color: rgba(253,250,246,.85);
       padding: var(--s-md) 0;
-      border-top: 1px solid rgba(201,169,110,.18);
-      border-bottom: 1px solid rgba(201,169,110,.18);
+      border-top: 1px solid rgba(var(--c-primary-rgb), .18);
+      border-bottom: 1px solid rgba(var(--c-primary-rgb), .18);
       overflow: hidden;
       position: relative;
     }
@@ -302,7 +302,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 50% 100% at 50% 50%, rgba(201,169,110,.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse 50% 100% at 50% 50%, rgba(var(--c-primary-rgb), .12) 0%, transparent 70%);
       pointer-events: none;
     }
     .urgencia-inner {
@@ -330,18 +330,18 @@
       width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--c-primary);
-      box-shadow: 0 0 0 0 rgba(201,169,110,.6);
+      box-shadow: 0 0 0 0 rgba(var(--c-primary-rgb), .6);
       animation: urgenciaPulse 2s infinite;
       flex-shrink: 0;
     }
     @keyframes urgenciaPulse {
-      0%   { box-shadow: 0 0 0 0 rgba(201,169,110,.6); }
-      70%  { box-shadow: 0 0 0 10px rgba(201,169,110,0); }
-      100% { box-shadow: 0 0 0 0 rgba(201,169,110,0); }
+      0%   { box-shadow: 0 0 0 0 rgba(var(--c-primary-rgb), .6); }
+      70%  { box-shadow: 0 0 0 10px rgba(var(--c-primary-rgb), 0); }
+      100% { box-shadow: 0 0 0 0 rgba(var(--c-primary-rgb), 0); }
     }
     .urgencia-divider {
       width: 1px; height: 16px;
-      background: rgba(201,169,110,.25);
+      background: rgba(var(--c-primary-rgb), .25);
       display: none;
     }
     @media (min-width: 768px) {
@@ -389,7 +389,7 @@
       right: -12px;
       width: 80%;
       height: 80%;
-      border: 1px solid rgba(201,169,110,.25);
+      border: 1px solid var(--c-border);
       border-radius: var(--radius-lg);
       z-index: -1;
     }

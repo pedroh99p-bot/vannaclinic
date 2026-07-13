@@ -1,7 +1,7 @@
     /* === DESIGN TOKENS === */
     :root {
       --c-primary: #C9918C;
-      --c-primary-dark: #9E6D66;
+      --c-primary-dark: #8C6F62;   /* Bronze Premium — dourado escuro sofisticado */
       --c-primary-light: #FAF1EE;
       --c-accent: #5A433B;
       --c-text: #4D3833;
@@ -10,8 +10,13 @@
       --c-bg-alt: #F6ECE6;
       --c-bg-card: #FFFFFF;
       --c-border: #E8D8D0;
-      --c-gold-line: #C9918C;
+      --c-gold-line: #C9918C;    /* alias de primary para linhas decorativas */
       --c-whatsapp: #25D366;
+      /* RGB decompostos para color-mix e rgba dinâmico */
+      --c-primary-rgb: 201, 145, 140;
+      --c-primary-dark-rgb: 140, 111, 98;
+      --c-accent-rgb: 90, 67, 59;
+      --c-text-rgb: 77, 56, 51;
 
       --f-display: 'Cormorant Garamond', Georgia, serif;
       --f-body: 'Outfit', system-ui, sans-serif;
