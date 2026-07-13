@@ -86,7 +86,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--c-primary);       /* Dourado suave sobre escuro — elegante */
+      color: var(--c-primary-dark);  /* Ouro Escuro sobre fundo escuro — Dark Luxury */
       opacity: 0;
       animation: loaderFadeUp 0.7s var(--ease) 0.3s forwards;
     }
@@ -113,7 +113,7 @@
     img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
-    ::selection { background: var(--c-primary); color: #fff; }
+    ::selection { background: var(--c-primary); color: var(--c-text-on-primary); }
 
     .container {
       max-width: var(--max-w);
@@ -134,7 +134,7 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--c-primary);
+      color: var(--c-primary-dark);  /* Ouro Escuro — contraste e peso visual */
       display: flex;
       align-items: center;
       gap: var(--s-sm);
@@ -144,7 +144,7 @@
       display: block;
       width: 28px;
       height: 1px;
-      background: var(--c-primary);
+      background: var(--c-primary-dark);
     }
     .section-title {
       font-size: clamp(2rem, 4vw, 2.8rem);
@@ -153,7 +153,7 @@
     }
     .section-title em {
       font-style: italic;
-      color: var(--c-primary);
+      color: var(--c-primary-dark);  /* Ouro Escuro — destaques em títulos sobre fundos claros */
     }
 
     /* === BUTTONS === */
@@ -175,7 +175,7 @@
     }
     .btn-primary {
       background: var(--c-primary);
-      color: #fff;
+      color: var(--c-text-on-primary);
     }
     .btn-primary:hover {
       background: var(--c-primary-dark);
@@ -189,12 +189,12 @@
     }
     .btn-outline:hover {
       background: var(--c-primary);
-      color: #fff;
+      color: var(--c-text-on-primary);
       transform: translateY(-2px);
     }
     .btn-whatsapp {
       background: var(--c-whatsapp);
-      color: #fff;
+      color: var(--c-text-on-dark);
     }
     .btn-whatsapp::before {
       content: '';
@@ -204,8 +204,8 @@
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M20.52 3.48A11.78 11.78 0 0 0 12.11 0C5.59 0 .29 5.3.29 11.82c0 2.08.54 4.1 1.56 5.88L0 24l6.5-1.7a11.8 11.8 0 0 0 5.61 1.43h.01c6.52 0 11.82-5.3 11.82-11.82 0-3.16-1.23-6.14-3.42-8.43Zm-8.41 18.26h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.22-3.86 1.01 1.03-3.76-.24-.39a9.8 9.8 0 0 1-1.5-5.18c0-5.42 4.41-9.83 9.84-9.83 2.63 0 5.1 1.02 6.96 2.88a9.78 9.78 0 0 1 2.88 6.96c0 5.42-4.41 9.83-9.83 9.83Zm5.39-7.38c-.29-.14-1.72-.85-1.99-.95-.27-.1-.46-.14-.66.15-.19.29-.75.95-.92 1.15-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.76-1.43-1.7-1.6-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.36-.02-.51-.07-.14-.66-1.58-.9-2.17-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.51.07-.78.36-.27.29-1.02 1-.1 2.44.92 1.43 2.1 2.82 4.8 3.95.64.28 1.14.45 1.53.58.64.2 1.23.17 1.69.1.52-.08 1.72-.7 1.96-1.37.24-.67.24-1.24.17-1.36-.07-.12-.27-.19-.56-.34Z'/%3E%3C/svg%3E") center/contain no-repeat;
     }
     .btn-whatsapp:hover {
-      background: #20BA5C;
+      background: var(--c-whatsapp-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37,211,102,.35);
+      box-shadow: 0 8px 24px rgba(var(--c-whatsapp-rgb), .35);
     }
     .btn svg { width: 18px; height: 18px; flex-shrink: 0; }

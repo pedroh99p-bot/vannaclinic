@@ -1,80 +1,145 @@
-    /* === DESIGN TOKENS === */
-    :root {
-      --c-primary: #C9918C;
-      --c-primary-dark: #8C6F62;   /* Bronze Premium — dourado escuro sofisticado */
-      --c-primary-light: #FAF1EE;
-      --c-accent: #5A433B;
-      --c-text: #4D3833;
-      --c-text-muted: #8B756C;
-      --c-bg: #FFFBF7;
-      --c-bg-alt: #F6ECE6;
-      --c-bg-card: #FFFFFF;
-      --c-border: #E8D8D0;
-      --c-gold-line: #C9918C;    /* alias de primary para linhas decorativas */
-      --c-whatsapp: #25D366;
-      /* RGB decompostos para color-mix e rgba dinâmico */
-      --c-primary-rgb: 201, 145, 140;
-      --c-primary-dark-rgb: 140, 111, 98;
-      --c-accent-rgb: 90, 67, 59;
-      --c-text-rgb: 77, 56, 51;
+/* === DESIGN TOKENS === */
+:root {
+  --c-bg: #FFFBF7;
+  --c-bg-alt: #F6ECE6;
+  --c-surface: #FFFFFF;
+  --c-surface-soft: #FAF1EA;
+  --c-bg-card: var(--c-surface);
 
-      --f-display: 'Cormorant Garamond', Georgia, serif;
-      --f-body: 'Outfit', system-ui, sans-serif;
+  --c-primary: #A07E4C;
+  --c-primary-hover: #765A34;
+  --c-primary-dark: #765A34;
+  --c-primary-soft: #EFE3D2;
+  --c-primary-light: var(--c-primary-soft);
+  --c-secondary: #EAD6CD;
+  --c-accent: #5A433B;
+  --c-accent-deep: #3A2F20;
+  --c-gold-line: var(--c-primary);
 
-      --f-size-base: 1rem;
-      --f-size-sm: 0.875rem;
-      --f-size-lg: 1.125rem;
-      --f-size-xl: 1.5rem;
-      --f-size-2xl: 2rem;
-      --f-size-3xl: 2.75rem;
-      --f-size-hero: clamp(2.4rem, 5.5vw, 4rem);
+  --c-text: #4D3833;
+  --c-text-main: #4D3833;
+  --c-text-muted: #7C6B63;
+  --c-text-on-dark: #FFF8F4;
+  --c-text-on-primary: #FFF8F4;
 
-      --s-xs: 0.25rem;
-      --s-sm: 0.5rem;
-      --s-md: 1rem;
-      --s-lg: 1.5rem;
-      --s-xl: 2rem;
-      --s-2xl: 3rem;
-      --s-3xl: 4rem;
-      --s-section: clamp(3.5rem, 9vw, 6.5rem);
+  --c-border: #E5D7CE;
+  --c-border-strong: #C9B6A7;
+  --c-overlay: rgba(77, 56, 51, 0.42);
+  --c-shadow: rgba(44, 36, 24, 0.09);
+  --c-shadow-strong: rgba(44, 36, 24, 0.18);
 
-      --max-w: 1200px;
-      --radius-sm: 4px;
-      --radius-md: 10px;
-      --radius-lg: 18px;
-      --radius-full: 9999px;
+  --c-success: #4F8A5B;
+  --c-warning: #A06F2B;
+  --c-error: #B35C55;
+  --c-alert: #9F5F55;
+  --c-chocolate: #5A403A;
+  --c-whatsapp: #25D366;
+  --c-whatsapp-hover: #20BA5C;
 
-      --shadow-sm: 0 1px 3px rgba(44,36,24,.06);
-      --shadow-md: 0 4px 16px rgba(44,36,24,.09);
-      --shadow-lg: 0 8px 32px rgba(44,36,24,.11);
-      --shadow-xl: 0 20px 60px rgba(44,36,24,.14);
+  --c-primary-rgb: 160, 126, 76;
+  --c-primary-hover-rgb: 118, 90, 52;
+  --c-primary-dark-rgb: 118, 90, 52;
+  --c-secondary-rgb: 234, 214, 205;
+  --c-success-rgb: 79, 138, 91;
+  --c-warning-rgb: 160, 111, 43;
+  --c-error-rgb: 179, 92, 85;
+  --c-whatsapp-rgb: 37, 211, 102;
+  --c-accent-rgb: 90, 67, 59;
+  --c-accent-deep-rgb: 58, 47, 32;
+  --c-text-rgb: 77, 56, 51;
+  --c-text-main-rgb: 77, 56, 51;
+  --c-bg-rgb: 255, 251, 247;
+  --c-bg-alt-rgb: 246, 236, 230;
+  --c-surface-rgb: 255, 255, 255;
 
-      --ease: cubic-bezier(.4,0,.2,1);
-      --duration: 0.35s;
-    }
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --f-body: 'Outfit', system-ui, sans-serif;
 
-    /* === DARK THEME TOKENS === */
-    html.dark-theme {
-      --c-primary: #E3B5AE;
-      --c-primary-dark: #C9918C;
-      --c-primary-light: #372621;
-      --c-accent: #F4EDEA;
-      --c-text: #FFF8F4;
-      --c-text-muted: #C8B6AE;
-      --c-bg: #231917;
-      --c-bg-alt: #2F211E;
-      --c-bg-card: #382A26;
-      --c-border: #4B3833;
-    }
-    html.dark-theme .urgencia-bar,
-    html.dark-theme .roller,
-    html.dark-theme .footer,
-    html.dark-theme .cta-final,
-    html.dark-theme .diferenciais {
-      background: var(--c-bg-alt);
-      color: var(--c-text);
-    }
-    html.dark-theme .cta-final h2 { color: var(--c-text); }
-    html.dark-theme .cta-final p { color: var(--c-text-muted); }
-    html.dark-theme .urgencia-bar { border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); color: var(--c-text); }
-    html.dark-theme .urgencia-item { color: var(--c-text-muted); }
+  --f-size-base: 1rem;
+  --f-size-sm: 0.875rem;
+  --f-size-lg: 1.125rem;
+  --f-size-xl: 1.5rem;
+  --f-size-2xl: 2rem;
+  --f-size-3xl: 2.75rem;
+  --f-size-hero: clamp(2.4rem, 5.5vw, 4rem);
+
+  --s-xs: 0.25rem;
+  --s-sm: 0.5rem;
+  --s-md: 1rem;
+  --s-lg: 1.5rem;
+  --s-xl: 2rem;
+  --s-2xl: 3rem;
+  --s-3xl: 4rem;
+  --s-section: clamp(3.5rem, 9vw, 6.5rem);
+
+  --max-w: 1200px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(var(--c-text-rgb), .06);
+  --shadow-md: 0 4px 16px var(--c-shadow);
+  --shadow-lg: 0 8px 32px rgba(var(--c-text-rgb), .11);
+  --shadow-xl: 0 20px 60px var(--c-shadow-strong);
+
+  --ease: cubic-bezier(.4,0,.2,1);
+  --duration: 0.35s;
+}
+
+/* === DARK THEME TOKENS === */
+html.dark-theme {
+  --c-bg: #231917;
+  --c-bg-alt: #2F211E;
+  --c-surface: #382A26;
+  --c-surface-soft: #372621;
+  --c-bg-card: var(--c-surface);
+  --c-primary: #C8A16A;
+  --c-primary-hover: #E0BE86;
+  --c-primary-dark: #E0BE86;
+  --c-primary-soft: #372621;
+  --c-primary-light: var(--c-primary-soft);
+  --c-secondary: #5E433B;
+  --c-accent: #F4EDEA;
+  --c-accent-deep: #1D1412;
+  --c-text: #FFF8F4;
+  --c-text-main: #FFF8F4;
+  --c-text-muted: #C8B6AE;
+  --c-text-on-dark: #FFF8F4;
+  --c-text-on-primary: #231917;
+  --c-border: #4B3833;
+  --c-border-strong: #6C534B;
+  --c-overlay: rgba(18, 12, 10, 0.64);
+  --c-shadow: rgba(0, 0, 0, 0.22);
+  --c-shadow-strong: rgba(0, 0, 0, 0.34);
+  --c-primary-rgb: 200, 161, 106;
+  --c-primary-hover-rgb: 224, 190, 134;
+  --c-primary-dark-rgb: 224, 190, 134;
+  --c-secondary-rgb: 94, 67, 59;
+  --c-success-rgb: 121, 168, 121;
+  --c-warning-rgb: 211, 161, 93;
+  --c-error-rgb: 208, 131, 123;
+  --c-whatsapp-rgb: 37, 211, 102;
+  --c-bg-rgb: 35, 25, 23;
+  --c-accent-deep-rgb: 29, 20, 18;
+  --c-bg-alt-rgb: 47, 33, 30;
+  --c-surface-rgb: 56, 42, 38;
+}
+
+html.dark-theme .urgencia-bar,
+html.dark-theme .roller,
+html.dark-theme .footer,
+html.dark-theme .cta-final,
+html.dark-theme .diferenciais {
+  background: var(--c-bg-alt);
+  color: var(--c-text);
+}
+
+html.dark-theme .cta-final h2 { color: var(--c-text); }
+html.dark-theme .cta-final p { color: var(--c-text-muted); }
+html.dark-theme .urgencia-bar {
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+  color: var(--c-text);
+}
+html.dark-theme .urgencia-item { color: var(--c-text-muted); }

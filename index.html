@@ -73,7 +73,7 @@
 
   <!-- Main Content -->
   <main id="conteudo-principal">
-    
+
     <!-- Hero Section -->
     <section class="hero has-texture" id="inicio">
       <div class="hero-bg-image mask-reveal"></div>
@@ -81,16 +81,23 @@
       <div class="container">
         <div class="hero-inner hero-inner--focused">
           <div class="hero-content animate-left">
-            <div class="hero-badge animate"></div>
-            <p class="hero-kicker animate"></p>
-            <h1 aria-label=""></h1>
-            <p class="hero-sub animate"></p>
-            <div class="hero-ctas animate">
-              <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
-              <a href="#quiz" class="btn btn-outline"></a>
+            <div class="hero-flex-layout">
+              <div class="hero-text-block">
+                <div class="hero-badge animate"></div>
+                <p class="hero-kicker animate"></p>
+                <h1 aria-label=""></h1>
+                <p class="hero-sub animate"></p>
+                <div class="hero-ctas animate">
+                  <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
+                  <a href="#quiz" class="btn btn-outline"></a>
+                </div>
+                <ul class="hero-checks animate"></ul>
+                <div class="hero-urgency animate"></div>
+              </div>
+              <div class="hero-logo-block logo-bubble animate">
+                <img src="assets/logo-icon.webp" alt="Vanna Clinic Logo">
+              </div>
             </div>
-            <ul class="hero-checks animate"></ul>
-            <div class="hero-urgency animate"></div>
           </div>
           <div class="hero-image-area animate-right" aria-hidden="true">
             <div class="hero-float-tag">
@@ -318,13 +325,22 @@
     </section>
 
     <!-- Seção CTA Final -->
-    <section class="cta-final">
+    <section class="cta-final animate-section">
       <div class="container">
+        <div class="cta-final-logo logo-bubble animate" style="width: 70px; margin-inline: auto; margin-bottom: var(--s-md);">
+          <img src="assets/logo-icon.webp" alt="Vanna Clinic Logo">
+        </div>
+
+        <!-- Text Roller above agendamento -->
+        <div class="roller roller-inline roller-inline--soft animate" data-roller="cta-keywords" style="--roller-duration:24s; margin-bottom: var(--s-lg); border-radius: var(--radius-md);">
+          <div class="roller-track"></div>
+        </div>
+
         <span class="section-label animate"></span>
         <h2 class="animate"></h2>
         <p class="animate"></p>
         <div class="cta-final-actions animate">
-          <a href="#" class="btn btn-whatsapp wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
+          <a href="#" class="btn btn-whatsapp agendar-meu-atendimento wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
           <a href="#quiz" class="btn btn-outline"></a>
         </div>
         <div class="cta-micro animate"></div>
@@ -340,31 +356,29 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-inner footer-inner--compact">
-        <div class="footer-brand">
-          <div class="logo-bubble" style="width: 140px; margin-bottom: var(--s-md);">
-            <img src="assets/logo-preloader.webp" alt="Jo Souza" loading="lazy" decoding="async">
-          </div>
-          <p class="footer-copy"></p>
+      <div class="footer-content-centered">
+        <div class="logo-bubble" style="width: 60px; margin-inline: auto; margin-bottom: var(--s-lg);">
+          <img src="assets/logo-preloader.webp" alt="Vanna Clinic" loading="lazy" decoding="async">
         </div>
-        <div>
-          <div class="footer-title"></div>
-          <div class="footer-quick">
-            <a href="#inicio">Início</a>
-            <a href="#dores">Sinais do corpo</a>
-            <a href="#quiz">Quiz</a>
-            <a href="#especialista">Especialista</a>
-            <a href="#servicos">Protocolos</a>
-            <a href="#portfolio">Portfólio</a>
-            <a href="#como-funciona">Como funciona</a>
-            <a href="#localizacao">Localização</a>
-          </div>
-          <div class="footer-cta" style="margin-top:var(--s-lg);">
-            <a href="#" class="btn btn-primary wa-link" data-wa-message="" target="_blank" rel="noopener">Agendar sessão</a>
-          </div>
+        <p class="footer-copy footer-copy-centered"></p>
+
+        <div class="footer-quick-centered">
+          <a href="#inicio">Início</a>
+          <a href="#dores">Sinais do corpo</a>
+          <a href="#quiz">Quiz</a>
+          <a href="#especialista">Especialista</a>
+          <a href="#servicos">Protocolos</a>
+          <a href="#portfolio">Portfólio</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#localizacao">Localização</a>
+        </div>
+
+        <div class="footer-cta footer-cta-centered">
+          <a href="#" class="btn btn-primary wa-link" data-wa-message="" target="_blank" rel="noopener">Agendar sessão</a>
         </div>
       </div>
-      <div class="footer-bottom">
+
+      <div class="footer-bottom footer-bottom-centered">
         <p></p>
         <span></span>
       </div>

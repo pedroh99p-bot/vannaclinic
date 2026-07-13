@@ -5,7 +5,7 @@ import { client } from '../data/client.js';
 export function injectThemeColors() {
   var style = document.createElement('style');
   style.id = 'dynamic-theme-colors';
-  
+
   var lightVariables = Object.keys(client.theme.light).map(function(key) {
     return '  --c-' + key + ': ' + client.theme.light[key] + ';';
   }).join('\n');
@@ -131,7 +131,7 @@ export function renderUI() {
 
   setText('.hero-badge', client.hero.badge);
   setText('.hero-kicker', client.hero.kicker);
-  
+
   // Title on two lines
   var heroTitle = document.querySelector('.hero h1');
   if (heroTitle) {
@@ -142,7 +142,7 @@ export function renderUI() {
   }
 
   setText('.hero-sub', client.hero.subtitle);
-  
+
   // Hero CTAs
   setText('.hero-ctas .btn-whatsapp', client.hero.ctaWhatsApp);
   setAttr('.hero-ctas .btn-whatsapp', 'data-wa-message', client.whatsappMessages.heroCta);
@@ -215,7 +215,7 @@ export function renderUI() {
   setText('.especialista-header .section-label', client.specialist.label);
   setText('.especialista-header .section-title', client.specialist.title, true);
   setText('.especialista .especialista-copy', client.specialist.description, true);
-  
+
   var specialistBullets = document.querySelector('.specialist-bullets');
   if (specialistBullets) {
     var checkIcon = client.quizIcons.sparkles || '';
@@ -261,7 +261,7 @@ export function renderUI() {
     var starSVG = '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 2l3.1 6.3L22 9.3l-5 4.9 1.2 6.9L12 17.8l-6.2 3.3 1.2-6.9-5-4.9 6.9-1z"/></svg>';
     var stars5 = starSVG.repeat(5);
     var googleMiniLogo = '<svg viewBox="0 0 24 24" width="16" height="16" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>';
-    
+
     testimonialTrack.innerHTML = client.testimonials.map(function(dep) {
       return [
         '<div class="testimonial-slide">',
@@ -297,7 +297,7 @@ export function renderUI() {
   setText('#localizacao .location-copy p', client.location.description);
   setText('#localizacao .location-address-card strong', client.location.cardTitle);
   setText('#localizacao .location-address-card span', client.location.cardAddress);
-  
+
   // Injetar telefone e rating no card de localização se existirem
   var locCard = document.querySelector('.location-address-card');
   if (locCard && client.location.cardPhone) {
@@ -319,7 +319,7 @@ export function renderUI() {
       }
     }
   }
-  
+
   var locationPoints = document.querySelector('.location-points');
   if (locationPoints) {
     var checkIconLocation = client.quizIcons.calendar || '';
@@ -351,6 +351,11 @@ export function renderUI() {
   setText('.cta-final .btn-outline', client.ctaFinal.ctaQuiz);
   setText('.cta-final .cta-micro', client.ctaFinal.micro);
 
+  // Hydrate CTA Final logo and letreiro roller
+  setAttr('.cta-final-logo img', 'src', client.branding.logoIcon);
+  setAttr('.cta-final-logo img', 'alt', client.branding.name);
+  renderRoller('[data-roller="cta-keywords"]', ['Naturalidade', 'Segurança', 'Sofisticação', 'Elegância', 'Exclusividade']);
+
   // Footer
   setAttr('.footer .logo-bubble img', 'src', client.branding.logoPreloader);
   setAttr('.footer .logo-bubble img', 'alt', client.branding.name);
@@ -370,7 +375,7 @@ export function renderUI() {
   if (portfolioTrack && client.portfolio && client.portfolio.items) {
     setText('#portfolio-title', client.portfolio.sectionTitle, true);
     setText('#portfolio-intro', client.portfolio.sectionSubtitle);
-    
+
     portfolioTrack.innerHTML = client.portfolio.items.map(function(item) {
       if (client.portfolio.type === 'before_after_gallery') {
         return [
@@ -459,7 +464,7 @@ function renderServices() {
   // Wire up tabs behavior
   var tabs = Array.prototype.slice.call(tabsBar.querySelectorAll('[data-service-tab]'));
   var panels = Array.prototype.slice.call(panelsContainer.querySelectorAll('[data-service-panel]'));
-  
+
   function activate(id) {
     tabs.forEach(function(tab) {
       var active = tab.getAttribute('data-service-tab') === id;

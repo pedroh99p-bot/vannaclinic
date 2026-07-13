@@ -9,10 +9,10 @@
       transition: background var(--duration) var(--ease), box-shadow var(--duration) var(--ease), padding var(--duration) var(--ease);
     }
     .navbar.scrolled {
-      background: rgba(253,250,246,.97);
+      background: rgba(var(--c-bg-rgb), .97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 var(--c-border), 0 4px 20px rgba(44,36,24,.06);
+      box-shadow: 0 1px 0 var(--c-border), 0 4px 20px rgba(var(--c-text-rgb), .06);
       padding: 0.65rem 0;
     }
     .navbar-inner {
@@ -106,13 +106,13 @@
     .hero-bg-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, var(--c-bg) 0%, rgba(253,250,246,0.6) 40%, rgba(253,250,246,0) 100%);
+      background: linear-gradient(180deg, var(--c-bg) 0%, rgba(var(--c-bg-rgb), .6) 40%, rgba(var(--c-bg-rgb), 0) 100%);
       z-index: 1;
     }
     @media (min-width: 768px) {
       .hero-bg-image { background-position: right center; }
       .hero-bg-overlay {
-        background: linear-gradient(90deg, var(--c-bg) 0%, rgba(253,250,246,0.9) 45%, rgba(253,250,246,0) 100%);
+        background: linear-gradient(90deg, var(--c-bg) 0%, rgba(var(--c-bg-rgb), .9) 45%, rgba(var(--c-bg-rgb), 0) 100%);
       }
     }
     .hero .container {
@@ -251,7 +251,7 @@
       position: absolute;
       bottom: var(--s-xl);
       left: var(--s-xl);
-      background: rgba(253,250,246,.95);
+      background: rgba(var(--c-bg-rgb), .95);
       backdrop-filter: blur(8px);
       border: 1px solid var(--c-border);
       border-radius: var(--radius-md);
@@ -290,8 +290,8 @@
        BARRA DE ESCASSEZ / URGÊNCIA
     ============================================ */
     .urgencia-bar {
-      background: linear-gradient(90deg, var(--c-accent) 0%, #3a2f20 50%, var(--c-accent) 100%);
-      color: rgba(253,250,246,.85);
+      background: linear-gradient(90deg, var(--c-accent) 0%, var(--c-accent-deep) 50%, var(--c-accent) 100%);
+      color: rgba(var(--c-bg-rgb), .85);
       padding: var(--s-md) 0;
       border-top: 1px solid rgba(var(--c-primary-rgb), .18);
       border-bottom: 1px solid rgba(var(--c-primary-rgb), .18);
@@ -319,7 +319,7 @@
       display: inline-flex;
       align-items: center;
       gap: .55rem;
-      color: rgba(253,250,246,.78);
+      color: rgba(var(--c-bg-rgb), .78);
     }
     .urgencia-item strong {
       color: var(--c-primary);
@@ -426,7 +426,7 @@
     }
     .sobre-badge {
       background: var(--c-primary-light);
-      border: 1px solid rgba(201,169,110,.2);
+      border: 1px solid rgba(var(--c-primary-rgb), .2);
       border-radius: var(--radius-full);
       padding: 0.35rem 0.9rem;
       font-size: 0.75rem;
@@ -476,14 +476,14 @@
       transition: transform var(--duration) var(--ease);
     }
     .servico-card:hover {
-      border-color: rgba(201,169,110,.45);
+      border-color: rgba(var(--c-primary-rgb), .45);
       box-shadow: var(--shadow-lg);
       transform: translateY(-4px);
     }
     .servico-card:hover::before { transform: scaleX(1); }
     .servico-card.destaque {
       background: linear-gradient(145deg, var(--c-primary-light), var(--c-bg-card));
-      border-color: rgba(201,169,110,.4);
+      border-color: rgba(var(--c-primary-rgb), .4);
     }
     .servico-card.destaque::before { transform: scaleX(1); }
     .servico-icon {
@@ -514,7 +514,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--c-primary);
-      background: rgba(201,169,110,.12);
+      background: rgba(var(--c-primary-rgb), .12);
       padding: 0.2rem 0.6rem;
       border-radius: var(--radius-full);
     }
