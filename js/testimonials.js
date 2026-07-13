@@ -21,14 +21,19 @@ export function initTestimonialsCarousel() {
 
   var current = 0;
   var pv = perView();
-  var total = Math.ceil(slides.length / pv);
+  var total = Math.max(1, slides.length - pv + 1);
   var isPaused = false;
   var timer = null;
 
+  function updateMetrics() {
+    pv = perView();
+    total = Math.max(1, slides.length - pv + 1);
+    if (current >= total) current = total - 1;
+  }
+
   // Build dots
   function buildDots() {
-    pv = perView();
-    total = Math.ceil(slides.length / pv);
+    updateMetrics();
     if (!dotsContainer) return;
     dotsContainer.innerHTML = '';
     for (var i = 0; i < total; i++) {
@@ -44,11 +49,8 @@ export function initTestimonialsCarousel() {
   }
 
   function goTo(idx) {
-    pv = perView();
-    total = Math.ceil(slides.length / pv);
+    updateMetrics();
     current = ((idx % total) + total) % total;
-    var offset = current * (100 / pv);
-    // Slide by percentage of a single slide width
     track.style.transform = 'translateX(-' + (current * (100 / pv)) + '%)';
     
     // Update dots
@@ -71,13 +73,13 @@ export function initTestimonialsCarousel() {
 
   // Set slide widths based on perView
   function setSlideSizes() {
-    pv = perView();
+    updateMetrics();
     slides.forEach(function(slide) {
       slide.style.minWidth = (100 / pv) + '%';
     });
     // Re-render to same position after resize
-    goTo(current);
     buildDots();
+    goTo(current);
   }
 
   // Pause on hover

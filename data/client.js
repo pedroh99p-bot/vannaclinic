@@ -57,8 +57,8 @@ export const client = {
       }
     },
     address: "Itanhangui Plaza, Estr. do Itanhangá, 483 - Sl 214 - Itanhangá, Rio de Janeiro - RJ, 22753-005",
-    googleMapsDirectionsUrl: "https://maps.google.com/?q=VANNACLINIC+Harmoniza%C3%A7%C3%A3o+facial+Botox+RJ",
-    googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.4!2d-43.3766!3d-22.9878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVkFOTkFDTElOSUM!5e0!3m2!1spt-BR!2sbr!4v1711111111111!5m2!1spt-BR!2sbr"
+    googleMapsDirectionsUrl: "https://www.google.com/maps/search/?api=1&query=Itanhangui%20Plaza%2C%20Estr.%20do%20Itanhang%C3%A1%2C%20483%20-%20Sl%20214%20-%20Itanhang%C3%A1%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022753-005",
+    googleMapsEmbedUrl: "https://www.google.com/maps?q=Itanhangui%20Plaza%2C%20Estr.%20do%20Itanhang%C3%A1%2C%20483%20-%20Sl%20214%20-%20Itanhang%C3%A1%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022753-005&output=embed"
   },
 
   hero: {
@@ -185,15 +185,12 @@ export const client = {
   location: {
     label: "Localização",
     title: "Atendimento no <em>Itanhangá.</em>",
-    description: "Espaço reservado para receber você com conforto, privacidade e atendimento individualizado no Itanhangá, Rio de Janeiro.",
-    cardTitle: "VANNACLINIC — Harmonização facial | Botox RJ",
+    description: "Atendimento com hora marcada no Itanhangui Plaza, Estr. do Itanhangá, 483, sala 214. Chame no WhatsApp para agendar sua visita.",
+    cardTitle: "VANNACLINIC — Itanhangui Plaza",
     cardAddress: "Itanhangui Plaza, Estr. do Itanhangá, 483 - Sl 214 - Itanhangá, Rio de Janeiro - RJ, 22753-005",
     cardPhone: "(21) 97137-6433",
     cardRating: "5,0 ★ (8 avaliações no Google)",
-    points: [
-      "Para garantir o melhor cuidado, os atendimentos são feitos com hora marcada.",
-      "Você pode tirar dúvidas, entender o protocolo indicado e confirmar horários diretamente no WhatsApp."
-    ],
+    points: [],
     ctaWhatsApp: "Chamar no WhatsApp",
     ctaRoute: "Abrir rota"
   },

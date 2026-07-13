@@ -122,6 +122,13 @@
 }
 
 /* Accessibility features */
+@media (max-width: 767px) {
+  .animate-left,
+  .animate-right {
+    transform: translateY(28px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *:not(.roller-track):not(.roller-item), 
   *:not(.roller-track)::before, 

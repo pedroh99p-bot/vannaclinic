@@ -53,7 +53,7 @@ export function initRevealFallback() {
   if (window.IntersectionObserver) return;
 
   function showAll() {
-    var selector = '.animate,.animate-left,.animate-right,.hero-text-inner,.grow-line,.reveal';
+    var selector = '.animate,.animate-left,.animate-right,.animate-scale,.hero-text-inner,.grow-line,.mask-reveal,.section-title-underline,.reveal';
     document.querySelectorAll(selector).forEach(function(el) {
       el.classList.add('visible');
     });

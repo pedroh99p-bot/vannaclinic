@@ -127,7 +127,7 @@ function renderPortfolioGroup(group) {
     '  <div class="portfolio-group-heading">',
     '    <h3 class="portfolio-group-title" id="' + titleId + '">' + escapeHTML(group.title) + '</h3>',
     '  </div>',
-    '  <div class="portfolio-marquee" role="region" aria-label="' + escapeHTML(group.ariaLabel || group.title) + '" tabindex="0" style="--portfolio-duration: ' + escapeHTML(group.speed || '38s') + ';">',
+    '  <div class="portfolio-marquee" role="region" aria-label="' + escapeHTML(group.ariaLabel || group.title) + '" style="--portfolio-duration: ' + escapeHTML(group.speed || '38s') + ';">',
     '    <div class="portfolio-marquee-track">',
     '      <div class="portfolio-marquee-sequence" role="list">',
     originalCards,
@@ -324,7 +324,7 @@ export function renderUI() {
 
     testimonialTrack.innerHTML = client.testimonials.map(function(dep) {
       return [
-        '<div class="testimonial-slide">',
+        '<div class="testimonial-slide animate-scale">',
         '  <article class="testimonial-card">',
         '    <div class="testimonial-card-header">',
         '      <div class="testimonial-stars" aria-label="5 estrelas">' + stars5 + '</div>',
@@ -382,17 +382,23 @@ export function renderUI() {
 
   var locationPoints = document.querySelector('.location-points');
   if (locationPoints) {
-    var checkIconLocation = client.quizIcons.calendar || '';
-    var tagIconLocation = client.quizIcons.body || ''; // fallback
-    locationPoints.innerHTML = client.location.points.map(function(pt, idx) {
-      var icon = idx === 0 ? checkIconLocation : tagIconLocation;
-      return [
-        '<div class="location-point">',
-        '  <span class="location-point-icon">' + icon + '</span>',
-        '  <span>' + pt + '</span>',
-        '</div>'
-      ].join('\n');
-    }).join('\n');
+    var locationItems = Array.isArray(client.location.points) ? client.location.points.filter(Boolean) : [];
+    locationPoints.hidden = !locationItems.length;
+    if (locationItems.length) {
+      var checkIconLocation = client.quizIcons.calendar || '';
+      var tagIconLocation = client.quizIcons.body || ''; // fallback
+      locationPoints.innerHTML = locationItems.map(function(pt, idx) {
+        var icon = idx === 0 ? checkIconLocation : tagIconLocation;
+        return [
+          '<div class="location-point animate">',
+          '  <span class="location-point-icon">' + icon + '</span>',
+          '  <span>' + pt + '</span>',
+          '</div>'
+        ].join('\n');
+      }).join('\n');
+    } else {
+      locationPoints.innerHTML = '';
+    }
   }
 
   setText('#localizacao .location-actions .btn-whatsapp', client.location.ctaWhatsApp);
