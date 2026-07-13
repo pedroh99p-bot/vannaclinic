@@ -198,6 +198,20 @@ export function initQuiz() {
     window.scrollTo({ top: Math.max(0, y), behavior: isReducedMotion() ? 'auto' : 'smooth' });
   }
 
+  function shouldScrollToQuiz() {
+    var nav = document.getElementById('navbar');
+    var offset = nav ? nav.getBoundingClientRect().height + 18 : 18;
+    var rect = quizBox.getBoundingClientRect();
+    var comfortableBottom = window.innerHeight - 28;
+    var overflowTolerance = Math.min(220, window.innerHeight * 0.28);
+
+    return rect.top < offset || rect.top > comfortableBottom || rect.bottom > window.innerHeight + overflowTolerance;
+  }
+
+  function shouldMoveFocus() {
+    return !window.matchMedia || !window.matchMedia('(pointer: coarse)').matches;
+  }
+
   function focusCurrentTitle(selector) {
     var title = quizBox.querySelector(selector || '.quiz-question');
     if (title) title.focus({ preventScroll: true });
@@ -210,7 +224,7 @@ export function initQuiz() {
 
     quizBox.classList.add('is-locked');
     if (animate && previousHeight) {
-      quizBox.style.minHeight = previousHeight + 'px';
+      quizBox.style.height = previousHeight + 'px';
       quizBox.classList.add('quiz-box--leaving');
     }
 
@@ -220,14 +234,25 @@ export function initQuiz() {
       if (typeof opts.afterRender === 'function') opts.afterRender();
 
       window.requestAnimationFrame(function() {
+        var nextHeight = quizBox.scrollHeight;
+        if (animate && previousHeight && nextHeight) {
+          quizBox.style.height = nextHeight + 'px';
+        }
+
         quizBox.classList.remove('quiz-box--leaving');
         if (animate) quizBox.classList.add('quiz-box--entering');
-        if (opts.shouldScroll) scrollToQuiz();
-        if (opts.shouldFocus) focusCurrentTitle(opts.focusSelector);
+        if (opts.shouldScroll && shouldScrollToQuiz()) scrollToQuiz();
+        if (opts.shouldFocus && shouldMoveFocus()) focusCurrentTitle(opts.focusSelector);
+
+        if (!animate) {
+          quizBox.classList.remove('is-locked');
+          isTransitioning = false;
+          return;
+        }
 
         window.setTimeout(function() {
           quizBox.classList.remove('quiz-box--entering', 'is-locked');
-          quizBox.style.minHeight = '';
+          quizBox.style.height = '';
           isTransitioning = false;
         }, animate ? 260 : 0);
       });

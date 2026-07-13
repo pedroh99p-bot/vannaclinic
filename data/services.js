@@ -39,6 +39,13 @@ export const services = {
         description: "Extensão de cílios com técnica sutil para um olhar marcante e natural.",
         list: ["Indicação avaliada conforme seu objetivo.", "Materiais leves que protegem os fios naturais."],
         waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Cílios Elegantes."
+      },
+      {
+        tag: "Sobrancelhas",
+        title: "Design de Sobrancelhas Personalizado",
+        description: "Mapeamento e design para valorizar o olhar com proporção, naturalidade e acabamento refinado.",
+        list: ["Formato definido conforme seus traços.", "Acabamento sutil para realçar a expressão."],
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Design de Sobrancelhas."
       }
     ]
   },

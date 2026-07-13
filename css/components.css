@@ -1072,7 +1072,6 @@
       animation: rollerMove 38s linear infinite;
       will-change: transform;
     }
-    .roller-track:hover { animation-play-state: paused; }
     .roller-item {
       display: inline-flex;
       align-items: center;

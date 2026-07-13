@@ -55,6 +55,9 @@
   transition: transform 1.1s cubic-bezier(.86,0,.07,1);
   z-index: 2;
 }
+.especialista-image-wrap.mask-reveal::after {
+  background: var(--c-accent-deep);
+}
 .mask-reveal.visible::after { 
   transform: scaleX(0); 
   transform-origin: right; 

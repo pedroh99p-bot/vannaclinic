@@ -55,6 +55,7 @@ export const portfolio = {
       ariaLabel: 'Resultados de Sobrancelhas',
       category: 'brows',
       speed: '42s',
+      direction: 'reverse',
       items: [
         {
           id: 'brows-01',

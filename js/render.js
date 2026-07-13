@@ -115,6 +115,7 @@ function renderPortfolioCard(item, isClone) {
 function renderPortfolioGroup(group) {
   var titleId = 'portfolio-group-' + escapeHTML(group.id);
   var items = Array.isArray(group.items) ? group.items : [];
+  var reverseClass = group.direction === 'reverse' ? ' portfolio-marquee--reverse' : '';
   var originalCards = items.map(function(item) {
     return renderPortfolioCard(item, false);
   }).join('\n');
@@ -127,7 +128,7 @@ function renderPortfolioGroup(group) {
     '  <div class="portfolio-group-heading">',
     '    <h3 class="portfolio-group-title" id="' + titleId + '">' + escapeHTML(group.title) + '</h3>',
     '  </div>',
-    '  <div class="portfolio-marquee" role="region" aria-label="' + escapeHTML(group.ariaLabel || group.title) + '" style="--portfolio-duration: ' + escapeHTML(group.speed || '38s') + ';">',
+    '  <div class="portfolio-marquee' + reverseClass + '" role="region" aria-label="' + escapeHTML(group.ariaLabel || group.title) + '" style="--portfolio-duration: ' + escapeHTML(group.speed || '38s') + ';">',
     '    <div class="portfolio-marquee-track">',
     '      <div class="portfolio-marquee-sequence" role="list">',
     originalCards,
@@ -305,7 +306,7 @@ export function renderUI() {
     var progressLine = '<div class="timeline-progress" aria-hidden="true"></div>';
     var stepsHtml = client.process.steps.map(function(step, idx) {
       return [
-        '<article class="timeline-step animate" data-timeline-step data-step-index="' + idx + '">',
+        '<article class="timeline-step animate' + (idx === 0 ? ' is-active' : '') + '" data-timeline-step data-step-index="' + idx + '">',
         '  <div class="timeline-dot">' + step.number + '</div>',
         '  <h3>' + step.title + '</h3>',
         '  <p>' + step.description + '</p>',
