@@ -336,16 +336,11 @@ export function renderUI() {
           '<article class="portfolio-card before-after-card animate-scale">',
           '  <div class="before-after-container">',
           '    <div class="before-img">',
-          '      <img src="' + item.before + '" alt="Antes: ' + item.label + '" loading="lazy" decoding="async">',
-          '      <span class="ba-badge">Antes</span>',
+          '      <img src="' + item.before + '" alt="Antes" loading="lazy" decoding="async">',
           '    </div>',
           '    <div class="after-img">',
-          '      <img src="' + item.after + '" alt="Depois: ' + item.label + '" loading="lazy" decoding="async">',
-          '      <span class="ba-badge">Depois</span>',
+          '      <img src="' + item.after + '" alt="Depois" loading="lazy" decoding="async">',
           '    </div>',
-          '  </div>',
-          '  <div class="portfolio-info">',
-          '    <h3>' + item.label + '</h3>',
           '  </div>',
           '</article>'
         ].join('\n');
@@ -390,6 +385,7 @@ function renderServices() {
     var activeClass = index === 0 ? ' is-active' : '';
     var hiddenAttr = index === 0 ? '' : ' hidden';
     var itemsList = client.services.items[cat.id] || [];
+    var specialistKey = (cat.id === 'complementares') ? 'erica' : 'analucia';
 
     var cardsHtml = itemsList.map(function(item) {
       var listItemsHtml = item.list.map(function(li) {
@@ -404,7 +400,7 @@ function renderServices() {
         '  <ul class="servico-list">',
         listItemsHtml,
         '  </ul>',
-        '  <a href="#" class="btn btn-outline wa-link" data-wa-message="' + item.waMessage + '" target="_blank" rel="noopener">Quero saber se é ideal para mim</a>',
+        '  <a href="#" class="btn btn-outline wa-link" data-specialist="' + specialistKey + '" data-wa-message="' + item.waMessage + '" target="_blank" rel="noopener">Quero saber se é ideal para mim</a>',
         '</article>'
       ].join('\n');
     }).join('\n');

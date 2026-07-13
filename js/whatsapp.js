@@ -1,8 +1,16 @@
 import { client } from '../data/client.js';
 
-export function buildWhatsAppLink(message) {
+export function buildWhatsAppLink(message, specialist) {
   var text = (message || '').trim();
-  return 'https://wa.me/' + client.contacts.whatsappNumber + '?text=' + encodeURIComponent(text);
+  var number = client.contacts.whatsappNumber; // default
+  
+  if (specialist === 'erica') {
+    number = '5521993127648';
+  } else if (specialist === 'analucia') {
+    number = '5521964923211';
+  }
+  
+  return 'https://wa.me/' + number + '?text=' + encodeURIComponent(text);
 }
 
 export function hydrateWhatsAppLinks() {
@@ -10,12 +18,13 @@ export function hydrateWhatsAppLinks() {
     var messageKey = link.getAttribute('data-wa-key');
     var message = messageKey ? client.whatsappMessages[messageKey] : link.getAttribute('data-wa-message');
     if (!message) return;
-    link.href = buildWhatsAppLink(message);
+    var specialist = link.getAttribute('data-specialist');
+    link.href = buildWhatsAppLink(message, specialist);
   });
 }
 
 export function hydrateInstagramLinks() {
   document.querySelectorAll('.ig-link').forEach(function(link) {
-    link.href = client.contacts.instagramUrl;
+    link.href = client.contacts.instagramUrl || ('https://instagram.com/' + client.contacts.instagramUser);
   });
 }

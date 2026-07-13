@@ -4,7 +4,7 @@ import { injectThemeColors, renderSEO, renderUI } from './render.js';
 import { renderFAQ } from './faq.js';
 import { hydrateWhatsAppLinks, hydrateInstagramLinks } from './whatsapp.js';
 import { initNavbarScroll } from './navbar.js';
-import { initLoaderReveal, initRevealFallback, initScrollReveal, initServiceCardTilt } from './animations.js';
+import { initLoaderReveal, initRevealFallback, initScrollReveal, initServiceCardTilt, initWhatsAppModalAndScroll } from './animations.js';
 import { initCarousels } from './carousel.js';
 import { initTimeline } from './timeline.js';
 import { initQuiz } from './quiz.js';
@@ -50,6 +50,7 @@ function bootstrap() {
     initCarousels();
     initTimeline();
     initQuiz();
+    initWhatsAppModalAndScroll();
     
     // Animações de viewport
     initScrollReveal();

@@ -97,3 +97,58 @@ export function initServiceCardTilt() {
     });
   });
 }
+
+export function initWhatsAppModalAndScroll() {
+  var floatingSocials = document.getElementById('floating-socials');
+  var quizSection = document.getElementById('quiz');
+  
+  // 1. Scroll-triggered visibility for floating buttons (fade in after quiz)
+  if (floatingSocials && quizSection) {
+    var checkScroll = function() {
+      var rect = quizSection.getBoundingClientRect();
+      // O usuário ultrapassou a seção do Quiz (quando a base dela cruza o viewport do usuário)
+      if (rect.bottom < window.innerHeight) {
+        floatingSocials.classList.add('visible');
+      } else {
+        floatingSocials.classList.remove('visible');
+      }
+    };
+    
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+  }
+
+  // 2. WhatsApp Routing dialog modal control
+  var waFloatingBtn = document.getElementById('wa-floating-btn');
+  var dialog = document.getElementById('wa-router-dialog');
+  
+  if (waFloatingBtn && dialog) {
+    // Open Dialog
+    waFloatingBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      dialog.showModal();
+    });
+    
+    // Close button
+    var closeBtn = dialog.querySelector('.wa-dialog-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        dialog.close();
+      });
+    }
+    
+    // Close on click outside (backdrop click)
+    dialog.addEventListener('click', function(e) {
+      var rect = dialog.getBoundingClientRect();
+      var isInDialog = (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      );
+      if (!isInDialog) {
+        dialog.close();
+      }
+    });
+  }
+}

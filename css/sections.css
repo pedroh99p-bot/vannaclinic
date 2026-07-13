@@ -584,7 +584,7 @@
       border: 1px solid rgba(201,169,110,.2);
       background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(245,239,228,.82));
       box-shadow: var(--shadow-md);
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 1672 / 941;
     }
     .especialista-image-wrap img {
       width: 100%;
@@ -596,6 +596,65 @@
     .especialista-copy {
       margin-top: var(--s-lg);
       color: var(--c-text-muted);
+    }
+    
+    /* === LAYOUT LADO A LADO DAS ESPECIALISTAS === */
+    .specialist-team {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-lg);
+      margin-block: var(--s-lg);
+      width: 100%;
+    }
+    .specialist-member {
+      background: var(--c-bg-card);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: var(--s-lg);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease);
+    }
+    .specialist-member:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--c-primary);
+    }
+    .specialist-member h4 {
+      font-family: var(--f-display);
+      font-size: 1.35rem;
+      color: var(--c-text);
+      margin-bottom: 4px;
+    }
+    .specialist-role {
+      font-family: var(--f-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c-primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .specialist-member p:not(.specialist-role) {
+      font-size: 0.92rem;
+      color: var(--c-text-muted);
+      line-height: 1.5;
+      margin-bottom: var(--s-md);
+      flex-grow: 1;
+    }
+    .specialist-member .btn {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      margin-top: auto;
+    }
+    @media (max-width: 768px) {
+      .specialist-team {
+        grid-template-columns: 1fr;
+        gap: var(--s-md);
+      }
     }
     .specialist-bullets {
       display: grid;
@@ -1082,17 +1141,18 @@
     .before-after-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2px;
+      gap: 1px; /* gap reduzido entre antes e depois */
       background: var(--c-border);
       position: relative;
       width: 100%;
       overflow: hidden;
+      aspect-ratio: 1 / 1; /* proporção quadrada (1:1) */
     }
     .before-img, .after-img {
       position: relative;
       width: 100%;
+      height: 100%;
       overflow: hidden;
-      aspect-ratio: 4 / 5;
     }
     .before-img img, .after-img img {
       width: 100%;
@@ -1103,36 +1163,10 @@
     }
     .portfolio-card:hover .before-img img,
     .portfolio-card:hover .after-img img {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
-    .ba-badge {
-      position: absolute;
-      bottom: 12px;
-      background: rgba(90, 67, 59, 0.85);
-      color: #FFFBF7;
-      font-size: 10px;
-      padding: 3px 8px;
-      border-radius: var(--radius-sm);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-      z-index: 2;
-    }
-    .before-img .ba-badge { left: 12px; }
-    .after-img .ba-badge { right: 12px; }
-    .portfolio-info {
-      padding: var(--s-md) var(--s-lg);
-      text-align: center;
-      background: var(--c-bg-card);
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .portfolio-info h3 {
-      font-size: 15px;
-      color: var(--c-text);
-      font-family: var(--f-body);
-      font-weight: 500;
+    
+    #portfolio-track {
+      gap: var(--s-xs); /* gap reduzido entre os cards */
     }
 

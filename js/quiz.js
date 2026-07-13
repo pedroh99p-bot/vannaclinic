@@ -108,7 +108,8 @@ export function initQuiz() {
     if (summaryRegion) summaryRegion.textContent = answers[2] || quiz.result.summaryRegionDefault;
     if (summaryPreference) summaryPreference.textContent = answers[3] || quiz.result.summaryPreferenceDefault;
     if (resultBox) resultBox.classList.add('active');
-    if (resultLink) resultLink.href = buildWhatsAppLink(buildQuizMessage());
+    var specialist = (answers[1] === 'Cílios e Sobrancelhas') ? 'erica' : 'analucia';
+    if (resultLink) resultLink.href = buildWhatsAppLink(buildQuizMessage(), specialist);
 
     if (window.dispatchEvent) {
       window.dispatchEvent(new CustomEvent('track_quiz_completed', { detail: { answers: answers } }));

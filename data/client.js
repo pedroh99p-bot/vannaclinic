@@ -32,11 +32,11 @@ export const client = {
     keywords: "botox natural, preenchimento barra da tijuca, bioestimuladores, harmonização discreta, rejuvenescimento",
     ogImage: "assets/og-image.webp",
     locale: "pt_BR",
-    telephone: "+55 (21) 99999-9999"
+    telephone: "+55 (21) 96492-3211"
   },
 
   contacts: {
-    whatsappNumber: "5521999999999", // Telefone real
+    whatsappNumber: "5521964923211", // Dra. Ana Lúcia (Estética Avançada)
     instagramUser: "vannaclinic",
     instagramUrl: "https://instagram.com/vannaclinic",
     address: "Av. das Américas, 4666 - Barra da Tijuca - Rio de Janeiro - RJ - 22640-102",
@@ -115,12 +115,14 @@ export const client = {
         <div class="specialist-member">
           <h4>Ana Lucia</h4>
           <p class="specialist-role">Estética Avançada & Biomedicina (CRF-RJ 12345)</p>
-          <p>Especialista em procedimentos injetáveis como Botox, Preenchimento e Bioestimuladores de colágeno, sempre focada em suavizar marcas de expressão sem alterar sua essência ou traços naturais.</p>
+          <p>Procedimentos injetáveis (Botox, Preenchimento e Bioestimuladores) focados em rejuvenescimento sutil e segurança anatômica.</p>
+          <a href="https://wa.me/5521964923211?text=Olá%20Dra.%20Ana%20Lúcia,%20gostaria%20de%20saber%20mais%20sobre%20os%20procedimentos%20de%20Estética%20Avançada." target="_blank" rel="noopener" class="btn btn-outline btn-sm">Falar com Ana Lúcia</a>
         </div>
-        <div class="specialist-member" style="margin-top: 20px;">
+        <div class="specialist-member">
           <h4>Érica</h4>
           <p class="specialist-role">Cílios & Sobrancelhas</p>
-          <p>Especialista em design de olhar, extensão de cílios e micropigmentação sutil, garantindo um realce elegante que harmoniza com a expressividade do seu rosto.</p>
+          <p>Extensões e micropigmentação personalizadas para realçar o olhar com delicadeza e elegância.</p>
+          <a href="https://wa.me/5521993127648?text=Olá%20Érica,%20gostaria%20de%20saber%20mais%20sobre%20os%20procedimentos%20de%20Cílios%20e%20Sobrancelhas." target="_blank" rel="noopener" class="btn btn-outline btn-sm">Falar com Érica</a>
         </div>
       </div>
     `,
