@@ -18,9 +18,9 @@
         grid-template-columns: 1fr;
         padding: 1rem 0 3rem;
       }
-      .hero-bg-image { background-position: 62% center; }
+      .hero-bg-image { background-position: center top; }
       .hero-bg-overlay {
-        background: linear-gradient(90deg, var(--c-bg) 0%, rgba(var(--c-bg-rgb), .95) 45%, rgba(var(--c-bg-rgb), .70) 70%, rgba(var(--c-bg-rgb), .15) 100%);
+        background: linear-gradient(90deg, rgba(var(--c-bg-rgb), .22) 0%, rgba(var(--c-bg-rgb), .1) 36%, transparent 54%);
       }
       .hero h1 {
         max-width: 15ch;
@@ -73,6 +73,9 @@
         font-size: .52rem;
         letter-spacing: .1em;
       }
+      .hero-bg-image {
+        background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna-mobile.png'));
+      }
       .hero-kicker { display: none; }
       .hero-badge {
         max-width: 16.8rem;
@@ -82,7 +85,7 @@
         letter-spacing: .14em;
       }
       .hero-content {
-        max-width: min(72vw, 21rem);
+        max-width: min(58vw, 14rem);
       }
       .hero-ctas {
         flex-direction: column;
@@ -90,6 +93,8 @@
       }
       .hero-ctas .btn {
         width: 100%;
+        padding-inline: 1rem;
+        font-size: .68rem;
       }
       .hero-checks { display: none; }
       .hero-urgency {
@@ -143,12 +148,15 @@
         padding: .42rem .64rem;
         font-size: .5rem;
       }
-      .hero-bg-image { background-position: 58% center; }
+      .hero-bg-image {
+        background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna-mobile.png'));
+        background-position: center top;
+      }
       .hero-bg-overlay {
-        background: linear-gradient(90deg, var(--c-bg) 0%, rgba(var(--c-bg-rgb), .96) 52%, rgba(var(--c-bg-rgb), .72) 76%, rgba(var(--c-bg-rgb), .18) 100%);
+        background: linear-gradient(90deg, rgba(var(--c-bg-rgb), .24) 0%, rgba(var(--c-bg-rgb), .1) 38%, transparent 56%);
       }
       .hero h1 { font-size: clamp(2rem, 10vw, 2.7rem); }
-      .hero-sub { max-width: 16.5rem; }
+      .hero-sub { max-width: 13.5rem; }
       .container { padding-inline: 1rem; }
       .ux-carousel-track { grid-auto-columns: minmax(87%, 1fr); }
     }

@@ -118,14 +118,17 @@ export function renderUI() {
   setAttr('.navbar-cta', 'data-wa-message', client.whatsappMessages.navbarCta);
 
   // Hero Section
-  if (client.branding.heroBg) {
+  if (client.branding.heroBgDesktop || client.branding.heroBgMobile || client.branding.heroBg) {
     var heroSection = document.querySelector('.hero');
     if (heroSection) {
-      // Injetar background image de forma elegante e performance otimizada
-      var heroBgImg = heroSection.querySelector('.hero-bg-image');
-      if (heroBgImg) {
-        heroBgImg.style.backgroundImage = 'url("' + client.branding.heroBg + '")';
-      }
+      var desktopHero = client.branding.heroBgDesktop || client.branding.heroBg;
+      var mobileHero = client.branding.heroBgMobile || desktopHero;
+      var toCssUrl = function(path) {
+        if (/^(https?:|\/)/.test(path)) return path;
+        return '../' + path;
+      };
+      heroSection.style.setProperty('--hero-bg-desktop', 'url("' + toCssUrl(desktopHero) + '")');
+      heroSection.style.setProperty('--hero-bg-mobile', 'url("' + toCssUrl(mobileHero) + '")');
     }
   }
 
@@ -171,9 +174,15 @@ export function renderUI() {
   // Rollers (Marquees)
   var renderRoller = function(selector, items) {
     var rollerTracks = document.querySelectorAll(selector + ' .roller-track');
+    var source = Array.isArray(items) ? items.filter(Boolean) : [];
     rollerTracks.forEach(function(track) {
-      // Repeat the items list to ensure smooth infinite loop coverage
-      var repeated = items.concat(items);
+      var roller = track.closest('.roller');
+      if (!source.length) {
+        if (roller && roller.parentNode) roller.parentNode.removeChild(roller);
+        return;
+      }
+      if (roller) roller.setAttribute('aria-hidden', 'true');
+      var repeated = source.concat(source);
       track.innerHTML = repeated.map(function(item) {
         return '<span class="roller-item"><span class="roller-dot"></span>' + item + '</span>';
       }).join('\n');
@@ -181,7 +190,6 @@ export function renderUI() {
   };
 
   renderRoller('[data-roller="top"]', client.rollers.top);
-  renderRoller('[data-roller="middle"]', client.rollers.middle);
   renderRoller('[data-roller="specialist"]', client.rollers.bottom); // maps bottom list to specialist
   renderRoller('[data-roller="bottom"]', client.rollers.bottom);
 
@@ -431,7 +439,7 @@ function renderServices() {
     var activeClass = index === 0 ? ' is-active' : '';
     var hiddenAttr = index === 0 ? '' : ' hidden';
     var itemsList = client.services.items[cat.id] || [];
-    var specialistKey = (cat.id === 'complementares') ? 'erica' : 'analucia';
+    var specialistKey = (cat.id === 'complementares') ? 'cilios' : 'estetica';
 
     var cardsHtml = itemsList.map(function(item) {
       var listItemsHtml = item.list.map(function(li) {

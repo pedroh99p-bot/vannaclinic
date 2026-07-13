@@ -40,6 +40,11 @@
   position: relative; 
   overflow: hidden; 
 }
+.hero-bg-image.mask-reveal,
+.hero-bg-overlay.mask-reveal {
+  position: absolute;
+  inset: 0;
+}
 .mask-reveal::after {
   content: '';
   position: absolute;

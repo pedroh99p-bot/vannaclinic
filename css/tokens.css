@@ -14,6 +14,8 @@
   --c-secondary: #EAD6CD;
   --c-accent: #5A433B;
   --c-accent-deep: #3A2F20;
+  --c-dark-section: #2E211D;
+  --c-logo-light: #EAD7B8;
   --c-gold-line: var(--c-primary);
 
   --c-text: #4D3833;
@@ -30,11 +32,14 @@
 
   --c-success: #4F8A5B;
   --c-warning: #A06F2B;
-  --c-error: #B35C55;
-  --c-alert: #9F5F55;
+  --c-error: #8C5A3B;
+  --c-alert: #9A6B3D;
   --c-chocolate: #5A403A;
-  --c-whatsapp: #25D366;
-  --c-whatsapp-hover: #20BA5C;
+  --c-whatsapp: var(--c-primary);
+  --c-whatsapp-hover: var(--c-primary-hover);
+  --c-instagram-start: #6F4938;
+  --c-instagram-mid: #A07145;
+  --c-instagram-end: #D7B783;
 
   --c-primary-rgb: 160, 126, 76;
   --c-primary-hover-rgb: 118, 90, 52;
@@ -42,15 +47,22 @@
   --c-secondary-rgb: 234, 214, 205;
   --c-success-rgb: 79, 138, 91;
   --c-warning-rgb: 160, 111, 43;
-  --c-error-rgb: 179, 92, 85;
-  --c-whatsapp-rgb: 37, 211, 102;
+  --c-error-rgb: 140, 90, 59;
+  --c-whatsapp-rgb: var(--c-primary-rgb);
   --c-accent-rgb: 90, 67, 59;
   --c-accent-deep-rgb: 58, 47, 32;
+  --c-dark-section-rgb: 46, 33, 29;
   --c-text-rgb: 77, 56, 51;
   --c-text-main-rgb: 77, 56, 51;
   --c-bg-rgb: 255, 251, 247;
   --c-bg-alt-rgb: 246, 236, 230;
   --c-surface-rgb: 255, 255, 255;
+
+  --nav-glass-bg: rgba(255, 251, 247, .68);
+  --nav-glass-bg-scrolled: rgba(255, 251, 247, .9);
+  --nav-glass-border: rgba(90, 67, 59, .12);
+  --nav-glass-shadow: 0 10px 30px rgba(44, 36, 24, .08);
+  --nav-glass-blur: 18px;
 
   --f-display: 'Cormorant Garamond', Georgia, serif;
   --f-body: 'Outfit', system-ui, sans-serif;
@@ -102,6 +114,8 @@ html.dark-theme {
   --c-secondary: #5E433B;
   --c-accent: #F4EDEA;
   --c-accent-deep: #1D1412;
+  --c-dark-section: #1D1412;
+  --c-logo-light: #EAD7B8;
   --c-text: #FFF8F4;
   --c-text-main: #FFF8F4;
   --c-text-muted: #C8B6AE;
@@ -112,18 +126,27 @@ html.dark-theme {
   --c-overlay: rgba(18, 12, 10, 0.64);
   --c-shadow: rgba(0, 0, 0, 0.22);
   --c-shadow-strong: rgba(0, 0, 0, 0.34);
+  --c-error: #A06F43;
+  --c-alert: #D3A15D;
+  --c-whatsapp: var(--c-primary);
+  --c-whatsapp-hover: var(--c-primary-hover);
   --c-primary-rgb: 200, 161, 106;
   --c-primary-hover-rgb: 224, 190, 134;
   --c-primary-dark-rgb: 224, 190, 134;
   --c-secondary-rgb: 94, 67, 59;
   --c-success-rgb: 121, 168, 121;
   --c-warning-rgb: 211, 161, 93;
-  --c-error-rgb: 208, 131, 123;
-  --c-whatsapp-rgb: 37, 211, 102;
+  --c-error-rgb: 160, 111, 67;
+  --c-whatsapp-rgb: var(--c-primary-rgb);
   --c-bg-rgb: 35, 25, 23;
   --c-accent-deep-rgb: 29, 20, 18;
+  --c-dark-section-rgb: 29, 20, 18;
   --c-bg-alt-rgb: 47, 33, 30;
   --c-surface-rgb: 56, 42, 38;
+  --nav-glass-bg: rgba(35, 25, 23, .72);
+  --nav-glass-bg-scrolled: rgba(35, 25, 23, .9);
+  --nav-glass-border: rgba(234, 215, 184, .16);
+  --nav-glass-shadow: 0 10px 30px rgba(0, 0, 0, .18);
 }
 
 html.dark-theme .urgencia-bar,

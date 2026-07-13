@@ -17,6 +17,8 @@ export const quizIcons = {
 var stepsEstetica = [
   {
     id: 2,
+    answerKey: "esthetic_goal",
+    summaryLabel: "Objetivo",
     question: "O que você gostaria de suavizar ou realçar?",
     options: [
       { label: "Linhas e rugas de expressão", sublabel: "Aspecto cansado ou sobrancelhas caídas.", icon: "syringe" },
@@ -27,6 +29,8 @@ var stepsEstetica = [
   },
   {
     id: 3,
+    answerKey: "esthetic_preference",
+    summaryLabel: "Preferência de resultado",
     question: "Como você prefere o resultado?",
     options: [
       { label: "100% natural e discreto", sublabel: "Apenas um aspecto descansado e leve.", icon: "shieldCheck" },
@@ -36,6 +40,8 @@ var stepsEstetica = [
   },
   {
     id: 4,
+    answerKey: "timing",
+    summaryLabel: "Prazo",
     question: "Quando deseja realizar?",
     options: [
       { label: "Esta semana", sublabel: "Quero consultar horários imediatos.", icon: "calendar" },
@@ -49,6 +55,8 @@ var stepsEstetica = [
 var stepsCilios = [
   {
     id: 2,
+    answerKey: "eyes_goal",
+    summaryLabel: "Objetivo do olhar",
     question: "O que você deseja para o seu olhar?",
     options: [
       { label: "Extensão de cílios discreta", sublabel: "Volume e comprimento suave e natural.", icon: "cilios" },
@@ -59,6 +67,8 @@ var stepsCilios = [
   },
   {
     id: 3,
+    answerKey: "timing",
+    summaryLabel: "Prazo",
     question: "Quando deseja realizar?",
     options: [
       { label: "Esta semana", sublabel: "Quero consultar horários imediatos.", icon: "calendar" },
@@ -92,6 +102,8 @@ export const quiz = {
   // Step 1 — Seleção da jornada (branching gate)
   step1: {
     id: 1,
+    answerKey: "service",
+    summaryLabel: "Serviço selecionado",
     question: "Por onde você gostaria de começar?",
     options: [
       {

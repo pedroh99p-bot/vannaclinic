@@ -16,14 +16,16 @@ export const client = {
     niche: "Estética Avançada",
     city: "Rio de Janeiro",
     neighborhood: "Itanhangá",
-    registerNumber: "Reg. Profissional: CRF-RJ 12345", // Exibir obrigatório no rodapé
+    registerNumber: "",
     address: "Itanhangui Plaza, Estr. do Itanhangá, 483 - Sl 214 - Itanhangá, Rio de Janeiro - RJ, 22753-005",
     logoHorizontal: "assets/logo-horizontal.webp",
     logoIcon: "assets/logo-icon.webp",
     logoPreloader: "assets/logo-preloader.webp",
     favicon: "assets/favicon.webp",
     specialistPhoto: "assets/specialist.webp",
-    heroBg: "assets/hero.webp"
+    heroBg: "assets/images/hero-vanna-desktop.png",
+    heroBgDesktop: "assets/images/hero-vanna-desktop.png",
+    heroBgMobile: "assets/images/hero-vanna-mobile.png"
   },
 
   seo: {
@@ -36,21 +38,36 @@ export const client = {
   },
 
   contacts: {
-    whatsappNumber: "5521964923211", // Dra. Ana Lúcia (Estética Avançada)
     instagramUser: "vannaclinic",
     instagramUrl: "https://instagram.com/vannaclinic",
+    whatsappDestinations: {
+      default: {
+        destination: "estetica",
+        label: "Estética Avançada"
+      },
+      estetica: {
+        number: "5521964923211",
+        label: "Estética Avançada",
+        specialist: "Ana Lucia"
+      },
+      cilios: {
+        number: "5521993127648",
+        label: "Cílios e Sobrancelhas",
+        specialist: "Érica"
+      }
+    },
     address: "Itanhangui Plaza, Estr. do Itanhangá, 483 - Sl 214 - Itanhangá, Rio de Janeiro - RJ, 22753-005",
     googleMapsDirectionsUrl: "https://maps.google.com/?q=VANNACLINIC+Harmoniza%C3%A7%C3%A3o+facial+Botox+RJ",
     googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.4!2d-43.3766!3d-22.9878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVkFOTkFDTElOSUM!5e0!3m2!1spt-BR!2sbr!4v1711111111111!5m2!1spt-BR!2sbr"
   },
 
   hero: {
-    badge: "Estética personalizada Barra da Tijuca",
-    kicker: "Estética avançada",
-    titleLine1: "Você continuará sendo você,",
-    titleLine2: "apenas mais <em>descansada.</em>",
-    subtitle: "Vanna Clinic oferece botox, preenchimento e bioestimuladores personalizados para resultados elegantes e naturais.",
-    urgencyText: "<strong>Agenda aberta</strong> para avaliações individuais nesta semana.",
+    badge: "Estética avançada personalizada",
+    kicker: "Vanna Clinic",
+    titleLine1: "Estética que respeita",
+    titleLine2: "seus <em>traços.</em>",
+    subtitle: "Você segue sendo você — apenas com aparência mais descansada, leve e harmoniosa.",
+    urgencyText: "Tratamentos personalizados com foco em naturalidade, segurança e elegância.",
     floatTagLabel: "Local",
     floatTagValue: "Barra da Tijuca",
     ctaWhatsApp: "Agendar avaliação",
@@ -73,7 +90,6 @@ export const client = {
 
   rollers: {
     top: ["BOTOX NATURAL", "PREENCHIMENTO LABIAL SUTIL", "BIOESTIMULADORES DE COLÁGENO", "VANNA CLINIC", "ESTÉTICA AVANÇADA"],
-    middle: ["ELEGÂNCIA", "SEGURANÇA", "RESULTADOS NATURAIS", "CUIDADO PERSONALIZADO", "AUTOESTIMA", "SOFISTICAÇÃO"],
     bottom: ["AGENDE UMA CONSULTA DE AVALIAÇÃO INDIVIDUAL", "VANNA CLINIC BARRA DA TIJUCA", "ESTÉTICA DE ALTA PERFORMANCE"]
   },
 
@@ -114,15 +130,15 @@ export const client = {
       <div class="specialist-team">
         <div class="specialist-member">
           <h4>Ana Lucia</h4>
-          <p class="specialist-role">Estética Avançada & Biomedicina (CRF-RJ 12345)</p>
+          <p class="specialist-role">Estética Avançada & Biomedicina</p>
           <p>Procedimentos injetáveis (Botox, Preenchimento e Bioestimuladores) focados em rejuvenescimento sutil e segurança anatômica.</p>
-          <a href="https://wa.me/5521964923211?text=Olá%20Dra.%20Ana%20Lúcia,%20gostaria%20de%20saber%20mais%20sobre%20os%20procedimentos%20de%20Estética%20Avançada." target="_blank" rel="noopener" class="btn btn-outline btn-sm">Falar com Ana Lúcia</a>
+          <a href="#" target="_blank" rel="noopener" class="btn btn-outline btn-sm wa-link" data-specialist="estetica" data-wa-key="specialistAnalucia">Falar com Ana Lúcia</a>
         </div>
         <div class="specialist-member">
           <h4>Érica</h4>
           <p class="specialist-role">Cílios & Sobrancelhas</p>
           <p>Extensões e micropigmentação personalizadas para realçar o olhar com delicadeza e elegância.</p>
-          <a href="https://wa.me/5521993127648?text=Olá%20Érica,%20gostaria%20de%20saber%20mais%20sobre%20os%20procedimentos%20de%20Cílios%20e%20Sobrancelhas." target="_blank" rel="noopener" class="btn btn-outline btn-sm">Falar com Érica</a>
+          <a href="#" target="_blank" rel="noopener" class="btn btn-outline btn-sm wa-link" data-specialist="cilios" data-wa-key="specialistErica">Falar com Érica</a>
         </div>
       </div>
     `,
@@ -195,7 +211,7 @@ export const client = {
   footer: {
     description: "Vanna Clinic — Estética Avançada e Design de Olhar. Atendimento individualizado com foco em naturalidade, segurança e resultados refinados. Itanhangá, Rio de Janeiro.",
     quickLinksTitle: "Navegação rápida",
-    copyright: "© 2026 Vanna Clinic. Todos os direitos reservados. · Reg. Profissional: CRF-RJ 12345",
+    copyright: "© 2026 Vanna Clinic. Todos os direitos reservados.",
     locationText: "Itanhangá · Rio de Janeiro",
     privacyPolicyUrl: "politica-de-privacidade.html",
     termsOfUseUrl: "termos-de-uso.html"
@@ -246,7 +262,11 @@ export const client = {
     finalCta: "Olá, gostaria de agendar uma consulta na Vanna Clinic.",
     floatingCta: "Olá! Gostaria de tirar algumas dúvidas sobre os procedimentos da Vanna Clinic.",
     locationCta: "Olá, gostaria de saber como chegar na Vanna Clinic e agendar um horário.",
-    navbarCta: "Olá, gostaria de agendar um horário na Vanna Clinic pelo botão do cabeçalho."
+    navbarCta: "Olá, gostaria de agendar um horário na Vanna Clinic pelo botão do cabeçalho.",
+    specialistAnalucia: "Olá Dra. Ana Lúcia, gostaria de saber mais sobre os procedimentos de Estética Avançada.",
+    specialistErica: "Olá Érica, gostaria de saber mais sobre os procedimentos de Cílios e Sobrancelhas.",
+    dialogEstetica: "Olá Dra. Ana Lúcia, vim pelo site da Vanna Clinic e gostaria de agendar uma avaliação de Estética Avançada.",
+    dialogCilios: "Olá Érica, vim pelo site da Vanna Clinic e gostaria de saber mais sobre design de cílios e sobrancelhas."
   },
 
   // Referências Importadas

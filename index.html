@@ -19,6 +19,8 @@
   <!-- Preconnect Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/images/hero-vanna-mobile.png" media="(max-width: 767px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/hero-vanna-desktop.png" media="(min-width: 768px)" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
@@ -29,6 +31,7 @@
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <noscript><style>body.loading{overflow:auto}.page-loader,.loader-curtain{display:none}</style></noscript>
 </head>
 <body class="loading">
 
@@ -142,9 +145,11 @@
       </div>
     </section>
 
-    <!-- Middle Letreiro Roller -->
-    <div class="roller roller-inline roller-inline--soft" data-roller="middle" style="--roller-duration:34s;">
-      <div class="roller-track"></div>
+    <!-- Decorative Divider -->
+    <div class="logo-divider" aria-hidden="true">
+      <span class="logo-divider-line"></span>
+      <img src="assets/logo-icon.webp" alt="">
+      <span class="logo-divider-line"></span>
     </div>
 
     <!-- Quiz Section -->
@@ -406,11 +411,11 @@
       <h3>Atendimento WhatsApp</h3>
       <p>Selecione a especialista com quem deseja falar:</p>
       <div class="wa-dialog-options">
-        <a href="https://wa.me/5521964923211?text=Olá%20Dra.%20Ana%20Lúcia,%20vim%20pelo%20site%20da%20Vanna%20Clinic%20e%20gostaria%20de%20agendar%20uma%20avaliação%20de%20Estética%20Avançada." target="_blank" rel="noopener" class="wa-dialog-option">
+        <a href="#" target="_blank" rel="noopener" class="wa-dialog-option wa-link" data-specialist="estetica" data-wa-key="dialogEstetica">
           <div class="wa-option-title">Estética Avançada</div>
           <div class="wa-option-desc">Procedimentos corporais e faciais com Dra. Ana Lúcia</div>
         </a>
-        <a href="https://wa.me/5521993127648?text=Olá%20Érica,%20vim%20pelo%20site%20da%20Vanna%20Clinic%20e%20gostaria%20de%20saber%20mais%20sobre%20design%20de%20cílios%20e%20sobrancelhas." target="_blank" rel="noopener" class="wa-dialog-option">
+        <a href="#" target="_blank" rel="noopener" class="wa-dialog-option wa-link" data-specialist="cilios" data-wa-key="dialogCilios">
           <div class="wa-option-title">Cílios e Sobrancelhas</div>
           <div class="wa-option-desc">Extensões, design e micropigmentação com Érica</div>
         </a>
