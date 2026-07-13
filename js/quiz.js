@@ -9,55 +9,64 @@ export function initQuiz() {
   if (!quizBox) return;
 
   var answers = {};
-  var steps = quiz.steps;
-  var totalSteps = steps.length;
+  var currentBranch = null; // 'estetica' | 'cilios'
+  var branchSteps = [];
+  var totalBranchSteps = 0;
+  var currentStepIndex = 0; // index within branchSteps (0-based), -1 = step1
 
-  function renderQuizStructure() {
-    var progressHtml = '<div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-progress-bar"></div></div>';
-    
-    var stepsHtml = steps.map(function(step, index) {
-      var isActive = index === 0 ? ' active' : '';
-      var optionsHtml = step.options.map(function(opt) {
-        var svgIcon = quizIcons[opt.icon] || '';
-        return [
-          '<button type="button" class="quiz-option" data-step="' + step.id + '" data-label="' + opt.label + '" aria-pressed="false">',
-          '  <span class="quiz-option-icon">' + svgIcon + '</span>',
-          '  <span class="quiz-option-copy">',
-          '    <strong>' + opt.label + '</strong>',
-          '    <small>' + opt.sublabel + '</small>',
-          '  </span>',
-          '</button>'
-        ].join('\n');
-      }).join('\n');
+  // ── Helpers ──────────────────────────────────────────────────────────────
+  function starSVG() {
+    return '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 2l3.1 6.3L22 9.3l-5 4.9 1.2 6.9L12 17.8l-6.2 3.3 1.2-6.9-5-4.9 6.9-1z"/></svg>';
+  }
 
-      return [
-        '<div class="quiz-step' + isActive + '" id="quiz-step-' + step.id + '">',
-        '  <h3 class="quiz-question">' + step.question + '</h3>',
-        '  <div class="quiz-options">',
-        optionsHtml,
-        '  </div>',
-        '</div>'
-      ].join('\n');
+  function buildProgressHTML(stepNum, total) {
+    return [
+      '<div class="quiz-progress-header">',
+      '  <span class="quiz-step-counter">Passo ' + stepNum + ' de ' + total + '</span>',
+      '  <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-progress-bar" style="width:' + Math.round((stepNum / total) * 100) + '%"></div></div>',
+      '</div>'
+    ].join('\n');
+  }
+
+  function buildOptionHTML(opt, stepId) {
+    var svgIcon = quizIcons[opt.icon] || '';
+    return [
+      '<button type="button" class="quiz-option" data-step="' + stepId + '" data-label="' + opt.label + '" data-branch="' + (opt.branch || '') + '" aria-pressed="false">',
+      '  <span class="quiz-option-icon">' + svgIcon + '</span>',
+      '  <span class="quiz-option-copy">',
+      '    <strong>' + opt.label + '</strong>',
+      '    <small>' + opt.sublabel + '</small>',
+      '  </span>',
+      '</button>'
+    ].join('\n');
+  }
+
+  function buildStepHTML(step, stepNum, total) {
+    var optionsHtml = step.options.map(function(opt) {
+      return buildOptionHTML(opt, step.id);
     }).join('\n');
+    return [
+      buildProgressHTML(stepNum, total),
+      '<div class="quiz-step active" id="quiz-step-' + step.id + '">',
+      '  <h3 class="quiz-question">' + step.question + '</h3>',
+      '  <div class="quiz-options">',
+      optionsHtml,
+      '  </div>',
+      '</div>'
+    ].join('\n');
+  }
 
-    var resultHtml = [
-      '<div class="quiz-result" id="quiz-result">',
+  function buildResultHTML() {
+    return [
+      buildProgressHTML(totalBranchSteps + 1, totalBranchSteps + 1),
+      '<div class="quiz-result active" id="quiz-result">',
       '  <div class="quiz-result-icon">' + (quizIcons[quiz.result.icon] || '') + '</div>',
       '  <h3 id="quiz-result-title">' + quiz.result.title + '</h3>',
       '  <p id="quiz-result-desc">' + quiz.result.desc + '</p>',
       '  <div class="quiz-summary">',
-      '    <div class="quiz-summary-item">',
-      '      <strong>' + quiz.result.summaryGoalLabel + '</strong>',
-      '      <span id="quiz-summary-goal">' + quiz.result.summaryGoalDefault + '</span>',
-      '    </div>',
-      '    <div class="quiz-summary-item">',
-      '      <strong>' + quiz.result.summaryRegionLabel + '</strong>',
-      '      <span id="quiz-summary-region">' + quiz.result.summaryRegionDefault + '</span>',
-      '    </div>',
-      '    <div class="quiz-summary-item">',
-      '      <strong>' + quiz.result.summaryPreferenceLabel + '</strong>',
-      '      <span id="quiz-summary-preference">' + quiz.result.summaryPreferenceDefault + '</span>',
-      '    </div>',
+      '    <div class="quiz-summary-item"><strong>' + quiz.result.summaryGoalLabel + '</strong><span id="quiz-summary-goal">' + quiz.result.summaryGoalDefault + '</span></div>',
+      '    <div class="quiz-summary-item"><strong>' + quiz.result.summaryRegionLabel + '</strong><span id="quiz-summary-region">' + quiz.result.summaryRegionDefault + '</span></div>',
+      '    <div class="quiz-summary-item"><strong>' + quiz.result.summaryPreferenceLabel + '</strong><span id="quiz-summary-preference">' + quiz.result.summaryPreferenceDefault + '</span></div>',
       '  </div>',
       '  <div class="quiz-actions">',
       '    <a href="#" id="quiz-result-wa" class="btn btn-whatsapp" target="_blank" rel="noopener">' + quiz.result.whatsappCta + '</a>',
@@ -65,64 +74,101 @@ export function initQuiz() {
       '  </div>',
       '</div>'
     ].join('\n');
-
-    quizBox.innerHTML = progressHtml + stepsHtml + resultHtml;
-  }
-
-  renderQuizStructure();
-
-  var progressBar = document.getElementById('quiz-progress-bar');
-  var resultBox = document.getElementById('quiz-result');
-  var resultLink = document.getElementById('quiz-result-wa');
-  var restartButton = document.getElementById('quiz-restart');
-  var summaryGoal = document.getElementById('quiz-summary-goal');
-  var summaryRegion = document.getElementById('quiz-summary-region');
-  var summaryPreference = document.getElementById('quiz-summary-preference');
-
-  function showStep(step) {
-    quizBox.querySelectorAll('.quiz-step').forEach(function(el) {
-      el.classList.remove('active');
-    });
-    var target = document.getElementById('quiz-step-' + step);
-    if (target) target.classList.add('active');
-    if (resultBox) resultBox.classList.remove('active');
-    if (progressBar) progressBar.style.width = Math.round((step / totalSteps) * 100) + '%';
   }
 
   function buildQuizMessage() {
+    var journey = answers[1] || 'Não informado';
+    var detail = answers[2] || 'Não informado';
+    var timing = answers[3] || answers[4] || 'Não informado';
     return [
       'Olá, vim pelo site da ' + client.branding.name + ' e quero um pré-atendimento.',
-      'Meu principal objetivo é: ' + (answers[1] || 'Ainda não defini.') + '.',
-      'A região/necessidade principal é: ' + (answers[2] || 'Ainda não sei.') + '.',
-      'Minha preferência agora é: ' + (answers[3] || 'Receber indicação do melhor protocolo.') + '.',
-      'Pode me orientar sobre o cuidado mais indicado e os horários disponíveis?'
+      'Jornada escolhida: ' + journey + '.',
+      'Resultado desejado: ' + detail + '.',
+      'Prazo para realização: ' + timing + '.',
+      'Pode me orientar sobre o protocolo mais indicado?'
     ].join('\n');
   }
 
-  function showResult() {
-    quizBox.querySelectorAll('.quiz-step').forEach(function(el) {
-      el.classList.remove('active');
-    });
-    if (progressBar) progressBar.style.width = '100%';
-    if (summaryGoal) summaryGoal.textContent = answers[1] || quiz.result.summaryGoalDefault;
-    if (summaryRegion) summaryRegion.textContent = answers[2] || quiz.result.summaryRegionDefault;
-    if (summaryPreference) summaryPreference.textContent = answers[3] || quiz.result.summaryPreferenceDefault;
-    if (resultBox) resultBox.classList.add('active');
-    var specialist = (answers[1] === 'Cílios e Sobrancelhas') ? 'erica' : 'analucia';
-    if (resultLink) resultLink.href = buildWhatsAppLink(buildQuizMessage(), specialist);
+  function resolveSpecialist() {
+    return currentBranch === 'cilios' ? 'erica' : 'analucia';
+  }
+
+  // ── Render Step 1 ────────────────────────────────────────────────────────
+  function renderStep1() {
+    var total = 1; // total unknown until branch selected; show step 1 of at least 1
+    var optionsHtml = quiz.step1.options.map(function(opt) {
+      return buildOptionHTML(opt, quiz.step1.id);
+    }).join('\n');
+
+    quizBox.innerHTML = [
+      buildProgressHTML(1, '?'),
+      '<div class="quiz-step active" id="quiz-step-1">',
+      '  <h3 class="quiz-question">' + quiz.step1.question + '</h3>',
+      '  <div class="quiz-options quiz-options--journey">',
+      optionsHtml,
+      '  </div>',
+      '</div>'
+    ].join('\n');
+
+    bindOptions();
+  }
+
+  // ── Render a branch step ─────────────────────────────────────────────────
+  function renderBranchStep(idx) {
+    var step = branchSteps[idx];
+    var stepNum = idx + 2; // step 1 was the journey selector
+    var total = totalBranchSteps + 1;
+    quizBox.innerHTML = buildStepHTML(step, stepNum, total);
+    bindOptions();
+  }
+
+  // ── Render result ────────────────────────────────────────────────────────
+  function renderResult() {
+    quizBox.innerHTML = buildResultHTML();
+
+    var goal = document.getElementById('quiz-summary-goal');
+    var region = document.getElementById('quiz-summary-region');
+    var pref = document.getElementById('quiz-summary-preference');
+    if (goal) goal.textContent = answers[1] || quiz.result.summaryGoalDefault;
+    if (region) region.textContent = answers[2] || quiz.result.summaryRegionDefault;
+    if (pref) pref.textContent = answers[3] || answers[4] || quiz.result.summaryPreferenceDefault;
+
+    var waLink = document.getElementById('quiz-result-wa');
+    if (waLink) waLink.href = buildWhatsAppLink(buildQuizMessage(), resolveSpecialist());
+
+    var restartBtn = document.getElementById('quiz-restart');
+    if (restartBtn) {
+      restartBtn.addEventListener('click', function() {
+        answers = {};
+        currentBranch = null;
+        branchSteps = [];
+        totalBranchSteps = 0;
+        currentStepIndex = -1;
+        renderStep1();
+      });
+    }
 
     if (window.dispatchEvent) {
-      window.dispatchEvent(new CustomEvent('track_quiz_completed', { detail: { answers: answers } }));
+      window.dispatchEvent(new CustomEvent('track_quiz_completed', { detail: { answers: answers, branch: currentBranch } }));
     }
   }
 
-  quizBox.addEventListener('click', function(e) {
-    var button = e.target.closest('.quiz-option');
-    if (!button) return;
+  // ── Bind click events (called after each render) ─────────────────────────
+  function bindOptions() {
+    quizBox.querySelectorAll('.quiz-option').forEach(function(btn) {
+      btn.addEventListener('click', handleOptionClick);
+    });
+  }
 
+  function handleOptionClick(e) {
+    var button = e.currentTarget;
     var step = parseInt(button.getAttribute('data-step'), 10);
-    answers[step] = button.getAttribute('data-label');
-    
+    var label = button.getAttribute('data-label');
+    var branch = button.getAttribute('data-branch');
+
+    answers[step] = label;
+
+    // Visual feedback
     var siblings = button.closest('.quiz-options');
     if (siblings) {
       siblings.querySelectorAll('.quiz-option').forEach(function(item) {
@@ -134,24 +180,30 @@ export function initQuiz() {
     button.setAttribute('aria-pressed', 'true');
 
     setTimeout(function() {
-      if (step < totalSteps) {
-        showStep(step + 1);
+      if (step === 1) {
+        // Branch selection
+        currentBranch = branch || (label === 'Cílios e Sobrancelhas' ? 'cilios' : 'estetica');
+        branchSteps = quiz.branches[currentBranch] || [];
+        totalBranchSteps = branchSteps.length;
+        currentStepIndex = 0;
+        if (branchSteps.length > 0) {
+          renderBranchStep(0);
+        } else {
+          renderResult();
+        }
       } else {
-        showResult();
+        // Advance within branch
+        currentStepIndex++;
+        if (currentStepIndex < branchSteps.length) {
+          renderBranchStep(currentStepIndex);
+        } else {
+          renderResult();
+        }
       }
     }, 220);
-  });
-
-  if (restartButton) {
-    restartButton.addEventListener('click', function() {
-      answers = {};
-      quizBox.querySelectorAll('.quiz-option').forEach(function(button) {
-        button.classList.remove('selected');
-        button.setAttribute('aria-pressed', 'false');
-      });
-      showStep(1);
-    });
   }
 
-  showStep(1);
+  // ── Init ─────────────────────────────────────────────────────────────────
+  currentStepIndex = -1;
+  renderStep1();
 }

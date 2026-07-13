@@ -209,11 +209,11 @@ export function renderUI() {
     }).join('\n');
   }
 
-  // Especialista
+  // Especialista — novo layout com título acima da imagem
   setAttr('.especialista-image-wrap img', 'src', client.branding.specialistPhoto);
   setAttr('.especialista-image-wrap img', 'alt', client.branding.name);
-  setText('.especialista .section-label', client.specialist.label);
-  setText('.especialista .section-title', client.specialist.title, true);
+  setText('.especialista-header .section-label', client.specialist.label);
+  setText('.especialista-header .section-title', client.specialist.title, true);
   setText('.especialista .especialista-copy', client.specialist.description, true);
   
   var specialistBullets = document.querySelector('.specialist-bullets');
@@ -255,22 +255,41 @@ export function renderUI() {
     timelineElement.innerHTML = progressLine + stepsHtml;
   }
 
-  // Confiança (Depoimentos)
-  setText('#depoimentos .section-label', client.confidence.label);
-  setText('#depoimentos .section-title', client.confidence.title, true);
-  setText('#depoimentos .proof-intro', client.confidence.intro);
-
-  var proofGrid = document.querySelector('.proof-grid');
-  if (proofGrid) {
-    proofGrid.innerHTML = client.confidence.points.map(function(point) {
+  // ── Carrossel de Depoimentos (Google Reviews style) ───────────────────────────
+  var testimonialTrack = document.getElementById('testimonials-track');
+  if (testimonialTrack && client.testimonials) {
+    var starSVG = '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M12 2l3.1 6.3L22 9.3l-5 4.9 1.2 6.9L12 17.8l-6.2 3.3 1.2-6.9-5-4.9 6.9-1z"/></svg>';
+    var stars5 = starSVG.repeat(5);
+    var googleMiniLogo = '<svg viewBox="0 0 24 24" width="16" height="16" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>';
+    
+    testimonialTrack.innerHTML = client.testimonials.map(function(dep) {
       return [
-        '<div class="proof-point animate-scale">',
-        '  <strong>' + point.title + '</strong>',
-        '  <span>' + point.description + '</span>',
+        '<div class="testimonial-slide">',
+        '  <article class="testimonial-card">',
+        '    <div class="testimonial-card-header">',
+        '      <div class="testimonial-stars" aria-label="5 estrelas">' + stars5 + '</div>',
+        '      <div class="testimonial-google-icon">' + googleMiniLogo + '</div>',
+        '    </div>',
+        '    <p class="testimonial-text">\u201c' + dep.text + '\u201d</p>',
+        '    <div class="testimonial-author">',
+        '      <div class="testimonial-avatar">' + dep.initials + '</div>',
+        '      <div>',
+        '        <div class="testimonial-name">' + dep.name + '</div>',
+        '        <div class="testimonial-procedure">' + dep.procedure + '</div>',
+        '      </div>',
+        '    </div>',
+        '  </article>',
         '</div>'
       ].join('\n');
     }).join('\n');
   }
+
+  // ── Roller de Palavras-chave (antes do FAQ) ──────────────────────────────
+  renderRoller('[data-roller="keywords"]', [
+    'Naturalidade', 'Avaliação Individual', 'Segurança', 'Sofisticação',
+    'Estética Premium', 'Resultados Elegantes', 'Cuidado Personalizado',
+    'Discrição', 'Saúde e Beleza'
+  ]);
 
   // Localização
   setText('#localizacao .section-label', client.location.label);
@@ -278,6 +297,28 @@ export function renderUI() {
   setText('#localizacao .location-copy p', client.location.description);
   setText('#localizacao .location-address-card strong', client.location.cardTitle);
   setText('#localizacao .location-address-card span', client.location.cardAddress);
+  
+  // Injetar telefone e rating no card de localização se existirem
+  var locCard = document.querySelector('.location-address-card');
+  if (locCard && client.location.cardPhone) {
+    var existing = locCard.querySelector('.location-phone');
+    if (!existing) {
+      var phoneEl = document.createElement('a');
+      phoneEl.className = 'location-phone';
+      phoneEl.href = 'tel:' + client.location.cardPhone.replace(/\D/g, '');
+      phoneEl.textContent = '\uD83D\uDCDE ' + client.location.cardPhone;
+      locCard.appendChild(phoneEl);
+    }
+    if (client.location.cardRating) {
+      var ratingExisting = locCard.querySelector('.location-rating');
+      if (!ratingExisting) {
+        var ratingEl = document.createElement('span');
+        ratingEl.className = 'location-rating';
+        ratingEl.textContent = '\u2B50 ' + client.location.cardRating;
+        locCard.appendChild(ratingEl);
+      }
+    }
+  }
   
   var locationPoints = document.querySelector('.location-points');
   if (locationPoints) {

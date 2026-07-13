@@ -15,9 +15,9 @@ export const client = {
     professionShort: "Estética Avançada",
     niche: "Estética Avançada",
     city: "Rio de Janeiro",
-    neighborhood: "Barra da Tijuca",
+    neighborhood: "Itanhangá",
     registerNumber: "Reg. Profissional: CRF-RJ 12345", // Exibir obrigatório no rodapé
-    address: "Av. das Américas, 4666 - Barra da Tijuca - Rio de Janeiro - RJ - 22640-102",
+    address: "Itanhangui Plaza, Estr. do Itanhangá, 483 - Sl 214 - Itanhangá, Rio de Janeiro - RJ, 22753-005",
     logoHorizontal: "assets/logo-horizontal.webp",
     logoIcon: "assets/logo-icon.webp",
     logoPreloader: "assets/logo-preloader.webp",
@@ -32,16 +32,16 @@ export const client = {
     keywords: "botox natural, preenchimento barra da tijuca, bioestimuladores, harmonização discreta, rejuvenescimento",
     ogImage: "assets/og-image.webp",
     locale: "pt_BR",
-    telephone: "+55 (21) 96492-3211"
+    telephone: "+55 (21) 97137-6433"
   },
 
   contacts: {
     whatsappNumber: "5521964923211", // Dra. Ana Lúcia (Estética Avançada)
     instagramUser: "vannaclinic",
     instagramUrl: "https://instagram.com/vannaclinic",
-    address: "Av. das Américas, 4666 - Barra da Tijuca - Rio de Janeiro - RJ - 22640-102",
-    googleMapsDirectionsUrl: "https://maps.google.com/?q=Vanna+Clinic+Barra+da+Tijuca",
-    googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.748348986877!2d-43.3444!3d-23.0012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAwJzA0LjMiUyA0M8KwMjAnMzkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1711111111111!5m2!1spt-BR!2sbr"
+    address: "Itanhangui Plaza, Estr. do Itanhangá, 483 - Sl 214 - Itanhangá, Rio de Janeiro - RJ, 22753-005",
+    googleMapsDirectionsUrl: "https://maps.google.com/?q=VANNACLINIC+Harmoniza%C3%A7%C3%A3o+facial+Botox+RJ",
+    googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.4!2d-43.3766!3d-22.9878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVkFOTkFDTElOSUM!5e0!3m2!1spt-BR!2sbr!4v1711111111111!5m2!1spt-BR!2sbr"
   },
 
   hero: {
@@ -169,10 +169,12 @@ export const client = {
 
   location: {
     label: "Localização",
-    title: "Atendimento na <em>Barra da Tijuca.</em>",
-    description: "Um espaço pensado para receber você com conforto, privacidade e atendimento individualizado na Barra da Tijuca.",
-    cardTitle: "Local",
-    cardAddress: "Av. das Américas, 4666 - Barra da Tijuca, Rio de Janeiro - RJ, 22640-102",
+    title: "Atendimento no <em>Itanhangá.</em>",
+    description: "Espaço reservado para receber você com conforto, privacidade e atendimento individualizado no Itanhangá, Rio de Janeiro.",
+    cardTitle: "VANNACLINIC — Harmonização facial | Botox RJ",
+    cardAddress: "Itanhangui Plaza, Estr. do Itanhangá, 483 - Sl 214 - Itanhangá, Rio de Janeiro - RJ, 22753-005",
+    cardPhone: "(21) 97137-6433",
+    cardRating: "5,0 ★ (8 avaliações no Google)",
     points: [
       "Para garantir o melhor cuidado, os atendimentos são feitos com hora marcada.",
       "Você pode tirar dúvidas, entender o protocolo indicado e confirmar horários diretamente no WhatsApp."
@@ -191,13 +193,52 @@ export const client = {
   },
 
   footer: {
-    description: "Vanna Clinic — Estética Avançada e Design de Olhar. Atendimento individualizado com foco em naturalidade, segurança e resultados refinados. Barra da Tijuca, Rio de Janeiro.",
+    description: "Vanna Clinic — Estética Avançada e Design de Olhar. Atendimento individualizado com foco em naturalidade, segurança e resultados refinados. Itanhangá, Rio de Janeiro.",
     quickLinksTitle: "Navegação rápida",
     copyright: "© 2026 Vanna Clinic. Todos os direitos reservados. · Reg. Profissional: CRF-RJ 12345",
-    locationText: "Barra da Tijuca · Rio de Janeiro",
+    locationText: "Itanhangá · Rio de Janeiro",
     privacyPolicyUrl: "politica-de-privacidade.html",
     termsOfUseUrl: "termos-de-uso.html"
   },
+
+  testimonials: [
+    {
+      name: "Camila R.",
+      procedure: "Botox Natural",
+      text: "Resultado incrível! Ficou extremamente natural, exatamente o que eu queria. Saí me sentindo descansada sem parecer que fiz nada.",
+      initials: "CR"
+    },
+    {
+      name: "Fernanda M.",
+      procedure: "Preenchimento Labial",
+      text: "A Ana Lúcia tem uma sensibilidade única. Lábio definido, proporcional e sem exageros. Superei o medo que tinha do procedimento.",
+      initials: "FM"
+    },
+    {
+      name: "Leticia S.",
+      procedure: "Extensão de Cílios",
+      text: "A Érica é incrível! Meus cílios ficaram exatamente como eu sonhei — delicados e elegantes. Já marquei a manutenção!",
+      initials: "LS"
+    },
+    {
+      name: "Andressa P.",
+      procedure: "Bioestimulador de Colágeno",
+      text: "Depois dos bioestimuladores minha pele ficou muito mais firme e com brilho. A recuperação foi tranquila e o resultado progressivo é lindo.",
+      initials: "AP"
+    },
+    {
+      name: "Roberta G.",
+      procedure: "Design de Sobrancelhas",
+      text: "Nunca me senti tão bem olhando para mim mesma. O design ficou perfeito para o meu rosto. Atendimento acolhedor e seguro.",
+      initials: "RG"
+    },
+    {
+      name: "Mariana C.",
+      procedure: "Harmonização Facial",
+      text: "Resultado harmonioso e elegante. Me sinto muito mais confiante. A clínica tem uma energia incrível — ambiente sofisticado e acolhedor.",
+      initials: "MC"
+    }
+  ],
 
   whatsappMessages: {
     heroCta: "Olá, vim pelo site da Vanna Clinic e gostaria de saber mais sobre a avaliação de procedimentos.",

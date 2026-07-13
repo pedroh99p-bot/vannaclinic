@@ -9,6 +9,7 @@ import { initCarousels } from './carousel.js';
 import { initTimeline } from './timeline.js';
 import { initQuiz } from './quiz.js';
 import { initTracking } from './tracking.js';
+import { initTestimonialsCarousel } from './testimonials.js';
 
 // Setup Scroll Progress indicator
 function initScrollProgress() {
@@ -51,6 +52,7 @@ function bootstrap() {
     initTimeline();
     initQuiz();
     initWhatsAppModalAndScroll();
+    initTestimonialsCarousel();
     
     // Animações de viewport
     initScrollReveal();

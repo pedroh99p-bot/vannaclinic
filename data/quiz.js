@@ -1,3 +1,5 @@
+'use strict';
+
 export const quizIcons = {
   syringe: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2-3 3M11 5l8 8M14 8l-6 6M7 11l-3 3M5 19l-3 3M19 14l3 3M12.5 16.5l-5-5"/></svg>`,
   lips: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12a10 5 0 0 1 4-3 12 6 0 0 0 12 0 10 5 0 0 1 4 3 10 5 0 0 1-4 3 12 6 0 0 0-12 0 10 5 0 0 1-4-3Z"/><path d="M6 10c2.5 1 5.5 1 8 0"/></svg>`,
@@ -11,12 +13,67 @@ export const quizIcons = {
   message: `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14v9H9l-4 3V6Z"/><path d="M8 10h8M8 13h5"/></svg>`
 };
 
+// Perguntas de follow-up para a trilha de Estética Avançada (Ana Lúcia)
+var stepsEstetica = [
+  {
+    id: 2,
+    question: "O que você gostaria de suavizar ou realçar?",
+    options: [
+      { label: "Linhas e rugas de expressão", sublabel: "Aspecto cansado ou sobrancelhas caídas.", icon: "syringe" },
+      { label: "Volume e contorno facial", sublabel: "Lábios, maçãs ou mandíbula.", icon: "lips" },
+      { label: "Firmeza e sustentação da pele", sublabel: "Flacidez, perda de colágeno.", icon: "droplet" },
+      { label: "Ainda não tenho certeza", sublabel: "Prefiro a indicação da especialista.", icon: "chat" }
+    ]
+  },
+  {
+    id: 3,
+    question: "Como você prefere o resultado?",
+    options: [
+      { label: "100% natural e discreto", sublabel: "Apenas um aspecto descansado e leve.", icon: "shieldCheck" },
+      { label: "Realce sutil e perceptível", sublabel: "Valorizar traços sem mudar minha identidade.", icon: "sparkles" },
+      { label: "Definição marcante e segura", sublabel: "Mudança mais nítida, sempre dentro da proporção.", icon: "droplet" }
+    ]
+  },
+  {
+    id: 4,
+    question: "Quando deseja realizar?",
+    options: [
+      { label: "Esta semana", sublabel: "Quero consultar horários imediatos.", icon: "calendar" },
+      { label: "Nas próximas semanas", sublabel: "Estou planejando para os próximos 15 dias.", icon: "clock" },
+      { label: "Apenas me informando", sublabel: "Quero entender mais antes de decidir.", icon: "message" }
+    ]
+  }
+];
+
+// Perguntas de follow-up para a trilha de Cílios e Sobrancelhas (Érica)
+var stepsCilios = [
+  {
+    id: 2,
+    question: "O que você deseja para o seu olhar?",
+    options: [
+      { label: "Extensão de cílios discreta", sublabel: "Volume e comprimento suave e natural.", icon: "cilios" },
+      { label: "Extensão de cílios dramática", sublabel: "Olhar marcante e expressivo.", icon: "sparkles" },
+      { label: "Design de sobrancelhas", sublabel: "Correção de formato e preenchimento sutil.", icon: "shieldCheck" },
+      { label: "Micropigmentação", sublabel: "Sobrancelhas definidas e de longa duração.", icon: "message" }
+    ]
+  },
+  {
+    id: 3,
+    question: "Quando deseja realizar?",
+    options: [
+      { label: "Esta semana", sublabel: "Quero consultar horários imediatos.", icon: "calendar" },
+      { label: "Nas próximas semanas", sublabel: "Estou planejando para os próximos 15 dias.", icon: "clock" },
+      { label: "Apenas me informando", sublabel: "Quero entender mais antes de decidir.", icon: "message" }
+    ]
+  }
+];
+
 export const quiz = {
   header: {
     label: "Pré-atendimento",
     title: "Quer entender qual procedimento combina melhor com você <em>hoje?</em>",
     intro: "Responda rápido e envie seu contexto para nossa equipe pelo WhatsApp.",
-    note: "Consultas individuais realizadas na Barra da Tijuca.",
+    note: "Consultas individuais realizadas no Itanhangá, Rio de Janeiro.",
     ctaButton: "Iniciar pré-atendimento"
   },
   result: {
@@ -25,85 +82,44 @@ export const quiz = {
     desc: "Com essas respostas, a equipe da Vanna Clinic consegue te orientar de forma personalizada.",
     whatsappCta: "Enviar respostas no WhatsApp",
     restartCta: "Refazer perguntas",
-    summaryGoalLabel: "Objetivo",
-    summaryRegionLabel: "Resultado",
+    summaryGoalLabel: "Jornada",
+    summaryRegionLabel: "Resultado desejado",
     summaryPreferenceLabel: "Urgência",
     summaryGoalDefault: "Ainda não definido",
     summaryRegionDefault: "Ainda não definido",
     summaryPreferenceDefault: "Ainda não definida"
   },
+  // Step 1 — Seleção da jornada (branching gate)
+  step1: {
+    id: 1,
+    question: "Por onde você gostaria de começar?",
+    options: [
+      {
+        label: "Estética Avançada",
+        sublabel: "Botox, preenchimento, bioestimuladores e harmonização facial.",
+        icon: "syringe",
+        branch: "estetica"
+      },
+      {
+        label: "Cílios e Sobrancelhas",
+        sublabel: "Extensões, design de olhar e micropigmentação com a Érica.",
+        icon: "cilios",
+        branch: "cilios"
+      }
+    ]
+  },
+  branches: {
+    estetica: stepsEstetica,
+    cilios: stepsCilios
+  },
+  // Mantido por compatibilidade com código legado que lê quiz.steps
   steps: [
     {
       id: 1,
-      question: "O que você gostaria de melhorar hoje?",
+      question: "Por onde você gostaria de começar?",
       options: [
-        {
-          label: "Botox Natural",
-          sublabel: "Suavizar linhas finas mantendo expressões saudáveis.",
-          icon: "syringe"
-        },
-        {
-          label: "Preenchimento Labial",
-          sublabel: "Definição e volume labial sutil e proporcional.",
-          icon: "lips"
-        },
-        {
-          label: "Bioestimulador de Colágeno",
-          sublabel: "Recuperar a firmeza e a sustentação natural da pele.",
-          icon: "droplet"
-        },
-        {
-          label: "Cílios e Sobrancelhas",
-          sublabel: "Realçar o olhar com extensões discretas.",
-          icon: "cilios"
-        },
-        {
-          label: "Conversar sobre indicações",
-          sublabel: "Avaliar em consulta qual o procedimento ideal.",
-          icon: "chat"
-        }
-      ]
-    },
-    {
-      id: 2,
-      question: "Como você prefere o resultado?",
-      options: [
-        {
-          label: "100% natural e discreto",
-          sublabel: "Apenas um aspecto descansado e leve.",
-          icon: "shieldCheck"
-        },
-        {
-          label: "Realce sutil e perceptível",
-          sublabel: "Valorizar traços sem mudar a sua identidade.",
-          icon: "sparkles"
-        },
-        {
-          label: "Definição marcante e segura",
-          sublabel: "Mudança mais nítida sempre dentro da proporção.",
-          icon: "droplet"
-        }
-      ]
-    },
-    {
-      id: 3,
-      question: "Quando deseja realizar?",
-      options: [
-        {
-          label: "Esta semana",
-          sublabel: "Desejo consultar horários imediatos.",
-          icon: "calendar"
-        },
-        {
-          label: "Nas próximas semanas",
-          sublabel: "Estou planejando para os próximos 15 dias.",
-          icon: "clock"
-        },
-        {
-          label: "Apenas tirando dúvidas",
-          sublabel: "Quero entender mais antes de decidir.",
-          icon: "message"
-        }
+        { label: "Estética Avançada", sublabel: "Botox, preenchimento, bioestimuladores e harmonização facial.", icon: "syringe" },
+        { label: "Cílios e Sobrancelhas", sublabel: "Extensões, design de olhar e micropigmentação com a Érica.", icon: "cilios" }
       ]
     }
   ]

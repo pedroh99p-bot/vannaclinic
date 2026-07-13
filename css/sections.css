@@ -8,16 +8,16 @@
     section[id] { scroll-margin-top: calc(72px + env(safe-area-inset-top, 0px)); }
     .container { padding-inline: clamp(1rem, 2.4vw, 1.5rem); }
     .navbar {
-      background: rgba(90,64,58,.9);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(255, 251, 247, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       padding: calc(env(safe-area-inset-top, 0px) + .18rem) 0 .22rem;
-      box-shadow: 0 1px 0 rgba(201,145,140,.16);
+      box-shadow: 0 1px 0 rgba(201,145,140,.14);
     }
     .navbar.scrolled {
-      background: rgba(90,64,58,.96);
+      background: rgba(255, 251, 247, 0.97);
       padding: calc(env(safe-area-inset-top, 0px) + .12rem) 0 .18rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+      box-shadow: 0 4px 20px rgba(77,56,51,.08);
     }
     .navbar,
     .navbar * { box-sizing: border-box; }
@@ -46,17 +46,18 @@
     .navbar-nav a {
       font-size: .67rem;
       letter-spacing: .1em;
-      color: rgba(253,250,246,.72);
+      color: var(--c-text-muted);
       white-space: nowrap;
       padding: .12rem 0;
+      transition: color var(--duration) var(--ease);
     }
     .navbar-nav a + a {
       margin-left: .1rem;
       padding-left: .9rem;
-      border-left: 1px solid rgba(253,250,246,.14);
+      border-left: 1px solid var(--c-border);
     }
     .navbar-nav a::after { background: var(--c-primary); }
-    .navbar-nav a:hover { color: #fff; }
+    .navbar-nav a:hover { color: var(--c-primary); }
     .navbar-actions {
       gap: .55rem;
       margin-left: auto;
@@ -70,18 +71,19 @@
       padding: .58rem .92rem;
       font-size: .6rem;
       letter-spacing: .12em;
-      background: rgba(201,145,140,.16);
-      border: 1px solid rgba(201,145,140,.34);
-      color: #FDFAF6;
+      background: var(--c-primary);
+      border: 1px solid var(--c-primary);
+      color: #fff;
     }
     .navbar-cta:hover {
-      background: rgba(201,145,140,.26);
-      box-shadow: none;
+      background: var(--c-primary-dark);
+      border-color: var(--c-primary-dark);
+      box-shadow: var(--shadow-sm);
     }
     .hero {
       min-height: min(100svh, 920px);
       padding-top: calc(72px + env(safe-area-inset-top, 0px));
-      background: #5A403A;
+      background: var(--c-bg-alt);
     }
     .hero-bg-image {
       background-image: url('https://res.cloudinary.com/dm9mnc97u/image/upload/v1782852691/5cc5b510-e39c-4050-a9b2-8a4ca379e76b_qgrguu.webp');
