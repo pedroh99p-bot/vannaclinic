@@ -129,13 +129,21 @@ export const client = {
           <h4>Ana Lucia</h4>
           <p class="specialist-role">Estética Avançada & Biomedicina</p>
           <p>Procedimentos injetáveis (Botox, Preenchimento e Bioestimuladores) focados em rejuvenescimento sutil e segurança anatômica.</p>
-          <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm wa-link" data-specialist="analucia" data-wa-key="specialistAnalucia" style="width: 100%; justify-content: center;">Falar com Ana Lúcia</a>
+          <div class="specialist-bullets-mini">
+            <div class="bullet-mini animate" style="transition-delay: 100ms;"><span class="bullet-mini-num">01</span><span class="bullet-mini-txt">Botox Natural</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 200ms;"><span class="bullet-mini-num">02</span><span class="bullet-mini-txt">Preenchimento Labial</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 300ms;"><span class="bullet-mini-num">03</span><span class="bullet-mini-txt">Bioestimuladores</span></div>
+          </div>
         </div>
         <div class="specialist-member">
           <h4>Érica</h4>
           <p class="specialist-role">Cílios & Sobrancelhas</p>
           <p>Extensões e micropigmentação personalizadas para realçar o olhar com delicadeza e elegância.</p>
-          <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm wa-link" data-specialist="erica" data-wa-key="specialistErica" style="width: 100%; justify-content: center;">Falar com Érica</a>
+          <div class="specialist-bullets-mini">
+            <div class="bullet-mini animate" style="transition-delay: 100ms;"><span class="bullet-mini-num">01</span><span class="bullet-mini-txt">Extensão de Cílios</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 200ms;"><span class="bullet-mini-num">02</span><span class="bullet-mini-txt">Design de Sobrancelhas</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 300ms;"><span class="bullet-mini-num">03</span><span class="bullet-mini-txt">Micropigmentação</span></div>
+          </div>
         </div>
       </div>
     `,
