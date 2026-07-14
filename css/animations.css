@@ -133,9 +133,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *:not(.roller-track):not(.roller-item), 
-  *:not(.roller-track)::before, 
-  *:not(.roller-track)::after { 
+  *:not(.roller-track):not(.roller-item):not(.testimonials-track):not(.testimonials-sequence), 
+  *:not(.roller-track):not(.testimonials-track)::before, 
+  *:not(.roller-track):not(.testimonials-track)::after { 
     animation-duration: .01ms !important; 
     transition-duration: .01ms !important; 
   }

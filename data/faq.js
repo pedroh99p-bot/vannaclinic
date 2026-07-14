@@ -1,5 +1,5 @@
 export const faq = {
-  sectionTitle: "Perguntas que costumam surgir antes de iniciar o <em>procedimento.</em>",
+  sectionTitle: "Perguntas frequentes",
   sectionLabel: "Dúvidas frequentes",
   items: [
     {

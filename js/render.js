@@ -260,10 +260,21 @@ export function renderUI() {
         return;
       }
       if (roller) roller.setAttribute('aria-hidden', 'true');
-      var repeated = source.concat(source);
-      track.innerHTML = repeated.map(function(item) {
+      var sequence = source.slice();
+      while (sequence.length < 12) {
+        sequence = sequence.concat(source);
+      }
+      var sequenceHTML = sequence.map(function(item) {
         return '<span class="roller-item"><span class="roller-dot"></span>' + item + '</span>';
       }).join('\n');
+      track.innerHTML = [
+        '<div class="roller-sequence">',
+        sequenceHTML,
+        '</div>',
+        '<div class="roller-sequence" aria-hidden="true">',
+        sequenceHTML,
+        '</div>'
+      ].join('\n');
     });
   };
 
@@ -371,6 +382,9 @@ export function renderUI() {
     'Discrição', 'Saúde e Beleza'
   ]);
   renderRoller('[data-roller="location"]', client.rollers.location);
+
+  setText('#faq .section-label', client.faq.sectionLabel);
+  setText('#faq .section-title', client.faq.sectionTitle, true);
 
   // Localização
   setText('#localizacao .section-label', client.location.label);
