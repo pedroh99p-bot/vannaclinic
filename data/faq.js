@@ -1,6 +1,6 @@
 export const faq = {
   sectionTitle: "Perguntas frequentes",
-  sectionLabel: "Dúvidas frequentes",
+  sectionLabel: "",
   items: [
     {
       question: "O Botox deixa o rosto congelado?",

@@ -51,8 +51,8 @@ export const portfolio = {
     },
     brows: {
       id: 'brows',
-      title: 'Sobrancelhas',
-      ariaLabel: 'Resultados de Sobrancelhas',
+      title: 'Cílios e Sobrancelhas',
+      ariaLabel: 'Resultados de Cílios e Sobrancelhas',
       category: 'brows',
       speed: '42s',
       direction: 'reverse',

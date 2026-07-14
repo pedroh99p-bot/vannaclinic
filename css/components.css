@@ -542,21 +542,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* Botão WhatsApp em Ouro Escuro */
-    .agendar-meu-atendimento {
-      background: var(--c-primary-dark);
-      color: var(--c-text-on-primary);
-      border: 1.5px solid var(--c-primary-dark);
-      box-shadow: var(--shadow-md);
-    }
-    .agendar-meu-atendimento:hover {
-      background: var(--c-accent);
-      border-color: var(--c-accent);
-      color: var(--c-text-on-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
     /* ============================================
        LOCALIZAÇÃO
     ============================================ */

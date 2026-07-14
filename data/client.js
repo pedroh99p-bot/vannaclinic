@@ -129,19 +129,13 @@ export const client = {
           <h4>Ana Lucia</h4>
           <p class="specialist-role">Estética Avançada & Biomedicina</p>
           <p>Procedimentos injetáveis (Botox, Preenchimento e Bioestimuladores) focados em rejuvenescimento sutil e segurança anatômica.</p>
-          <div class="specialist-ctas" style="display: flex; flex-direction: column; gap: var(--s-xs); width: 100%; margin-top: auto; padding-top: var(--s-sm);">
-            <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm wa-link" data-specialist="analucia" data-wa-key="specialistAnalucia" style="width: 100%; justify-content: center;">WhatsApp Ana Lúcia</a>
-            <a href="https://instagram.com/vannaclinic" target="_blank" rel="noopener noreferrer" class="btn btn-instagram-brand btn-sm ig-link" style="width: 100%; justify-content: center;">Instagram @vannaclinic</a>
-          </div>
+          <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm wa-link" data-specialist="analucia" data-wa-key="specialistAnalucia" style="width: 100%; justify-content: center;">Falar com Ana Lúcia</a>
         </div>
         <div class="specialist-member">
           <h4>Érica</h4>
           <p class="specialist-role">Cílios & Sobrancelhas</p>
           <p>Extensões e micropigmentação personalizadas para realçar o olhar com delicadeza e elegância.</p>
-          <div class="specialist-ctas" style="display: flex; flex-direction: column; gap: var(--s-xs); width: 100%; margin-top: auto; padding-top: var(--s-sm);">
-            <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm wa-link" data-specialist="erica" data-wa-key="specialistErica" style="width: 100%; justify-content: center;">WhatsApp Érica</a>
-            <a href="https://instagram.com/vannaclinic" target="_blank" rel="noopener noreferrer" class="btn btn-instagram-brand btn-sm ig-link" style="width: 100%; justify-content: center;">Instagram @vannaclinic</a>
-          </div>
+          <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm wa-link" data-specialist="erica" data-wa-key="specialistErica" style="width: 100%; justify-content: center;">Falar com Érica</a>
         </div>
       </div>
     `,
@@ -200,7 +194,7 @@ export const client = {
   },
 
   ctaFinal: {
-    label: "Agendamento",
+    label: "",
     title: "Seu rosto merece mais leveza, presença e <em>cuidado.</em>",
     description: "Chame no WhatsApp, conte o que você gostaria de melhorar e receba uma orientação inicial para escolher o procedimento mais coerente para o seu momento.",
     ctaWhatsApp: "Agendar meu atendimento",
