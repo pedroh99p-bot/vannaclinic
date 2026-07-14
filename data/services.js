@@ -16,7 +16,7 @@ export const services = {
         description: "Suavização de linhas de expressão mantendo a expressão natural, sem o olhar 'congelado'.",
         list: ["Indicação avaliada conforme seu objetivo.", "Aplicação sutil nas áreas de maior necessidade."],
         waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Botox Natural.",
-        cta: "Quero Botox Natural"
+        cta: "Suavizar Expressão"
       },
       {
         tag: "Tratamento",
@@ -24,7 +24,7 @@ export const services = {
         description: "Definição e volume sutil, respeitando a harmonia do seu rosto.",
         list: ["Indicação avaliada conforme seu objetivo.", "Foco em simetria e hidratação labial."],
         waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Preenchimento Labial sutil.",
-        cta: "Quero Preenchimento"
+        cta: "Personalizar Lábios"
       },
       {
         tag: "Procedimento",
@@ -32,7 +32,7 @@ export const services = {
         description: "Rejuvenescimento e firmeza da pele de forma gradual e natural.",
         list: ["Indicação avaliada conforme seu objetivo.", "Estímulo natural da firmeza cutânea."],
         waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Bioestimuladores.",
-        cta: "Quero Colágeno"
+        cta: "Estimular Colágeno"
       }
     ],
     complementares: [
@@ -42,7 +42,7 @@ export const services = {
         description: "Extensão de cílios com técnica sutil para um olhar marcante e natural.",
         list: ["Indicação avaliada conforme seu objetivo.", "Materiais leves que protegem os fios naturais."],
         waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Cílios Elegantes.",
-        cta: "Quero Cílios"
+        cta: "Realçar Cílios"
       },
       {
         tag: "Sobrancelhas",
@@ -50,7 +50,7 @@ export const services = {
         description: "Mapeamento e design para valorizar o olhar com proporção, naturalidade e acabamento refinado.",
         list: ["Formato definido conforme seus traços.", "Acabamento sutil para realçar a expressão."],
         waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Design de Sobrancelhas.",
-        cta: "Quero Sobrancelhas"
+        cta: "Definir Sobrancelhas"
       }
     ]
   },
