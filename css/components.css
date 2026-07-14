@@ -1829,28 +1829,32 @@
       animation: pulseGlow 2s infinite !important;
     }
 
-    /* === SERVICOS / PROTOCOLOS TABS & CTAs IN NAVBAR COLOR === */
+    /* === SERVICOS / PROTOCOLOS TABS & CTAs IN SPECIALIST BG COLOR === */
     .service-tabs-bar {
       justify-content: center !important;
     }
     .service-tab {
       background: transparent !important;
-      color: var(--c-accent) !important;
-      border: 1px solid var(--c-accent) !important;
+      color: var(--c-accent-deep) !important;
+      border: 1px solid var(--c-accent-deep) !important;
     }
     .service-tab:hover {
-      background: rgba(90, 67, 59, 0.08) !important; /* fallback using c-accent-rgb */
+      background: rgba(58, 47, 32, 0.08) !important; /* fallback using c-accent-deep-rgb */
     }
     .service-tab.is-active {
-      background: var(--c-accent) !important;
-      border-color: var(--c-accent) !important;
+      background: var(--c-accent-deep) !important;
+      border-color: var(--c-accent-deep) !important;
       color: var(--c-text-on-dark) !important;
       transform: translateY(-2px) !important;
     }
     .servico-card .btn {
-      background: var(--c-accent) !important;
+      background: var(--c-accent-deep) !important;
       color: var(--c-text-on-dark) !important;
-      border: 1.5px solid var(--c-accent) !important;
+      border: 1.5px solid var(--c-accent-deep) !important;
+      width: fit-content !important;
+      align-self: center !important;
+      padding: 0.65rem 1.6rem !important;
+      margin-top: auto !important;
     }
     .servico-card .btn:hover {
       background: var(--c-primary-dark) !important;
