@@ -15,21 +15,24 @@ export const services = {
         title: "Botox Natural",
         description: "Suavização de linhas de expressão mantendo a expressão natural, sem o olhar 'congelado'.",
         list: ["Indicação avaliada conforme seu objetivo.", "Aplicação sutil nas áreas de maior necessidade."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Botox Natural."
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Botox Natural.",
+        cta: "Quero Botox Natural"
       },
       {
         tag: "Tratamento",
         title: "Preenchimento Labial",
         description: "Definição e volume sutil, respeitando a harmonia do seu rosto.",
         list: ["Indicação avaliada conforme seu objetivo.", "Foco em simetria e hidratação labial."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Preenchimento Labial sutil."
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Preenchimento Labial sutil.",
+        cta: "Quero Preenchimento"
       },
       {
         tag: "Procedimento",
         title: "Bioestimuladores de Colágeno",
         description: "Rejuvenescimento e firmeza da pele de forma gradual e natural.",
         list: ["Indicação avaliada conforme seu objetivo.", "Estímulo natural da firmeza cutânea."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Bioestimuladores."
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Bioestimuladores.",
+        cta: "Quero Colágeno"
       }
     ],
     complementares: [
@@ -38,14 +41,16 @@ export const services = {
         title: "Cílios Elegantes",
         description: "Extensão de cílios com técnica sutil para um olhar marcante e natural.",
         list: ["Indicação avaliada conforme seu objetivo.", "Materiais leves que protegem os fios naturais."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Cílios Elegantes."
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Cílios Elegantes.",
+        cta: "Quero Cílios"
       },
       {
         tag: "Sobrancelhas",
         title: "Design de Sobrancelhas Personalizado",
         description: "Mapeamento e design para valorizar o olhar com proporção, naturalidade e acabamento refinado.",
         list: ["Formato definido conforme seus traços.", "Acabamento sutil para realçar a expressão."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Design de Sobrancelhas."
+        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Design de Sobrancelhas.",
+        cta: "Quero Sobrancelhas"
       }
     ]
   },

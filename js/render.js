@@ -505,7 +505,7 @@ function renderServices() {
         '  <ul class="servico-list">',
         listItemsHtml,
         '  </ul>',
-        '  <a href="#" class="btn btn-outline wa-link" data-specialist="' + specialistKey + '" data-wa-message="' + item.waMessage + '" target="_blank" rel="noopener">Quero saber se é ideal para mim</a>',
+        '  <a href="#" class="btn btn-outline wa-link" data-specialist="' + specialistKey + '" data-wa-message="' + item.waMessage + '" target="_blank" rel="noopener">' + (item.cta || 'Quero saber mais') + '</a>',
         '</article>'
       ].join('\n');
     }).join('\n');

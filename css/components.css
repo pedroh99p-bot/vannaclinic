@@ -1828,3 +1828,34 @@
     .btn-glow {
       animation: pulseGlow 2s infinite !important;
     }
+
+    /* === SERVICOS / PROTOCOLOS TABS & CTAs IN NAVBAR COLOR === */
+    .service-tabs-bar {
+      justify-content: center !important;
+    }
+    .service-tab {
+      background: transparent !important;
+      color: var(--c-accent) !important;
+      border: 1px solid var(--c-accent) !important;
+    }
+    .service-tab:hover {
+      background: rgba(90, 67, 59, 0.08) !important; /* fallback using c-accent-rgb */
+    }
+    .service-tab.is-active {
+      background: var(--c-accent) !important;
+      border-color: var(--c-accent) !important;
+      color: var(--c-text-on-dark) !important;
+      transform: translateY(-2px) !important;
+    }
+    .servico-card .btn {
+      background: var(--c-accent) !important;
+      color: var(--c-text-on-dark) !important;
+      border: 1.5px solid var(--c-accent) !important;
+    }
+    .servico-card .btn:hover {
+      background: var(--c-primary-dark) !important;
+      border-color: var(--c-primary-dark) !important;
+      color: var(--c-text-on-dark) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(118, 90, 82, 0.2) !important;
+    }
