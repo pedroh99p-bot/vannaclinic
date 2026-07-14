@@ -35,11 +35,11 @@
   --c-error: #8C5A3B;
   --c-alert: #9A6B3D;
   --c-chocolate: #5A403A;
-  --c-whatsapp: var(--c-primary);
-  --c-whatsapp-hover: var(--c-primary-hover);
-  --c-instagram-start: #6F4938;
-  --c-instagram-mid: #A07145;
-  --c-instagram-end: #D7B783;
+  --c-whatsapp: #25D366;
+  --c-whatsapp-hover: #20BA5C;
+  --c-instagram-start: #f09433;
+  --c-instagram-mid: #e6683c;
+  --c-instagram-end: #bc1888;
 
   --c-primary-rgb: 160, 126, 76;
   --c-primary-hover-rgb: 118, 90, 52;
