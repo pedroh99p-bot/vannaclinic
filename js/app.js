@@ -10,6 +10,7 @@ import { initTimeline } from './timeline.js';
 import { initQuiz } from './quiz.js';
 import { initTracking } from './tracking.js';
 import { initTestimonialsCarousel } from './testimonials.js';
+import { initRollers } from './rollers.js';
 
 // Setup Scroll Progress indicator
 function initScrollProgress() {
@@ -36,6 +37,7 @@ function bootstrap() {
   // 3. Renderizar todos os blocos estáticos e dinâmicos da interface
   renderUI();
   renderFAQ();
+  initRollers();
 
   // 4. Hidratar links estáticos do WhatsApp e Instagram
   hydrateWhatsAppLinks();

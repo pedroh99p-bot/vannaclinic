@@ -82,10 +82,7 @@ export const client = {
   trustStrip: [
     "Resultados naturais",
     "Sofisticação e segurança",
-    "Avaliação individual",
-    "Estética personalizada",
-    "Cuidado premium",
-    "Resultado elegante"
+    "Avaliação individual"
   ],
 
   rollers: {

@@ -260,21 +260,9 @@ export function renderUI() {
         return;
       }
       if (roller) roller.setAttribute('aria-hidden', 'true');
-      var sequence = source.slice();
-      while (sequence.length < 12) {
-        sequence = sequence.concat(source);
-      }
-      var sequenceHTML = sequence.map(function(item) {
+      track.innerHTML = source.map(function(item) {
         return '<span class="roller-item"><span class="roller-dot"></span>' + item + '</span>';
       }).join('\n');
-      track.innerHTML = [
-        '<div class="roller-sequence">',
-        sequenceHTML,
-        '</div>',
-        '<div class="roller-sequence" aria-hidden="true">',
-        sequenceHTML,
-        '</div>'
-      ].join('\n');
     });
   };
 
@@ -361,18 +349,7 @@ export function renderUI() {
     var originalTestimonials = client.testimonials.map(function(dep) {
       return renderTestimonialCard(dep, false, stars5, googleMiniLogo);
     }).join('\n');
-    var clonedTestimonials = client.testimonials.map(function(dep) {
-      return renderTestimonialCard(dep, true, stars5, googleMiniLogo);
-    }).join('\n');
-
-    testimonialTrack.innerHTML = [
-      '<div class="testimonials-sequence" role="list">',
-      originalTestimonials,
-      '</div>',
-      '<div class="testimonials-sequence" aria-hidden="true">',
-      clonedTestimonials,
-      '</div>'
-    ].join('\n');
+    testimonialTrack.innerHTML = originalTestimonials;
   }
 
   // ── Roller de Palavras-chave (antes do FAQ) ──────────────────────────────
@@ -566,15 +543,6 @@ function renderServices() {
     });
   });
 
-  // Render callout
-  var callout = document.querySelector('.service-method-callout');
-  if (callout) {
-    callout.innerHTML = [
-      '  <span class="section-label">' + client.services.callout.label + '</span>',
-      '  <h3 class="service-group-name">' + client.services.callout.title + '</h3>',
-      '  <p>' + client.services.callout.description + '</p>'
-    ].join('\n');
-  }
 }
 
 // Helper text function for local use
