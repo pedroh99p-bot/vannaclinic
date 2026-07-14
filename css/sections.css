@@ -689,11 +689,11 @@
       z-index: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(112deg, rgba(var(--c-logo-light-rgb), .1) 1px, transparent 1px),
-        linear-gradient(68deg, rgba(var(--c-bg-rgb), .045) 1px, transparent 1px);
-      background-size: 76px 76px, 112px 112px;
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='140' viewBox='0 0 220 140'%3E%3Cg fill='none' stroke='%23ead7b8' stroke-width='1' stroke-opacity='.16'%3E%3Cpath d='M-20 44C28 2 70 2 118 44s90 42 142 0'/%3E%3Cpath d='M-16 104C34 62 78 62 126 104s88 42 138 0'/%3E%3Cpath d='M16 8c30 28 60 28 90 0s60-28 90 0'/%3E%3C/g%3E%3C/svg%3E"),
+        radial-gradient(circle, rgba(var(--c-logo-light-rgb), .09) 1px, transparent 1px);
+      background-size: 220px 140px, 28px 28px;
       background-position: center;
-      opacity: .42;
+      opacity: .5;
     }
     .especialista > .container {
       position: relative;
@@ -1415,48 +1415,61 @@
       border: 0;
     }
     .cta-final {
-      background: var(--c-bg-alt);
-      color: var(--c-text);
+      position: relative;
+      background: linear-gradient(180deg, rgba(var(--c-gold-dark-rgb), .96), var(--c-accent-deep));
+      color: var(--c-text-on-dark);
+      overflow: hidden;
+      isolation: isolate;
     }
     .cta-final::before {
-      background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(var(--c-primary-dark-rgb), .08) 0%, transparent 60%);
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='140' viewBox='0 0 220 140'%3E%3Cg fill='none' stroke='%23ead7b8' stroke-width='1' stroke-opacity='.16'%3E%3Cpath d='M-20 44C28 2 70 2 118 44s90 42 142 0'/%3E%3Cpath d='M-16 104C34 62 78 62 126 104s88 42 138 0'/%3E%3Cpath d='M16 8c30 28 60 28 90 0s60-28 90 0'/%3E%3C/g%3E%3C/svg%3E"),
+        radial-gradient(circle, rgba(var(--c-logo-light-rgb), .09) 1px, transparent 1px);
+      background-size: 220px 140px, 28px 28px;
+      background-position: center;
+      opacity: .5;
     }
     .cta-final .section-label {
       justify-content: center;
-      color: var(--c-primary-dark);
+      color: var(--c-logo-light);
     }
-    .cta-final .section-label::before { background: var(--c-primary-dark); }
+    .cta-final .section-label::before { background: var(--c-logo-light); }
     .cta-final h2 {
       max-width: 660px;
       font-size: var(--fs-section-title);
       line-height: var(--lh-section-title);
       letter-spacing: 0;
-      color: var(--c-text-main);
+      color: var(--c-text-on-dark);
     }
     .cta-final h2 em {
-      color: var(--c-primary-dark);
+      color: var(--c-logo-light);
     }
     .cta-final p {
       max-width: 540px;
-      color: var(--c-text-muted);
+      color: rgba(255, 251, 247, .75); /* fallback using rgb representation of off-white */
     }
     .cta-final .btn-outline {
-      color: var(--c-primary-dark);
-      border-color: rgba(var(--c-primary-dark-rgb), .46);
+      color: var(--c-logo-light);
+      border-color: rgba(234, 215, 184, .46);
     }
     .cta-final .btn-outline:hover {
-      background: var(--c-primary-dark);
-      color: var(--c-text-on-primary);
-      border-color: var(--c-primary-dark);
+      background: var(--c-logo-light);
+      color: var(--c-accent-deep);
+      border-color: var(--c-logo-light);
     }
     .cta-final .cta-micro {
-      color: var(--c-text-muted);
+      color: rgba(255, 251, 247, .6);
     }
     .cta-final .agendar-meu-atendimento {
-      background: var(--c-primary-dark);
-      color: var(--c-text-on-primary);
-      border-color: var(--c-primary-dark);
-      box-shadow: var(--shadow-md);
+      background: var(--c-whatsapp) !important;
+      color: #fff !important;
+      border-color: var(--c-whatsapp) !important;
+      box-shadow: 0 8px 24px rgba(37,211,102,.3);
     }
     .footer {
       background: linear-gradient(180deg, var(--c-accent-deep), rgba(var(--c-gold-dark-rgb), .96));

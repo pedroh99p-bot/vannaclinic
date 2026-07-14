@@ -429,8 +429,7 @@ export function renderUI() {
   setText('.cta-final .btn-outline', client.ctaFinal.ctaQuiz);
   setText('.cta-final .cta-micro', client.ctaFinal.micro);
 
-  // Hydrate CTA Final letreiro roller
-  renderRoller('[data-roller="cta-keywords"]', ['Naturalidade', 'Segurança', 'Sofisticação', 'Elegância', 'Exclusividade']);
+
 
   // Footer
   setAttr('.footer .logo-bubble img', 'src', client.branding.logoPreloader);
