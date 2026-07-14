@@ -21,7 +21,7 @@ export const client = {
     logoHorizontal: "assets/logo-horizontal.webp",
     logoIcon: "assets/logo-icon.webp",
     logoPreloader: "assets/logo-preloader.webp",
-    favicon: "assets/favicon.webp",
+    favicon: "assets/logo-icon.webp",
     specialistPhoto: "assets/specialist.webp",
     heroBg: "assets/images/hero-vanna-desktop.png",
     heroBgDesktop: "assets/images/hero-vanna-desktop.png",
@@ -129,13 +129,19 @@ export const client = {
           <h4>Ana Lucia</h4>
           <p class="specialist-role">Estética Avançada & Biomedicina</p>
           <p>Procedimentos injetáveis (Botox, Preenchimento e Bioestimuladores) focados em rejuvenescimento sutil e segurança anatômica.</p>
-          <a href="#" target="_blank" rel="noopener" class="btn btn-outline btn-sm wa-link" data-specialist="estetica" data-wa-key="specialistAnalucia">Falar com Ana Lúcia</a>
+          <div class="specialist-ctas" style="display: flex; flex-direction: column; gap: var(--s-xs); width: 100%; margin-top: auto; padding-top: var(--s-sm);">
+            <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm wa-link" data-specialist="analucia" data-wa-key="specialistAnalucia" style="width: 100%; justify-content: center;">WhatsApp Ana Lúcia</a>
+            <a href="https://instagram.com/vannaclinic" target="_blank" rel="noopener noreferrer" class="btn btn-instagram-brand btn-sm ig-link" style="width: 100%; justify-content: center;">Instagram @vannaclinic</a>
+          </div>
         </div>
         <div class="specialist-member">
           <h4>Érica</h4>
           <p class="specialist-role">Cílios & Sobrancelhas</p>
           <p>Extensões e micropigmentação personalizadas para realçar o olhar com delicadeza e elegância.</p>
-          <a href="#" target="_blank" rel="noopener" class="btn btn-outline btn-sm wa-link" data-specialist="cilios" data-wa-key="specialistErica">Falar com Érica</a>
+          <div class="specialist-ctas" style="display: flex; flex-direction: column; gap: var(--s-xs); width: 100%; margin-top: auto; padding-top: var(--s-sm);">
+            <a href="#" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm wa-link" data-specialist="erica" data-wa-key="specialistErica" style="width: 100%; justify-content: center;">WhatsApp Érica</a>
+            <a href="https://instagram.com/vannaclinic" target="_blank" rel="noopener noreferrer" class="btn btn-instagram-brand btn-sm ig-link" style="width: 100%; justify-content: center;">Instagram @vannaclinic</a>
+          </div>
         </div>
       </div>
     `,
