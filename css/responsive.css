@@ -131,12 +131,12 @@
       .service-panel-grid { gap: 1rem; }
       .specialist-bullet { padding: .9rem; }
       .timeline {
-        --timeline-line-x: .94rem;
+        --timeline-line-x: 1.28rem;
         --timeline-dot-size: 30px;
-        --timeline-dot-offset: .55rem;
+        --timeline-dot-gap: .55rem;
       }
       .timeline-dot {
-        left: calc((var(--timeline-dot-size) + var(--timeline-dot-offset)) * -1);
+        left: calc((var(--timeline-dot-size) + var(--timeline-dot-gap)) * -1);
       }
     }
     @media (max-width: 520px) {
