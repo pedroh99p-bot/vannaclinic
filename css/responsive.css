@@ -18,9 +18,9 @@
         grid-template-columns: 1fr;
         padding: 1rem 0 3rem;
       }
-      .hero-bg-image { background-position: center top; }
+      .hero-bg-image { background-position: 70% top; }
       .hero-bg-overlay {
-        background: linear-gradient(90deg, rgba(var(--c-bg-rgb), .22) 0%, rgba(var(--c-bg-rgb), .1) 36%, transparent 54%);
+        background: linear-gradient(90deg, rgba(var(--c-bg-rgb), .44) 0%, rgba(var(--c-bg-rgb), .2) 42%, transparent 68%);
       }
       .hero h1 {
         max-width: 15ch;
@@ -75,6 +75,7 @@
       }
       .hero-bg-image {
         background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna.webp'));
+        background-position: 70% top;
       }
       .hero-kicker { display: none; }
       .hero-badge {
@@ -148,13 +149,16 @@
       }
       .hero-bg-image {
         background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna.webp'));
-        background-position: center top;
+        background-position: 70% top;
       }
       .hero-bg-overlay {
-        background: linear-gradient(90deg, rgba(var(--c-bg-rgb), .24) 0%, rgba(var(--c-bg-rgb), .1) 38%, transparent 56%);
+        background: linear-gradient(90deg, rgba(var(--c-bg-rgb), .5) 0%, rgba(var(--c-bg-rgb), .24) 44%, transparent 72%);
       }
-      .hero h1 { font-size: clamp(2rem, 10vw, 2.7rem); }
-      .hero-sub { max-width: 13.5rem; }
+      .hero h1 {
+        max-width: 9ch;
+        font-size: clamp(2rem, 10vw, 2.7rem);
+      }
+      .hero-sub { max-width: 11.5rem; }
       .container { padding-inline: 1rem; }
       .ux-carousel-track { grid-auto-columns: minmax(87%, 1fr); }
     }

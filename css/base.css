@@ -222,7 +222,7 @@
       width: 17px;
       height: 17px;
       flex-shrink: 0;
-      background: url("https://res.cloudinary.com/dm9mnc97u/image/upload/v1783999676/WhatsApp_icon_1_it22ot.webp") center/contain no-repeat;
+      background: url("../assets/whatsapp-logo.webp") center/contain no-repeat;
       display: inline-block;
       vertical-align: middle;
       transform: translateY(-0.5px);

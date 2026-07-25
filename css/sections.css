@@ -95,7 +95,7 @@
     .hero-bg-image {
       background-image: var(--hero-bg-desktop, url('../assets/images/hero-vanna.webp'));
       background-size: cover;
-      background-position: right center;
+      background-position: 72% center;
       filter: saturate(.98) contrast(1.02);
     }
     .hero-bg-overlay {
@@ -722,7 +722,7 @@
       border: 0;
       background: rgba(var(--c-bg-rgb), .05);
       box-shadow: 0 24px 60px rgba(0, 0, 0, .2);
-      aspect-ratio: 1672 / 941;
+      aspect-ratio: 1448 / 1086;
     }
     .especialista-image-wrap::after {
       content: '';
@@ -736,9 +736,16 @@
     .especialista-image-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center;
+      object-fit: cover;
+      object-position: center top;
       display: block;
+    }
+    @media (min-width: 768px) {
+      .especialista-image-wrap {
+        width: min(100%, 1120px);
+        max-width: 1120px;
+        margin-inline: auto;
+      }
     }
     .especialista-copy {
       margin-top: var(--s-lg);

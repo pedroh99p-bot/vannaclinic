@@ -98,9 +98,9 @@
     .hero-bg-image {
       position: absolute;
       inset: 0;
-      background-image: url('https://res.cloudinary.com/dm9mnc97u/image/upload/v1777694701/a28da448-0417-43fb-a985-2393ad059c08_jldmbv.png');
+      background-image: url('../assets/images/hero-vanna.webp');
       background-size: cover;
-      background-position: 80% center; /* foca no lado direito onde a pessoa está no mobile */
+      background-position: 72% center;
       z-index: 0;
     }
     .hero-bg-overlay {
