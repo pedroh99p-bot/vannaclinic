@@ -18,7 +18,7 @@
         grid-template-columns: 1fr;
         padding: 1rem 0 3rem;
       }
-      .hero-bg-image { background-position: 88% top; }
+      .hero-bg-image { background-position: 82% top; }
       .hero-bg-overlay {
         background: linear-gradient(90deg, rgba(var(--c-bg-rgb), .44) 0%, rgba(var(--c-bg-rgb), .2) 42%, transparent 68%);
       }
@@ -75,7 +75,7 @@
       }
       .hero-bg-image {
         background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna.webp'));
-        background-position: 88% top;
+        background-position: 82% top;
       }
       .hero-kicker { display: none; }
       .hero-badge {
@@ -149,7 +149,7 @@
       }
       .hero-bg-image {
         background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna.webp'));
-        background-position: 88% top;
+        background-position: 82% top;
       }
       .hero-bg-overlay {
         background: linear-gradient(90deg, rgba(var(--c-bg-rgb), .5) 0%, rgba(var(--c-bg-rgb), .24) 44%, transparent 72%);

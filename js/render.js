@@ -210,7 +210,6 @@ export function renderUI() {
     }
   }
 
-  setText('.hero-badge', client.hero.badge);
   setText('.hero-kicker', client.hero.kicker);
 
   // Title on two lines
