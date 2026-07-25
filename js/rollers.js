@@ -32,22 +32,47 @@ function makeGroup(state, hidden) {
   return group;
 }
 
+function getGroups(state) {
+  return Array.prototype.slice.call(state.track.children)
+    .filter(function(child) {
+      return child.classList.contains(state.groupClass);
+    });
+}
+
+function replaceGroups(state, count) {
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < count; i += 1) {
+    fragment.appendChild(makeGroup(state, i > 0));
+  }
+  state.track.replaceChildren(fragment);
+  state.groupCount = count;
+}
+
 function measureState(state) {
   var containerWidth = state.container.getBoundingClientRect().width;
   if (!containerWidth || !state.sourceHTML) return;
 
-  state.track.innerHTML = '';
-  state.track.style.transform = 'translate3d(0, 0, 0)';
+  var groups = getGroups(state);
+  if (!groups.length) {
+    replaceGroups(state, 2);
+    groups = getGroups(state);
+  }
 
-  var firstGroup = makeGroup(state, false);
-  state.track.appendChild(firstGroup);
-
+  var firstGroup = groups[0];
   var loopWidth = firstGroup.getBoundingClientRect().width;
-  if (!loopWidth) return;
+  if (!loopWidth) {
+    queueRefresh();
+    return;
+  }
 
   var targetWidth = Math.max(containerWidth * 2 + loopWidth, loopWidth * 2);
-  while (state.track.children.length < 2 || state.track.scrollWidth < targetWidth) {
-    state.track.appendChild(makeGroup(state, true));
+  var neededGroups = Math.max(2, Math.ceil(targetWidth / loopWidth));
+  var widthChanged = !state.loopWidth || Math.abs(state.loopWidth - loopWidth) > 1;
+  if (groups.length !== neededGroups || widthChanged) {
+    replaceGroups(state, neededGroups);
+    firstGroup = getGroups(state)[0];
+    loopWidth = firstGroup.getBoundingClientRect().width;
+    if (!loopWidth) return;
   }
 
   state.loopWidth = loopWidth;

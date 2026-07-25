@@ -260,7 +260,12 @@ export function renderUI() {
         return;
       }
       if (roller) roller.setAttribute('aria-hidden', 'true');
-      track.innerHTML = source.map(function(item) {
+      var repeatCount = Math.max(3, Math.ceil(12 / source.length));
+      var expanded = [];
+      for (var i = 0; i < repeatCount; i += 1) {
+        expanded = expanded.concat(source);
+      }
+      track.innerHTML = expanded.map(function(item) {
         return '<span class="roller-item"><span class="roller-dot"></span>' + item + '</span>';
       }).join('\n');
     });

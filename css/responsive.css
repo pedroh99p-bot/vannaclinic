@@ -74,7 +74,7 @@
         letter-spacing: .1em;
       }
       .hero-bg-image {
-        background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna-mobile.png'));
+        background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna.webp'));
       }
       .hero-kicker { display: none; }
       .hero-badge {
@@ -147,7 +147,7 @@
         font-size: .5rem;
       }
       .hero-bg-image {
-        background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna-mobile.png'));
+        background-image: var(--hero-bg-mobile, url('../assets/images/hero-vanna.webp'));
         background-position: center top;
       }
       .hero-bg-overlay {

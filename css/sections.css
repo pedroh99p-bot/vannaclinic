@@ -93,7 +93,7 @@
       background: var(--c-bg);
     }
     .hero-bg-image {
-      background-image: var(--hero-bg-desktop, url('../assets/images/hero-vanna-desktop.png'));
+      background-image: var(--hero-bg-desktop, url('../assets/images/hero-vanna.webp'));
       background-size: cover;
       background-position: right center;
       filter: saturate(.98) contrast(1.02);
@@ -307,6 +307,7 @@
       border-block: 1px solid rgba(var(--c-bg-rgb), .12);
       min-height: 3.2rem;
       --marquee-speed: 54;
+      contain: paint;
     }
     .roller-track {
       display: flex;
