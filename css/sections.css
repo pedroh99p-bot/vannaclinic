@@ -630,8 +630,14 @@
       color: var(--c-primary);
     }
     .servico-card h3 {
-      font-size: 1.16rem;
+      display: inline-block;
       margin: 0;
+      padding-bottom: .26rem;
+      font-family: var(--f-display);
+      font-size: 1.32rem;
+      line-height: 1.14;
+      color: var(--c-accent-deep);
+      border-bottom: 1px solid rgba(var(--c-primary-rgb), .2);
     }
     .servico-card p {
       color: var(--c-text-muted);

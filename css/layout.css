@@ -498,8 +498,14 @@
     }
     .servico-icon svg { width: 22px; height: 22px; }
     .servico-card h3 {
-      font-size: 1.2rem;
+      display: inline-block;
+      padding-bottom: .28rem;
       margin-bottom: var(--s-sm);
+      font-family: var(--f-display);
+      font-size: 1.32rem;
+      line-height: 1.14;
+      color: var(--c-accent-deep);
+      border-bottom: 1px solid rgba(var(--c-primary-rgb), .2);
     }
     .servico-card p {
       font-size: var(--f-size-sm);

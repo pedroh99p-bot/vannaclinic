@@ -10,7 +10,7 @@ export const portfolio = {
       title: 'Estética Avançada e Harmonização Facial',
       ariaLabel: 'Resultados de Estética Avançada e Harmonização Facial',
       category: 'advancedAesthetics',
-      speed: '38s',
+      speed: '34s',
       items: [
         {
           id: 'advanced-01',
@@ -54,7 +54,7 @@ export const portfolio = {
       title: 'Cílios e Sobrancelhas',
       ariaLabel: 'Resultados de Cílios e Sobrancelhas',
       category: 'brows',
-      speed: '42s',
+      speed: '38s',
       direction: 'reverse',
       items: [
         {
