@@ -48,12 +48,12 @@ export const client = {
       estetica: {
         number: "5521964923211",
         label: "Estética Avançada",
-        specialist: "Ana Lucia"
+        specialist: "Ana Lúcia Freitas"
       },
       cilios: {
         number: "5521993127648",
         label: "Cílios e Sobrancelhas",
-        specialist: "Érica"
+        specialist: "Érica Nascimento"
       }
     },
     address: "Itanhangui Plaza, Estr. do Itanhangá, 483 - Sl 214 - Itanhangá, Rio de Janeiro - RJ, 22753-005",
@@ -126,8 +126,8 @@ export const client = {
     description: `
       <div class="specialist-team">
         <div class="specialist-member">
-          <h4>Ana Lucia</h4>
-          <p class="specialist-role">Estética Avançada & Biomedicina</p>
+          <h4>Ana Lúcia Freitas</h4>
+          <p class="specialist-role">Estética Avançada</p>
           <p>Procedimentos injetáveis (Botox, Preenchimento e Bioestimuladores) focados em rejuvenescimento sutil e segurança anatômica.</p>
           <div class="specialist-bullets-mini">
             <div class="bullet-mini animate" style="transition-delay: 100ms;"><span class="bullet-mini-num">01</span><span class="bullet-mini-txt">Botox Natural</span></div>
@@ -136,7 +136,7 @@ export const client = {
           </div>
         </div>
         <div class="specialist-member">
-          <h4>Érica</h4>
+          <h4>Érica Nascimento</h4>
           <p class="specialist-role">Cílios & Sobrancelhas</p>
           <p>Extensões e micropigmentação personalizadas para realçar o olhar com delicadeza e elegância.</p>
           <div class="specialist-bullets-mini">
@@ -229,13 +229,13 @@ export const client = {
     {
       name: "Fernanda M.",
       procedure: "Preenchimento Labial",
-      text: "A Ana Lúcia tem uma sensibilidade única. Lábio definido, proporcional e sem exageros. Superei o medo que tinha do procedimento.",
+      text: "A Ana Lúcia Freitas tem uma sensibilidade única. Lábio definido, proporcional e sem exageros. Superei o medo que tinha do procedimento.",
       initials: "FM"
     },
     {
       name: "Leticia S.",
       procedure: "Extensão de Cílios",
-      text: "A Érica é incrível! Meus cílios ficaram exatamente como eu sonhei — delicados e elegantes. Já marquei a manutenção!",
+      text: "A Érica Nascimento é incrível! Meus cílios ficaram exatamente como eu sonhei — delicados e elegantes. Já marquei a manutenção!",
       initials: "LS"
     },
     {
@@ -260,15 +260,15 @@ export const client = {
 
   whatsappMessages: {
     heroCta: "Olá, vim pelo site da Vanna Clinic e gostaria de saber mais sobre a avaliação de procedimentos.",
-    specialistCta: "Olá, quero falar com a Ana Lucia / Érica sobre procedimentos na Barra da Tijuca.",
+    specialistCta: "Olá, quero falar com a Ana Lúcia Freitas / Érica Nascimento sobre procedimentos na Barra da Tijuca.",
     finalCta: "Olá, gostaria de agendar uma consulta na Vanna Clinic.",
     floatingCta: "Olá! Gostaria de tirar algumas dúvidas sobre os procedimentos da Vanna Clinic.",
     locationCta: "Olá, gostaria de saber como chegar na Vanna Clinic e agendar um horário.",
     navbarCta: "Olá, gostaria de agendar um horário na Vanna Clinic pelo botão do cabeçalho.",
-    specialistAnalucia: "Olá Dra. Ana Lúcia, gostaria de saber mais sobre os procedimentos de Estética Avançada.",
-    specialistErica: "Olá Érica, gostaria de saber mais sobre os procedimentos de Cílios e Sobrancelhas.",
-    dialogEstetica: "Olá Dra. Ana Lúcia, vim pelo site da Vanna Clinic e gostaria de agendar uma avaliação de Estética Avançada.",
-    dialogCilios: "Olá Érica, vim pelo site da Vanna Clinic e gostaria de saber mais sobre design de cílios e sobrancelhas."
+    specialistAnalucia: "Olá Dra. Ana Lúcia Freitas, gostaria de saber mais sobre os procedimentos de Estética Avançada.",
+    specialistErica: "Olá Érica Nascimento, gostaria de saber mais sobre os procedimentos de Cílios e Sobrancelhas.",
+    dialogEstetica: "Olá Dra. Ana Lúcia Freitas, vim pelo site da Vanna Clinic e gostaria de agendar uma avaliação de Estética Avançada.",
+    dialogCilios: "Olá Érica Nascimento, vim pelo site da Vanna Clinic e gostaria de saber mais sobre design de cílios e sobrancelhas."
   },
 
   // Referências Importadas

@@ -114,7 +114,7 @@ export const quiz = {
       },
       {
         label: "Cílios e Sobrancelhas",
-        sublabel: "Extensões, design de olhar e micropigmentação com a Érica.",
+        sublabel: "Extensões, design de olhar e micropigmentação com a Érica Nascimento.",
         icon: "cilios",
         branch: "cilios"
       }
@@ -131,7 +131,7 @@ export const quiz = {
       question: "Por onde você gostaria de começar?",
       options: [
         { label: "Estética Avançada", sublabel: "Botox, preenchimento, bioestimuladores e harmonização facial.", icon: "syringe" },
-        { label: "Cílios e Sobrancelhas", sublabel: "Extensões, design de olhar e micropigmentação com a Érica.", icon: "cilios" }
+        { label: "Cílios e Sobrancelhas", sublabel: "Extensões, design de olhar e micropigmentação com a Érica Nascimento.", icon: "cilios" }
       ]
     }
   ]
