@@ -228,8 +228,8 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url('https://res.cloudinary.com/dm9mnc97u/image/upload/v1777694642/35dc67d7-0841-4258-8f28-1cbb026268cb_m5dwqh.png');
-      background-size: 300px;
+      background-image: url('../assets/textures/subtle-line-texture.svg');
+      background-size: 320px 220px;
       background-repeat: repeat;
       opacity: 0.12;
       mix-blend-mode: multiply;

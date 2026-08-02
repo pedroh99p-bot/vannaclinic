@@ -8,7 +8,7 @@ A alteração de cliente exige apenas a substituição de arquivos de imagem na 
 
 ## 📁 Estrutura de Diretórios
 
-* `/assets` - Fotos do profissional, logos, favicon e subpasta `portfolio/` para antes e depois.
+* `/assets` - Fotos do profissional, logos, favicon, texturas e subpasta `images/portfolio/` para antes e depois.
 * `/css` - Estilos modulares da página (`tokens.css`, `animations.css`, `responsive.css` etc.).
 * `/js` - Scripts funcionais que gerenciam interações e animações.
 * `/data` - A **fonte única de verdade** do cliente. Contém todos os textos, dados de contato e links.
@@ -23,14 +23,15 @@ Substitua os arquivos físicos mantendo exatamente os mesmos nomes e extensões 
 * `assets/logo-preloader.webp` - Logo exibido no loader inicial de abertura e no rodapé (Footer).
 * `assets/logo-icon.webp` - Ícone menor ou marca d'água para usos rápidos.
 * `assets/favicon.webp` - Ícone de navegação do site.
-* `assets/hero.webp` - Imagem de fundo principal (Banner Hero).
+* `assets/images/hero-vanna.webp` - Imagem de fundo principal (Banner Hero).
 * `assets/specialist.webp` - Foto do especialista/profissional.
+* `assets/og-image.webp` - Imagem de compartilhamento usada em WhatsApp e redes sociais.
+* `assets/textures/subtle-line-texture.svg` - Textura local usada nos fundos.
 
 #### Adicionar Imagens ao Portfólio
-Coloque as fotos do Antes e Depois no diretório `assets/portfolio/` com nomes sequenciais:
-* `assets/portfolio/01.webp`
-* `assets/portfolio/02.webp`
-* `assets/portfolio/03.webp`
+Coloque as fotos do Antes e Depois no diretório `assets/images/portfolio/` com nomes declarados em `data/portfolio.js`:
+* `assets/images/portfolio/advanced-aesthetics-01.webp`
+* `assets/images/portfolio/brows-01.webp`
 * etc.
 Em seguida, certifique-se de declará-las no arquivo `/data/portfolio.js`.
 
@@ -88,7 +89,13 @@ Altere os dados de SEO do bloco `seo` em `data/client.js`:
 * `title`: Título do site que aparece nas abas do navegador e no Google.
 * `description`: Meta descrição de sumário de busca.
 * `keywords`: Palavras-chave relevantes separadas por vírgula.
-* `ogImage`: URL ou caminho absoluto da imagem de compartilhamento em redes sociais.
+* `siteUrl`: URL pública canônica do site.
+* `ogImage`: caminho local da imagem de compartilhamento. O script converte para URL absoluta usando `siteUrl`.
+
+Para verificar se alguma referência externa de mídia voltou ao código:
+```bash
+node scripts/assert-local-media.mjs
+```
 
 ---
 

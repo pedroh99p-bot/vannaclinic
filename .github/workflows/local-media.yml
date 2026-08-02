@@ -1,0 +1,20 @@
+name: Local media guard
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  assert-local-media:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check media references
+        run: node scripts/assert-local-media.mjs

@@ -32,7 +32,8 @@ export const client = {
     title: "Vanna Clinic | Estética Avançada com Naturalidade",
     description: "Vanna Clinic na Barra da Tijuca. Procedimentos como Botox, Preenchimento e Bioestimuladores focados em naturalidade, sofisticação e resultados elegantes.",
     keywords: "botox natural, preenchimento barra da tijuca, bioestimuladores, harmonização discreta, rejuvenescimento",
-    ogImage: "https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785017714/e5a3ca99-ecd4-4b8a-9da9-7d0b5a4818f6_d1lqzq.webp",
+    siteUrl: "https://vannaclinic.vercel.app/",
+    ogImage: "assets/og-image.webp",
     locale: "pt_BR",
     telephone: "+55 (21) 97137-6433"
   },

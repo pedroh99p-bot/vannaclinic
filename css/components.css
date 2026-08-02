@@ -1054,7 +1054,8 @@
     .roller-track {
       display: inline-flex;
       gap: 0;
-      animation: rollerMove 38s linear infinite;
+      transform: translate3d(0, 0, 0);
+      animation: none;
       will-change: transform;
     }
     .roller-item {
@@ -1074,11 +1075,6 @@
       flex-shrink: 0;
     }
     .roller-item strong { color: var(--c-primary); font-weight: 500; }
-    @keyframes rollerMove {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
     /* ============================================
        LANGUAGE SELECTOR (navbar)
     ============================================ */

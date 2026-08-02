@@ -15,13 +15,6 @@ export function initLoaderReveal(onComplete) {
     });
   }
 
-  function revealAll() {
-    var selector = '.animate,.animate-left,.animate-right,.animate-scale,.hero-text-inner,.grow-line,.mask-reveal,.section-title-underline,.reveal';
-    document.querySelectorAll(selector).forEach(function(el) {
-      el.classList.add('visible');
-    });
-  }
-
   if (!loader) {
     revealHero();
     if (onComplete) onComplete();
@@ -43,10 +36,6 @@ export function initLoaderReveal(onComplete) {
   }
 
   setTimeout(dismiss, 1100);
-  setTimeout(function() {
-    dismiss();
-    revealAll();
-  }, 2500);
 }
 
 export function initRevealFallback() {

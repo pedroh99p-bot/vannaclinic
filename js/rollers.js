@@ -78,6 +78,7 @@ function measureState(state) {
   state.loopWidth = loopWidth;
   state.position = state.position % loopWidth;
   state.speed = readSpeed(state.container, state.defaultSpeed);
+  applyTransform(state);
 }
 
 function queueRefresh() {
@@ -85,6 +86,11 @@ function queueRefresh() {
   refreshTimer = window.setTimeout(function() {
     states.forEach(measureState);
   }, 120);
+}
+
+function applyTransform(state) {
+  var x = state.reverse ? -state.loopWidth + state.position : -state.position;
+  state.track.style.transform = 'translate3d(' + x.toFixed(3) + 'px, 0, 0)';
 }
 
 function tick(time) {
@@ -102,8 +108,7 @@ function tick(time) {
   states.forEach(function(state) {
     if (!state.loopWidth) return;
     state.position = (state.position + state.speed * delta) % state.loopWidth;
-    var x = state.reverse ? -state.loopWidth + state.position : -state.position;
-    state.track.style.transform = 'translate3d(' + x.toFixed(3) + 'px, 0, 0)';
+    applyTransform(state);
   });
 
   rafId = window.requestAnimationFrame(tick);

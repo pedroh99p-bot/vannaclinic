@@ -29,6 +29,15 @@ export function injectThemeColors() {
 export function renderSEO() {
   document.title = client.seo.title;
 
+  var toAbsoluteUrl = function(value) {
+    if (!value) return '';
+    if (/^https?:\/\//.test(value)) return value;
+    var base = client.seo.siteUrl || window.location.origin + '/';
+    return new URL(value.replace(/^\//, ''), base).toString();
+  };
+  var siteUrl = toAbsoluteUrl(client.seo.siteUrl || '/');
+  var ogImage = toAbsoluteUrl(client.seo.ogImage);
+
   var setMeta = function(selector, attribute, value) {
     var el = document.querySelector(selector);
     if (el) el.setAttribute(attribute, value);
@@ -38,9 +47,18 @@ export function renderSEO() {
   setMeta('meta[name="keywords"]', 'content', client.seo.keywords);
   setMeta('meta[property="og:title"]', 'content', client.seo.title);
   setMeta('meta[property="og:description"]', 'content', client.seo.description);
-  setMeta('meta[property="og:image"]', 'content', client.seo.ogImage);
+  setMeta('meta[property="og:url"]', 'content', siteUrl);
+  setMeta('meta[property="og:image"]', 'content', ogImage);
   setMeta('meta[property="og:locale"]', 'content', client.seo.locale);
-  setMeta('meta[name="twitter:image"]', 'content', client.seo.ogImage);
+  setMeta('meta[name="twitter:image"]', 'content', ogImage);
+
+  var canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.appendChild(canonical);
+  }
+  canonical.href = siteUrl;
 
   // Favicon setup
   var fav = document.querySelector('link[rel="shortcut icon"], link[rel="icon"]');
@@ -70,7 +88,8 @@ export function renderSEO() {
     "@type": "HealthAndBeautyBusiness",
     "name": client.branding.name + " - " + client.branding.profession,
     "description": client.seo.description,
-    "image": client.seo.ogImage,
+    "url": siteUrl,
+    "image": ogImage,
     "telephone": client.seo.telephone,
     "sameAs": [
       client.contacts.instagramUrl
