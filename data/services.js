@@ -25,48 +25,58 @@ export const services = {
       {
         title: "Fox Eyes",
         description: "Efeito visual alongado para destacar o olhar.",
+        icon: "sparkles",
         featured: true,
         badge: "Principal"
       },
       {
         title: "Extensão de cílios",
-        description: "Mapeamento e volume escolhidos de acordo com o seu estilo."
+        description: "Mapeamento e volume escolhidos de acordo com o seu estilo.",
+        icon: "cilios"
       },
       {
         title: "Design de sobrancelhas",
-        description: "Desenho personalizado para valorizar seus traços."
+        description: "Desenho personalizado para valorizar seus traços.",
+        icon: "shieldCheck"
       },
       {
         title: "Micropigmentação",
-        description: "Definição de sobrancelhas com planejamento individual."
+        description: "Definição de sobrancelhas com planejamento individual.",
+        icon: "message"
       },
       {
         title: "Brow Lamination",
-        description: "Alinhamento dos fios para um acabamento mais definido."
+        description: "Alinhamento dos fios para um acabamento mais definido.",
+        icon: "droplet"
       }
     ],
     estetica: [
       {
         title: "Botox / Toxina botulínica",
         description: "Avaliação individual para suavizar linhas de expressão com equilíbrio.",
+        icon: "syringe",
         featured: true,
         badge: "Destaque"
       },
       {
         title: "Preenchimento labial",
-        description: "Planejamento de contorno, hidratação e volume conforme seu objetivo."
+        description: "Planejamento de contorno, hidratação e volume conforme seu objetivo.",
+        icon: "lips"
       },
       {
         title: "Skinbooster",
-        description: "Protocolo voltado à hidratação e à qualidade da pele."
+        description: "Protocolo voltado à hidratação e à qualidade da pele.",
+        icon: "droplet"
       },
       {
         title: "Bioestimulador de colágeno",
-        description: "Cuidado gradual para firmeza e qualidade da pele."
+        description: "Cuidado gradual para firmeza e qualidade da pele.",
+        icon: "sparkles"
       },
       {
         title: "Fios de sustentação / PDO",
-        description: "Indicação avaliada conforme a necessidade de sustentação facial."
+        description: "Indicação avaliada conforme a necessidade de sustentação facial.",
+        icon: "shieldCheck"
       }
     ]
   }

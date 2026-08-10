@@ -68,7 +68,7 @@ Os mesmos dados alimentam os cards da seção de procedimentos e o mini agendame
 ---
 
 ### 5. Mini agendamento (`/js/booking.js`)
-O mini agendamento usa os procedimentos de `/data/services.js` e os números de `/data/client.js`. A pessoa escolhe a área na página e continua em um popup acessível para selecionar procedimento, data e horário de preferência; em seguida, o site monta a mensagem e abre o WhatsApp correto. A disponibilidade não é confirmada pelo site.
+O mini agendamento usa os procedimentos de `/data/services.js` e os números de `/data/client.js`. A pessoa escolhe a área e avança por quatro etapas no popup: procedimento, data e horário, nome e confirmação. A revisão final mostra todos os dados e a profissional responsável antes de montar a mensagem e abrir o WhatsApp correto. A disponibilidade não é confirmada pelo site.
 
 ---
 
