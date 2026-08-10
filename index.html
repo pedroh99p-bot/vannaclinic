@@ -121,10 +121,10 @@
         <header class="booking-intro animate">
           <span class="section-label">Comece por aqui</span>
           <h2 class="section-title">Escolha seu procedimento e o melhor <em>horário.</em></h2>
-          <p>Monte sua preferência em poucos passos. A solicitação vai direto para o WhatsApp da especialista escolhida.</p>
+          <p>Escolha a área e monte sua preferência em poucos passos. A solicitação segue para o WhatsApp do atendimento selecionado.</p>
           <ul class="booking-assurances" aria-label="Como funciona o agendamento">
             <li>Sem cadastro</li>
-            <li>Contato direto com a especialista</li>
+            <li>Contato direto pelo WhatsApp</li>
             <li>Confirmação final pelo WhatsApp</li>
           </ul>
         </header>
@@ -345,6 +345,14 @@
       <div class="roller-track"></div>
     </div>
   </main>
+
+  <!-- Mini app de agendamento -->
+  <dialog id="booking-dialog" class="booking-dialog" aria-labelledby="booking-dialog-title">
+    <div class="booking-dialog-shell">
+      <button type="button" class="booking-dialog-close" aria-label="Fechar agendamento">&times;</button>
+      <div id="booking-dialog-content"></div>
+    </div>
+  </dialog>
 
   <!-- Footer -->
   <footer class="footer">

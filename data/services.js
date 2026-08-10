@@ -8,7 +8,7 @@ export const services = {
       id: "cilios",
       specialistKey: "cilios",
       specialist: "Érica Nascimento",
-      name: "Cílios & Sobrancelhas",
+      name: "Cílios e Sobrancelhas",
       lead: "Técnicas personalizadas para realçar o olhar com leveza e definição."
     },
     {

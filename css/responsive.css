@@ -180,7 +180,6 @@
       .service-panel-grid { gap: 1rem; }
       .booking-layout { gap: 1.8rem; }
       .booking-intro .section-title { max-width: 12ch; }
-      .booking-choice-grid--specialists,
       .booking-choice-grid--services,
       .booking-date-grid {
         grid-template-columns: 1fr;
@@ -232,8 +231,75 @@
       .hero-sub { max-width: 11.5rem; }
       .container { padding-inline: 1rem; }
       .ux-carousel-track { grid-auto-columns: minmax(87%, 1fr); }
-      .booking-app { padding: 1rem; }
+      .booking-launch-grid { gap: .55rem; }
+      .booking-launch-card {
+        min-height: 10.5rem;
+        padding: .9rem;
+      }
+      .booking-launch-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      .booking-launch-title {
+        font-size: 1.38rem;
+      }
+      .booking-launch-action {
+        font-size: .56rem;
+      }
+      .booking-dialog {
+        width: calc(100% - 1rem);
+        max-height: calc(100svh - 1rem);
+      }
+      .booking-dialog-shell {
+        max-height: calc(100svh - 1rem);
+        padding: 1rem;
+      }
+      .booking-dialog-header h3 {
+        font-size: 1.8rem;
+      }
+      .booking-area-option {
+        min-height: 3.6rem;
+        padding: .55rem;
+        font-size: .63rem;
+      }
+      .booking-area-icon {
+        width: 1.65rem;
+        height: 1.65rem;
+      }
+      .booking-area-icon svg {
+        width: 1.05rem;
+        height: 1.05rem;
+      }
       .booking-progress li { font-size: .56rem; }
+      .specialist-team {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .55rem;
+      }
+      .specialist-member {
+        min-height: 8.5rem;
+        justify-content: center;
+        padding: .75rem .6rem;
+      }
+      .specialist-member:first-child { order: 1; }
+      .specialist-member:nth-child(2) { order: 2; }
+      .specialist-member h4 {
+        display: grid;
+        min-height: 2.25rem;
+        place-items: center;
+        margin-bottom: .35rem;
+        font-size: 1.08rem;
+        line-height: 1;
+      }
+      .specialist-role {
+        margin: 0;
+        font-size: .56rem;
+        line-height: 1.35;
+        letter-spacing: .05em;
+      }
+      .specialist-member p:not(.specialist-role),
+      .specialist-member .specialist-bullets-mini {
+        display: none;
+      }
       .service-directory .servico-card {
         grid-template-columns: minmax(0, 1fr);
       }
