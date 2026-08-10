@@ -492,78 +492,44 @@ function renderServices() {
   setText('#servicos .section-title', client.services.sectionTitle, true);
   setText('#servicos .section-intro', client.services.sectionIntro);
 
-  var tabsBar = document.querySelector('.service-tabs-bar');
-  var panelsContainer = document.querySelector('.service-panels');
-  if (!tabsBar || !panelsContainer) return;
+  var directory = document.querySelector('.service-directory');
+  if (!directory) return;
 
-  // Render Tabs Buttons
-  tabsBar.innerHTML = client.services.categories.map(function(cat, index) {
-    var activeClass = index === 0 ? ' is-active' : '';
-    var activeSelected = index === 0 ? 'true' : 'false';
-    return [
-      '<button type="button" class="service-tab' + activeClass + '" role="tab" data-service-tab="' + cat.id + '" aria-selected="' + activeSelected + '">',
-      cat.name,
-      '</button>'
-    ].join('\n');
-  }).join('\n');
-
-  // Render Panels
-  panelsContainer.innerHTML = client.services.categories.map(function(cat, index) {
-    var activeClass = index === 0 ? ' is-active' : '';
-    var hiddenAttr = index === 0 ? '' : ' hidden';
-    var itemsList = client.services.items[cat.id] || [];
-    var specialistKey = (cat.id === 'complementares') ? 'cilios' : 'estetica';
-
-    var cardsHtml = itemsList.map(function(item) {
-      var listItemsHtml = item.list.map(function(li) {
-        return '<li>' + li + '</li>';
-      }).join('\n');
+  directory.innerHTML = client.services.categories.map(function(category) {
+    var items = client.services.items[category.id] || [];
+    var cards = items.map(function(item) {
+      var featuredClass = item.featured ? ' is-featured' : '';
+      var badge = item.badge ? '<span class="servico-badge">' + escapeHTML(item.badge) + '</span>' : '';
 
       return [
-        '<article class="servico-card animate-scale">',
-        '  <span class="servico-tag">' + item.tag + '</span>',
-        '  <h3>' + item.title + '</h3>',
-        '  <p>' + item.description + '</p>',
-        '  <ul class="servico-list">',
-        listItemsHtml,
-        '  </ul>',
-        '  <a href="#" class="btn btn-outline wa-link" data-specialist="' + specialistKey + '" data-wa-message="' + item.waMessage + '" target="_blank" rel="noopener">' + (item.cta || 'Quero saber mais') + '</a>',
-        '</article>'
+        '<button type="button" class="servico-card animate-scale' + featuredClass + '"',
+        '  data-booking-specialist="' + escapeHTML(category.specialistKey) + '"',
+        '  data-booking-service="' + escapeHTML(item.title) + '"',
+        '  aria-label="Selecionar ' + escapeHTML(item.title) + ' com ' + escapeHTML(category.specialist) + '">',
+        '  <span class="servico-card-topline">',
+        '    <span class="servico-index">' + String(items.indexOf(item) + 1).padStart(2, '0') + '</span>',
+        badge,
+        '  </span>',
+        '  <span class="servico-title">' + escapeHTML(item.title) + '</span>',
+        '  <span class="servico-description">' + escapeHTML(item.description) + '</span>',
+        '  <span class="servico-action" aria-hidden="true">Selecionar <span>→</span></span>',
+        '</button>'
       ].join('\n');
     }).join('\n');
 
     return [
-      '<div class="service-panel' + activeClass + '" data-service-panel="' + cat.id + '" role="tabpanel"' + hiddenAttr + '>',
-      '  <p class="service-panel-lead animate">' + cat.lead + '</p>',
-      '  <div class="service-panel-grid stagger">',
-      cardsHtml,
+      '<section class="service-specialist animate" aria-labelledby="service-' + escapeHTML(category.id) + '">',
+      '  <header class="service-specialist-header">',
+      '    <span class="service-specialist-name">' + escapeHTML(category.specialist) + '</span>',
+      '    <h3 id="service-' + escapeHTML(category.id) + '">' + escapeHTML(category.name) + '</h3>',
+      '    <p>' + escapeHTML(category.lead) + '</p>',
+      '  </header>',
+      '  <div class="service-procedure-list stagger">',
+      cards,
       '  </div>',
-      '</div>'
+      '</section>'
     ].join('\n');
   }).join('\n');
-
-  // Wire up tabs behavior
-  var tabs = Array.prototype.slice.call(tabsBar.querySelectorAll('[data-service-tab]'));
-  var panels = Array.prototype.slice.call(panelsContainer.querySelectorAll('[data-service-panel]'));
-
-  function activate(id) {
-    tabs.forEach(function(tab) {
-      var active = tab.getAttribute('data-service-tab') === id;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
-
-    panels.forEach(function(panel) {
-      var active = panel.getAttribute('data-service-panel') === id;
-      panel.hidden = !active;
-    });
-  }
-
-  tabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      activate(tab.getAttribute('data-service-tab'));
-    });
-  });
 
 }
 

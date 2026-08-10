@@ -4,10 +4,10 @@ import { injectThemeColors, renderSEO, renderUI } from './render.js';
 import { renderFAQ } from './faq.js';
 import { hydrateWhatsAppLinks, hydrateInstagramLinks } from './whatsapp.js';
 import { initNavbarScroll } from './navbar.js';
-import { initLoaderReveal, initRevealFallback, initScrollReveal, initServiceCardTilt, initWhatsAppModalAndScroll } from './animations.js';
+import { initLoaderReveal, initRevealFallback, initScrollReveal, initWhatsAppModalAndScroll } from './animations.js';
 import { initCarousels } from './carousel.js';
 import { initTimeline } from './timeline.js';
-import { initQuiz } from './quiz.js';
+import { initBooking } from './booking.js';
 import { initTracking } from './tracking.js';
 import { initTestimonialsCarousel } from './testimonials.js';
 import { initRollers } from './rollers.js';
@@ -47,23 +47,22 @@ function bootstrap() {
   initNavbarScroll();
   initScrollProgress();
 
-  // 6. Iniciar animação do loader e revela a página
-  initLoaderReveal(function() {
-    // 7. Apenas inicializar interações de scroll/interativas após a página ser revelada
-    initCarousels();
-    initTimeline();
-    initQuiz();
-    initWhatsAppModalAndScroll();
-    initTestimonialsCarousel();
-    
-    // Animações de viewport
-    initScrollReveal();
-    initRevealFallback();
-    initServiceCardTilt();
+  // 6. Inicializar interações sem depender do fim do loader.
+  initCarousels();
+  initTimeline();
+  initBooking();
+  initWhatsAppModalAndScroll();
+  initTestimonialsCarousel();
 
-    // 8. Inicializar os pixels e analytics de tracking
-    initTracking();
-  });
+  // 7. Observar as seções desde o primeiro frame para evitar elementos presos invisíveis.
+  initScrollReveal();
+  initRevealFallback();
+
+  // 8. Revelar o hero rapidamente sem bloquear o restante da página.
+  initLoaderReveal();
+
+  // 9. Inicializar pixels e analytics de tracking.
+  initTracking();
 }
 
 // Executar bootstrap

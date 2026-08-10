@@ -72,7 +72,7 @@ export const client = {
     floatTagLabel: "Local",
     floatTagValue: "Barra da Tijuca",
     ctaWhatsApp: "Agendar avaliação",
-    ctaQuiz: "Fazer pré-atendimento",
+    ctaQuiz: "Escolher data e horário",
     checkmarks: [
       "Avaliação anatômica individual",
       "Resultados discretos e naturais",
@@ -129,21 +129,21 @@ export const client = {
         <div class="specialist-member">
           <h4>Ana Lúcia Freitas</h4>
           <p class="specialist-role">Estética Avançada</p>
-          <p>Procedimentos injetáveis (Botox, Preenchimento e Bioestimuladores) focados em rejuvenescimento sutil e segurança anatômica.</p>
+          <p>Botox, preenchimento, skinbooster, bioestimuladores e fios definidos após avaliação individual.</p>
           <div class="specialist-bullets-mini">
-            <div class="bullet-mini animate" style="transition-delay: 100ms;"><span class="bullet-mini-num">01</span><span class="bullet-mini-txt">Botox Natural</span></div>
-            <div class="bullet-mini animate" style="transition-delay: 200ms;"><span class="bullet-mini-num">02</span><span class="bullet-mini-txt">Preenchimento Labial</span></div>
-            <div class="bullet-mini animate" style="transition-delay: 300ms;"><span class="bullet-mini-num">03</span><span class="bullet-mini-txt">Bioestimuladores</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 100ms;"><span class="bullet-mini-num">01</span><span class="bullet-mini-txt">Botox / Toxina botulínica</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 200ms;"><span class="bullet-mini-num">02</span><span class="bullet-mini-txt">Preenchimento & Skinbooster</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 300ms;"><span class="bullet-mini-num">03</span><span class="bullet-mini-txt">Bioestimulador & Fios PDO</span></div>
           </div>
         </div>
         <div class="specialist-member">
           <h4>Érica Nascimento</h4>
           <p class="specialist-role">Cílios & Sobrancelhas</p>
-          <p>Extensões e micropigmentação personalizadas para realçar o olhar com delicadeza e elegância.</p>
+          <p>Fox Eyes, extensões, design e micropigmentação personalizados para realçar o olhar.</p>
           <div class="specialist-bullets-mini">
-            <div class="bullet-mini animate" style="transition-delay: 100ms;"><span class="bullet-mini-num">01</span><span class="bullet-mini-txt">Extensão de Cílios</span></div>
-            <div class="bullet-mini animate" style="transition-delay: 200ms;"><span class="bullet-mini-num">02</span><span class="bullet-mini-txt">Design de Sobrancelhas</span></div>
-            <div class="bullet-mini animate" style="transition-delay: 300ms;"><span class="bullet-mini-num">03</span><span class="bullet-mini-txt">Micropigmentação</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 100ms;"><span class="bullet-mini-num">01</span><span class="bullet-mini-txt">Fox Eyes</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 200ms;"><span class="bullet-mini-num">02</span><span class="bullet-mini-txt">Extensão de Cílios</span></div>
+            <div class="bullet-mini animate" style="transition-delay: 300ms;"><span class="bullet-mini-num">03</span><span class="bullet-mini-txt">Sobrancelhas & Micropigmentação</span></div>
           </div>
         </div>
       </div>
@@ -207,7 +207,7 @@ export const client = {
     title: "Seu rosto merece mais leveza, presença e <em>cuidado.</em>",
     description: "Chame no WhatsApp, conte o que você gostaria de melhorar e receba uma orientação inicial para escolher o procedimento mais coerente para o seu momento.",
     ctaWhatsApp: "Agendar meu atendimento",
-    ctaQuiz: "Fazer pré-atendimento",
+    ctaQuiz: "Escolher data e horário",
     micro: "Consulte disponibilidade pelo WhatsApp."
   },
 

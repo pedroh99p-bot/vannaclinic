@@ -9,7 +9,7 @@ export function initLoaderReveal(onComplete) {
   function revealHero() {
     document.querySelectorAll(
       '.hero .animate, .hero .animate-left, .hero .animate-right, .hero .animate-scale, ' +
-      '.hero-text-inner, .hero-badge, .hero-sub, .hero-ctas, .hero-image-area'
+      '.hero .mask-reveal, .hero-text-inner, .hero-badge, .hero-sub, .hero-ctas, .hero-image-area'
     ).forEach(function(el) {
       el.classList.add('visible');
     });
@@ -32,10 +32,10 @@ export function initLoaderReveal(onComplete) {
       if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
       if (curtain && curtain.parentNode) curtain.parentNode.removeChild(curtain);
       if (onComplete) onComplete();
-    }, 1100);
+    }, 430);
   }
 
-  setTimeout(dismiss, 1100);
+  setTimeout(dismiss, 220);
 }
 
 export function initRevealFallback() {
@@ -64,7 +64,7 @@ export function initScrollReveal() {
       entry.target.classList.add('visible');
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -18px 0px' });
+  }, { threshold: 0.06, rootMargin: '0px 0px 24px 0px' });
 
   document.querySelectorAll('.animate,.animate-left,.animate-right,.animate-scale,.grow-line,.mask-reveal,.section-title-underline,.hero-text-inner,.reveal').forEach(function(el) {
     observer.observe(el);
@@ -89,13 +89,13 @@ export function initServiceCardTilt() {
 
 export function initWhatsAppModalAndScroll() {
   var floatingSocials = document.getElementById('floating-socials');
-  var quizSection = document.getElementById('quiz');
+  var bookingSection = document.getElementById('agendamento');
   
   // 1. Scroll-triggered visibility for floating buttons (fade in after quiz)
-  if (floatingSocials && quizSection) {
+  if (floatingSocials && bookingSection) {
     var checkScroll = function() {
-      var rect = quizSection.getBoundingClientRect();
-      // O usuário ultrapassou a seção do Quiz (quando a base dela cruza o viewport do usuário)
+      var rect = bookingSection.getBoundingClientRect();
+      // Exibe os atalhos depois que o mini agendamento deixa a área principal da tela.
       if (rect.bottom < window.innerHeight) {
         floatingSocials.classList.add('visible');
       } else {

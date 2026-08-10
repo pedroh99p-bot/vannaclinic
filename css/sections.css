@@ -552,7 +552,33 @@
       letter-spacing: .04em;
     }
     .servicos {
-      background: var(--c-bg);       /* Serviços: Off-white */
+      background: #f3e9e2;
+    }
+    .servicos-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .9fr);
+      grid-template-areas:
+        "label intro"
+        "title intro";
+      column-gap: clamp(2rem, 6vw, 6rem);
+      max-width: none;
+      margin-inline: 0;
+      text-align: left;
+    }
+    .servicos-header .section-label {
+      grid-area: label;
+      justify-content: flex-start;
+    }
+    .servicos-header .section-title {
+      grid-area: title;
+      max-width: 11ch;
+      margin-inline: 0;
+      font-size: 3.5rem;
+    }
+    .servicos-header .section-intro {
+      grid-area: intro;
+      align-self: end;
+      margin: 0 0 .4rem;
     }
     .service-tabs-bar {
       display: flex;
@@ -667,6 +693,144 @@
       border-radius: 50%;
       background: var(--c-primary);
     }
+    .service-directory {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(2rem, 5vw, 4.5rem);
+      margin-top: clamp(2rem, 4vw, 3.25rem);
+    }
+    .service-directory::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: rgba(var(--c-primary-rgb), .28);
+    }
+    .service-specialist {
+      min-width: 0;
+    }
+    .service-specialist + .service-specialist {
+      padding-left: 0;
+      border-left: 0;
+    }
+    .service-specialist-header {
+      min-height: 10.5rem;
+      padding-bottom: 1.4rem;
+    }
+    .service-specialist-name {
+      display: block;
+      margin-bottom: .45rem;
+      color: var(--c-primary-dark);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .service-specialist-header h3 {
+      margin: 0;
+      color: var(--c-accent-deep);
+      font-size: 3rem;
+      line-height: 1;
+    }
+    .service-specialist-header p {
+      max-width: 30rem;
+      margin: .85rem 0 0;
+      color: var(--c-text-muted);
+      line-height: 1.55;
+    }
+    .service-procedure-list {
+      display: grid;
+      gap: .72rem;
+    }
+    .service-directory .servico-card {
+      appearance: none;
+      width: 100%;
+      min-height: 124px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: .28rem 1rem;
+      padding: 1rem 1.05rem;
+      border: 1px solid rgba(var(--c-primary-rgb), .2);
+      border-radius: 7px;
+      background: rgba(var(--c-surface-rgb), .86);
+      box-shadow: none;
+      color: var(--c-text);
+      text-align: left;
+      cursor: pointer;
+      transform-style: flat;
+      will-change: opacity, transform;
+    }
+    .service-directory .servico-card:hover,
+    .service-directory .servico-card:focus-visible {
+      border-color: var(--c-primary-dark);
+      background: var(--c-surface);
+      box-shadow: 0 10px 24px rgba(var(--c-text-rgb), .08);
+      outline: none;
+    }
+    .service-directory .servico-card.is-featured {
+      border-color: rgba(var(--c-primary-dark-rgb), .7);
+      background: #fffaf2;
+      box-shadow: inset 3px 0 0 var(--c-primary-dark);
+    }
+    .servico-card-topline {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 1.1rem;
+    }
+    .servico-index {
+      color: var(--c-primary-dark);
+      font-size: .67rem;
+      letter-spacing: .14em;
+    }
+    .servico-badge {
+      padding: .22rem .48rem;
+      border: 1px solid rgba(var(--c-primary-rgb), .36);
+      border-radius: 999px;
+      color: var(--c-primary-dark);
+      font-size: .6rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .servico-title {
+      grid-column: 1;
+      font-family: var(--f-display);
+      font-size: 1.45rem;
+      line-height: 1.1;
+      color: var(--c-accent-deep);
+    }
+    .servico-description {
+      grid-column: 1;
+      color: var(--c-text-muted);
+      font-size: .84rem;
+      line-height: 1.45;
+    }
+    .servico-action {
+      grid-column: 2;
+      grid-row: 2 / 4;
+      align-self: center;
+      color: var(--c-primary-dark);
+      font-size: 0;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .servico-action span {
+      display: inline-block;
+      margin-left: .25rem;
+      font-size: 1.15rem;
+      transition: transform var(--duration) var(--ease);
+    }
+    .servico-card:hover .servico-action span,
+    .servico-card:focus-visible .servico-action span {
+      transform: translateX(3px);
+    }
     .service-method-callout {
       margin-top: var(--s-xl);
       padding: 1.2rem 1.3rem;
@@ -728,7 +892,7 @@
       border: 0;
       background: rgba(var(--c-bg-rgb), .05);
       box-shadow: 0 24px 60px rgba(0, 0, 0, .2);
-      aspect-ratio: 1448 / 1086;
+      aspect-ratio: 16 / 8.5;
     }
     .especialista-image-wrap::after {
       content: '';
@@ -743,7 +907,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 16%;
       display: block;
     }
     @media (min-width: 768px) {
@@ -954,6 +1118,246 @@
       color: var(--c-text-muted);
       margin: 0;
     }
+    .booking-section {
+      position: relative;
+      padding-block: clamp(4rem, 8vw, 6rem);
+      background: #eee2da;
+      border-block: 1px solid rgba(var(--c-primary-rgb), .16);
+    }
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(16rem, .72fr) minmax(0, 1.28fr);
+      gap: clamp(2.5rem, 6vw, 5.5rem);
+      align-items: start;
+    }
+    .booking-intro {
+      position: sticky;
+      top: 7.5rem;
+    }
+    .booking-intro .section-title {
+      max-width: 10ch;
+      margin-inline: 0;
+    }
+    .booking-intro > p {
+      max-width: 30rem;
+      margin-top: 1.25rem;
+      color: var(--c-text-muted);
+      line-height: 1.65;
+    }
+    .booking-assurances {
+      display: grid;
+      gap: .65rem;
+      margin-top: 1.4rem;
+    }
+    .booking-assurances li {
+      position: relative;
+      padding-left: 1.15rem;
+      color: var(--c-text);
+      font-size: .82rem;
+    }
+    .booking-assurances li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: .5rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c-primary-dark);
+    }
+    .booking-app {
+      padding: clamp(1.2rem, 3vw, 2rem);
+      border: 1px solid rgba(var(--c-primary-rgb), .28);
+      border-radius: 8px;
+      background: rgba(var(--c-surface-rgb), .92);
+      box-shadow: 0 18px 48px rgba(var(--c-text-rgb), .09);
+    }
+    .booking-progress {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .5rem;
+      margin-bottom: 1.4rem;
+    }
+    .booking-progress li {
+      display: flex;
+      align-items: center;
+      gap: .48rem;
+      color: #9b8a81;
+      font-size: .64rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .booking-progress li span {
+      display: grid;
+      place-items: center;
+      width: 1.55rem;
+      height: 1.55rem;
+      border: 1px solid var(--c-border-strong);
+      border-radius: 50%;
+      font-size: .68rem;
+    }
+    .booking-progress li.is-current {
+      color: var(--c-primary-dark);
+    }
+    .booking-progress li.is-current span {
+      border-color: var(--c-primary-dark);
+      background: var(--c-primary-dark);
+      color: var(--c-text-on-dark);
+    }
+    .booking-step {
+      margin: 0;
+      padding: 1.3rem 0;
+      border: 0;
+      border-top: 1px solid var(--c-border);
+    }
+    .booking-step:disabled {
+      opacity: .48;
+    }
+    .booking-step legend {
+      width: 100%;
+      margin-bottom: .85rem;
+      padding: 0;
+      color: var(--c-accent-deep);
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .booking-step legend span {
+      margin-right: .4rem;
+      color: var(--c-primary-dark);
+      font-size: .66rem;
+      letter-spacing: .12em;
+    }
+    .booking-choice-grid {
+      display: grid;
+      gap: .62rem;
+    }
+    .booking-choice-grid--specialists,
+    .booking-choice-grid--services,
+    .booking-date-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .booking-choice {
+      min-width: 0;
+      min-height: 3.2rem;
+      padding: .78rem .85rem;
+      border: 1px solid var(--c-border);
+      border-radius: 6px;
+      background: var(--c-bg);
+      color: var(--c-text);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color var(--duration) var(--ease), background var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+    }
+    .booking-choice:hover,
+    .booking-choice:focus-visible {
+      border-color: var(--c-primary-dark);
+      outline: none;
+    }
+    .booking-choice.is-selected {
+      border-color: var(--c-primary-dark);
+      background: var(--c-primary-soft);
+      box-shadow: inset 3px 0 0 var(--c-primary-dark);
+    }
+    .booking-choice--specialist span {
+      display: block;
+    }
+    .booking-choice-name {
+      margin-bottom: .2rem;
+      font-family: var(--f-display);
+      font-size: 1.2rem;
+      line-height: 1.1;
+    }
+    .booking-choice-detail {
+      color: var(--c-text-muted);
+      font-size: .72rem;
+    }
+    .booking-choice--service {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .6rem;
+      font-size: .8rem;
+      line-height: 1.3;
+    }
+    .booking-choice--service small {
+      flex: 0 0 auto;
+      color: var(--c-primary-dark);
+      font-size: .58rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .booking-placeholder {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--c-text-muted);
+      font-size: .82rem;
+    }
+    .booking-date-grid {
+      display: grid;
+      gap: .7rem;
+    }
+    .booking-date-grid label {
+      display: grid;
+      gap: .42rem;
+      color: var(--c-text-muted);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .booking-date-grid input {
+      width: 100%;
+      min-height: 46px;
+      padding: .7rem .78rem;
+      border: 1px solid var(--c-border-strong);
+      border-radius: 6px;
+      background: var(--c-bg);
+      color: var(--c-text);
+      font: inherit;
+      text-transform: none;
+    }
+    .booking-date-grid input:focus {
+      border-color: var(--c-primary-dark);
+      outline: 2px solid rgba(var(--c-primary-rgb), .18);
+      outline-offset: 1px;
+    }
+    .booking-submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.3rem;
+      border-top: 1px solid var(--c-border);
+    }
+    .booking-submit-row p {
+      margin: 0;
+      color: var(--c-text-muted);
+      font-size: .72rem;
+      line-height: 1.45;
+    }
+    .booking-submit-row strong {
+      color: var(--c-text);
+      font-size: .8rem;
+    }
+    .booking-submit-row .btn {
+      justify-content: center;
+      min-width: 13.5rem;
+    }
+    .booking-submit-row .btn:disabled {
+      cursor: not-allowed;
+      filter: grayscale(.7);
+      opacity: .5;
+    }
+    .booking-feedback {
+      min-height: 1.1rem;
+      margin: .7rem 0 0;
+      color: var(--c-success);
+      font-size: .75rem;
+      text-align: right;
+    }
+
     .quiz-section {
       background: var(--c-bg-alt);   /* Quiz: Nude Claro */
     }
@@ -1322,8 +1726,9 @@
     .location-top-roller {
       position: relative;
       z-index: 1;
-      margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+      margin-bottom: 0;
       border-radius: 0;
+      background: #f3e9e2;
     }
     .localizacao .section-label,
     .localizacao .section-title {

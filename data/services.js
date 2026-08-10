@@ -1,63 +1,73 @@
 export const services = {
-  sectionLabel: "Protocolos",
-  sectionTitle: "Escolha o procedimento de acordo com o seu <em>objetivo.</em>",
-  sectionIntro: "Protocolos desenvolvidos com foco em naturalidade, sofisticação e segurança para realçar a sua beleza.",
-  
+  sectionLabel: "Procedimentos",
+  sectionTitle: "Escolha seu procedimento por <em>especialista.</em>",
+  sectionIntro: "Os procedimentos estão organizados por especialista para você identificar sua escolha sem dúvidas e seguir direto para o agendamento.",
+
   categories: [
-    { id: "harmonizacao", name: "Harmonização Facial", lead: "Realce sua beleza natural com procedimentos discretos e seguros." },
-    { id: "complementares", name: "Cílios e Sobrancelhas", lead: "Realce o olhar com design e técnicas sutis." }
+    {
+      id: "cilios",
+      specialistKey: "cilios",
+      specialist: "Érica Nascimento",
+      name: "Cílios & Sobrancelhas",
+      lead: "Técnicas personalizadas para realçar o olhar com leveza e definição."
+    },
+    {
+      id: "estetica",
+      specialistKey: "estetica",
+      specialist: "Ana Lúcia Freitas",
+      name: "Estética Avançada",
+      lead: "Protocolos faciais definidos após avaliação individual e alinhamento de expectativas."
+    }
   ],
-  
+
   items: {
-    harmonizacao: [
+    cilios: [
       {
-        tag: "Tratamento",
-        title: "Botox Natural",
-        description: "Suavização de linhas de expressão mantendo a expressão natural, sem o olhar 'congelado'.",
-        list: ["Indicação avaliada conforme seu objetivo.", "Aplicação sutil nas áreas de maior necessidade."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Botox Natural.",
-        cta: "Suavizar Expressão"
+        title: "Fox Eyes",
+        description: "Efeito visual alongado para destacar o olhar.",
+        featured: true,
+        badge: "Principal"
       },
       {
-        tag: "Tratamento",
-        title: "Preenchimento Labial",
-        description: "Definição e volume sutil, respeitando a harmonia do seu rosto.",
-        list: ["Indicação avaliada conforme seu objetivo.", "Foco em simetria e hidratação labial."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre o Preenchimento Labial sutil.",
-        cta: "Personalizar Lábios"
+        title: "Extensão de cílios",
+        description: "Mapeamento e volume escolhidos de acordo com o seu estilo."
       },
       {
-        tag: "Procedimento",
-        title: "Bioestimuladores de Colágeno",
-        description: "Rejuvenescimento e firmeza da pele de forma gradual e natural.",
-        list: ["Indicação avaliada conforme seu objetivo.", "Estímulo natural da firmeza cutânea."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Bioestimuladores.",
-        cta: "Estimular Colágeno"
+        title: "Design de sobrancelhas",
+        description: "Desenho personalizado para valorizar seus traços."
+      },
+      {
+        title: "Micropigmentação",
+        description: "Definição de sobrancelhas com planejamento individual."
+      },
+      {
+        title: "Brow Lamination",
+        description: "Alinhamento dos fios para um acabamento mais definido."
       }
     ],
-    complementares: [
+    estetica: [
       {
-        tag: "Cílios",
-        title: "Cílios Elegantes",
-        description: "Extensão de cílios com técnica sutil para um olhar marcante e natural.",
-        list: ["Indicação avaliada conforme seu objetivo.", "Materiais leves que protegem os fios naturais."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Cílios Elegantes.",
-        cta: "Realçar Cílios"
+        title: "Botox / Toxina botulínica",
+        description: "Avaliação individual para suavizar linhas de expressão com equilíbrio.",
+        featured: true,
+        badge: "Destaque"
       },
       {
-        tag: "Sobrancelhas",
-        title: "Design de Sobrancelhas Personalizado",
-        description: "Mapeamento e design para valorizar o olhar com proporção, naturalidade e acabamento refinado.",
-        list: ["Formato definido conforme seus traços.", "Acabamento sutil para realçar a expressão."],
-        waMessage: "Olá, vim pelo site da Vanna Clinic e quero saber sobre Design de Sobrancelhas.",
-        cta: "Definir Sobrancelhas"
+        title: "Preenchimento labial",
+        description: "Planejamento de contorno, hidratação e volume conforme seu objetivo."
+      },
+      {
+        title: "Skinbooster",
+        description: "Protocolo voltado à hidratação e à qualidade da pele."
+      },
+      {
+        title: "Bioestimulador de colágeno",
+        description: "Cuidado gradual para firmeza e qualidade da pele."
+      },
+      {
+        title: "Fios de sustentação / PDO",
+        description: "Indicação avaliada conforme a necessidade de sustentação facial."
       }
     ]
-  },
-  
-  callout: {
-    label: "Cuidado personalizado",
-    title: "Cada indicação começa com uma avaliação detalhada.",
-    description: "Antes de qualquer aplicação, nossa equipe realiza uma análise anatômica individual para indicar o protocolo mais seguro e coerente para realçar sua beleza natural."
   }
 };

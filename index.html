@@ -59,7 +59,7 @@
         </a>
         <nav class="navbar-nav" aria-label="Navegação principal">
           <a href="#inicio">Início</a>
-          <a href="#quiz">Quiz</a>
+          <a href="#agendamento">Agendamento</a>
           <a href="#servicos">Protocolos</a>
           <a href="#portfolio">Resultados</a>
           <a href="#localizacao">Localização</a>
@@ -88,7 +88,7 @@
                 <p class="hero-sub animate"></p>
                 <div class="hero-ctas animate">
                   <a href="#" class="btn btn-whatsapp btn-glow wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
-                  <a href="#quiz" class="btn btn-outline"></a>
+                  <a href="#agendamento" class="btn btn-outline"></a>
                 </div>
                 <ul class="hero-checks animate"></ul>
                 <div class="hero-urgency animate"></div>
@@ -115,46 +115,20 @@
       </div>
     </section>
 
-    <!-- Sinais do Corpo Section -->
-    <section class="dores-section" id="dores">
-      <div class="container">
-        <header class="dores-header animate">
-          <span class="section-label"></span>
-          <h2 class="section-title"></h2>
-          <p class="section-intro"></p>
+    <!-- Mini agendamento -->
+    <section class="booking-section" id="agendamento">
+      <div class="container booking-layout">
+        <header class="booking-intro animate">
+          <span class="section-label">Comece por aqui</span>
+          <h2 class="section-title">Escolha seu procedimento e o melhor <em>horário.</em></h2>
+          <p>Monte sua preferência em poucos passos. A solicitação vai direto para o WhatsApp da especialista escolhida.</p>
+          <ul class="booking-assurances" aria-label="Como funciona o agendamento">
+            <li>Sem cadastro</li>
+            <li>Contato direto com a especialista</li>
+            <li>Confirmação final pelo WhatsApp</li>
+          </ul>
         </header>
-        <div class="ux-carousel-shell animate" data-carousel="sinais">
-          <button type="button" class="carousel-nav" data-carousel-prev aria-label="Ver sinal anterior">
-            <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
-          <button type="button" class="carousel-nav" data-carousel-next aria-label="Ver próximo sinal">
-            <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
-          </button>
-          <div class="ux-carousel-viewport">
-            <div class="ux-carousel-track stagger"></div>
-          </div>
-        </div>
-        <div class="carousel-dots-inline" data-carousel-dots="sinais"></div>
-        <div class="section-cta animate">
-          <a href="#quiz" class="btn btn-outline"></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Decorative Divider -->
-    <div class="logo-divider" aria-hidden="true">
-      <span class="logo-divider-line"></span>
-      <img src="assets/logo-icon.webp" alt="">
-      <span class="logo-divider-line"></span>
-    </div>
-
-    <!-- Quiz Section -->
-    <section class="quiz-section" id="quiz">
-      <div class="container">
-        <header class="quiz-header animate">
-          <span class="section-label">Pré atendimento</span>
-        </header>
-        <div class="quiz-box animate"></div>
+        <div class="booking-app animate" id="booking-app"></div>
       </div>
     </section>
 
@@ -203,8 +177,7 @@
           <h2 class="section-title"></h2>
           <p class="section-intro"></p>
         </header>
-        <div class="service-tabs-bar animate" role="tablist" aria-label="Categorias de protocolos"></div>
-        <div class="service-panels"></div>
+        <div class="service-directory"></div>
       </div>
     </section>
 
@@ -313,10 +286,11 @@
       <span class="logo-divider-line"></span>
     </div>
 
+    <div class="roller roller-inline roller--light location-top-roller" data-roller="location" style="--marquee-speed:42;">
+      <div class="roller-track"></div>
+    </div>
+
     <section class="localizacao" id="localizacao">
-      <div class="roller roller-inline roller--light location-top-roller" data-roller="location" style="--marquee-speed:42;">
-        <div class="roller-track"></div>
-      </div>
       <div class="container">
         <div class="localizacao-inner localizacao-inner--mapped">
           <div class="location-copy animate-left">
@@ -360,7 +334,7 @@
         <p class="animate"></p>
         <div class="cta-final-actions animate">
           <a href="#" class="btn btn-whatsapp agendar-meu-atendimento btn-glow wa-link" data-wa-message="" target="_blank" rel="noopener"></a>
-          <a href="#quiz" class="btn btn-outline"></a>
+          <a href="#agendamento" class="btn btn-outline"></a>
         </div>
         <div class="cta-micro animate"></div>
       </div>
@@ -383,8 +357,7 @@
 
         <div class="footer-quick-centered">
           <a href="#inicio">Início</a>
-          <a href="#dores">Sinais do corpo</a>
-          <a href="#quiz">Quiz</a>
+          <a href="#agendamento">Agendamento</a>
           <a href="#especialista">Especialista</a>
           <a href="#servicos">Protocolos</a>
           <a href="#portfolio">Portfólio</a>

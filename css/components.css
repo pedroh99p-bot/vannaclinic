@@ -1026,17 +1026,22 @@
     @media (max-width: 767px) {
       .wa-tooltip-wrap  { display: none; }
       .floating-socials {
-        right: 14px;
-        bottom: calc(14px + env(safe-area-inset-bottom, 0px));
-        gap: 8px;
+        right: 10px;
+        bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        flex-direction: row;
+        gap: 6px;
       }
       .contact-float {
-        width: 52px;
-        height: 52px;
+        width: 46px;
+        height: 46px;
       }
       .contact-float svg {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
+      }
+      .contact-float--whatsapp img {
+        width: 28px !important;
+        height: 28px !important;
       }
     }
 

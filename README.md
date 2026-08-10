@@ -40,8 +40,8 @@ Em seguida, certifique-se de declará-las no arquivo `/data/portfolio.js`.
 ### 2. Alterar Dados Básicos e Textos (`/data/client.js`)
 Abra o arquivo [data/client.js](file:///c:/Users/pedro/Documents/Base%20(EST%C3%89TICA)/data/client.js) e edite os blocos de dados do cliente:
 * **`branding`**: Altere `name` (Nome do profissional), `profession` (Profissão/Especialidade) e caminhos das imagens.
-* **`contacts`**: Defina o telefone do WhatsApp (`whatsappNumber`), usuário do Instagram e os links e iframe do Google Maps.
-* **`hero`**: Edite o badge de localização,킥 (kicker), título (dividido em duas linhas), subtítulo e textos de urgência.
+* **`contacts`**: Defina os telefones de cada especialista em `whatsappDestinations`, o usuário do Instagram e os links e iframe do Google Maps.
+* **`hero`**: Edite o badge de localização, kicker, título, subtítulo e textos de urgência.
 * **`specialist`**: Altere a mini-biografia e a lista de diferenciais (bullets) do profissional.
 
 ---
@@ -59,17 +59,16 @@ O template permite alterar completamente a paleta de cores modificando o arquivo
 ---
 
 ### 4. Alterar Serviços e Protocolos (`/data/services.js`)
-As categorias das abas e os cards de serviços são configurados em [data/services.js](file:///c:/Users/pedro/Documents/Base%20(EST%C3%89TICA)/data/services.js):
-1. **Categorias (`categories`)**: Crie ou altere as categorias (ex: `relaxamento`, `estetica`, etc.).
-2. **Itens (`items`)**: Mapeie os cards dentro do ID de cada categoria. Defina o título do serviço, descrição, lista de benefícios e a mensagem que será enviada no WhatsApp quando o usuário clicar em "Quero saber se é ideal para mim".
+As especialistas e os procedimentos exibidos na página são configurados em [data/services.js](file:///c:/Users/pedro/Documents/Base%20(EST%C3%89TICA)/data/services.js):
+1. **Especialistas (`categories`)**: Mantenha `specialistKey` igual à chave cadastrada em `whatsappDestinations`.
+2. **Procedimentos (`items`)**: Defina `title`, `description` e, quando necessário, `featured` e `badge`.
+
+Os mesmos dados alimentam os cards da seção de procedimentos e o mini agendamento, evitando listas divergentes.
 
 ---
 
-### 5. Alterar o Quiz de Pré-atendimento (`/data/quiz.js`)
-O Quiz interativo de pré-atendimento é 100% dinâmico e lê suas regras de [data/quiz.js](file:///c:/Users/pedro/Documents/Base%20(EST%C3%89TICA)/data/quiz.js):
-* **Perguntas (`steps`)**: Altere a pergunta (`question`) e defina as opções.
-* **Opções (`options`)**: Edite o título, subtítulo explicativo e selecione um ícone (ex: `pulse`, `moon`, `droplet`, `sparkles`, `body`, `message`, `spine`, `neck`, `legs`, `bodyAll`, `shieldCheck`, `compass`, `calendar`, `clock`).
-*Os ícones SVG estão mapeados no objeto `quizIcons` do mesmo arquivo e podem ser personalizados livremente.*
+### 5. Mini agendamento (`/js/booking.js`)
+O mini agendamento usa os procedimentos de `/data/services.js` e os números de `/data/client.js`. A pessoa escolhe especialista, procedimento, data e horário de preferência; em seguida, o site monta a mensagem e abre o WhatsApp correto. A disponibilidade não é confirmada pelo site.
 
 ---
 
