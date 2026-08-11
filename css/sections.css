@@ -837,6 +837,7 @@
       box-shadow: none;
       color: var(--c-text);
       text-align: left;
+      touch-action: manipulation;
       cursor: pointer;
       transform-style: flat;
       will-change: opacity, transform;
@@ -1861,6 +1862,7 @@
     }
     .booking-date-field,
     .booking-name-field {
+      min-width: 0;
       display: grid;
       gap: .45rem;
       color: var(--c-text-muted);
@@ -1872,7 +1874,10 @@
     .booking-date-field input,
     .booking-name-field input {
       width: 100%;
+      min-width: 0;
+      max-width: 100%;
       min-height: 50px;
+      box-sizing: border-box;
       padding: .75rem .85rem;
       border: 1px solid var(--c-border-strong);
       border-radius: 6px;
@@ -1882,6 +1887,13 @@
       font-size: .88rem;
       letter-spacing: 0;
       text-transform: none;
+    }
+    .booking-date-field input[type="date"]::-webkit-date-and-time-value {
+      min-width: 0;
+      text-align: left;
+    }
+    .booking-date-field input[type="date"]::-webkit-calendar-picker-indicator {
+      margin: 0;
     }
     .booking-date-field input:focus,
     .booking-name-field input:focus {

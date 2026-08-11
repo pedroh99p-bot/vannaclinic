@@ -8,6 +8,8 @@ var bookingRoot = null;
 var bookingDialog = null;
 var bookingDialogContent = null;
 var bookingState = createInitialState();
+var touchServiceGesture = null;
+var lastTouchServiceOpenAt = 0;
 
 var bookingSteps = [
   { label: 'Procedimento', title: 'Escolha o procedimento', description: 'Selecione o cuidado que mais combina com o que você procura.' },
@@ -274,6 +276,8 @@ function renderDialog() {
 }
 
 function focusStep() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
   window.requestAnimationFrame(function() {
     var selectors = {
       1: '[data-booking-choice-service]',
@@ -340,14 +344,24 @@ function validateCurrentStep() {
   return true;
 }
 
-function openBooking(specialist, service) {
+function openBooking(specialist, service, shouldFocus) {
   bookingState = createInitialState();
   bookingState.specialist = specialist;
   bookingState.service = service || '';
   bookingState.step = service ? 2 : 1;
   renderDialog();
   if (!bookingDialog.open) bookingDialog.showModal();
-  focusStep();
+  if (shouldFocus !== false) focusStep();
+}
+
+function openBookingFromServiceCard(serviceCard, shouldFocus) {
+  if (!serviceCard) return;
+
+  openBooking(
+    serviceCard.getAttribute('data-booking-specialist'),
+    serviceCard.getAttribute('data-booking-service'),
+    shouldFocus
+  );
 }
 
 function selectArea(key) {
@@ -475,12 +489,45 @@ export function initBooking() {
     if (event.target === bookingDialog) bookingDialog.close();
   });
 
+  document.addEventListener('pointerdown', function(event) {
+    if (event.pointerType !== 'touch' || !event.isPrimary) return;
+
+    var serviceCard = event.target.closest('[data-booking-specialist][data-booking-service]');
+    touchServiceGesture = serviceCard ? {
+      card: serviceCard,
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY
+    } : null;
+  });
+
+  document.addEventListener('pointerup', function(event) {
+    if (!touchServiceGesture || event.pointerId !== touchServiceGesture.pointerId) return;
+
+    var serviceCard = event.target.closest('[data-booking-specialist][data-booking-service]');
+    var moved = Math.hypot(event.clientX - touchServiceGesture.x, event.clientY - touchServiceGesture.y);
+    var shouldOpen = serviceCard === touchServiceGesture.card && moved < 12;
+    touchServiceGesture = null;
+    if (!shouldOpen) return;
+
+    event.preventDefault();
+    lastTouchServiceOpenAt = Date.now();
+    openBookingFromServiceCard(serviceCard, false);
+  });
+
+  document.addEventListener('pointercancel', function() {
+    touchServiceGesture = null;
+  });
+
   document.addEventListener('click', function(event) {
     var serviceCard = event.target.closest('[data-booking-specialist][data-booking-service]');
     if (!serviceCard) return;
-    openBooking(
-      serviceCard.getAttribute('data-booking-specialist'),
-      serviceCard.getAttribute('data-booking-service')
-    );
+
+    if (Date.now() - lastTouchServiceOpenAt < 700) {
+      event.preventDefault();
+      return;
+    }
+
+    openBookingFromServiceCard(serviceCard);
   });
 }
