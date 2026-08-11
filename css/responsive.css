@@ -257,6 +257,10 @@
         max-height: calc(100svh - .75rem);
         padding: .9rem;
       }
+      .booking-flow-form {
+        height: min(41rem, calc(100svh - 3.25rem));
+        max-height: calc(100svh - 3.25rem);
+      }
       .booking-dialog-header h3 {
         font-size: 1.72rem;
       }
@@ -341,15 +345,18 @@
         margin-top: .85rem;
       }
       .booking-review > div {
-        grid-template-columns: minmax(6.5rem, .72fr) minmax(0, 1.28fr);
-        gap: .65rem;
-        padding: .62rem 0;
+        grid-template-columns: minmax(0, 1fr);
+        align-items: start;
+        gap: .22rem;
+        padding: .55rem 0;
       }
       .booking-review dt {
         font-size: .57rem;
       }
       .booking-review dd {
         font-size: .75rem;
+        padding-left: 1.6rem;
+        text-align: left;
       }
       .booking-professional {
         margin-top: .8rem;
@@ -365,6 +372,7 @@
         padding-top: .65rem;
       }
       .booking-dialog-actions .btn {
+        flex: 1 1 auto;
         min-width: 0;
         padding-inline: .9rem;
         font-size: .62rem;

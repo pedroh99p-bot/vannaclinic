@@ -86,7 +86,7 @@ function formatDate(value) {
   var formatted = new Intl.DateTimeFormat('pt-BR', {
     weekday: 'long',
     day: '2-digit',
-    month: 'long',
+    month: '2-digit',
     year: 'numeric'
   }).format(date);
   return formatted.charAt(0).toUpperCase() + formatted.slice(1);
@@ -291,6 +291,14 @@ function showFeedback(message) {
   if (feedback) feedback.textContent = message || '';
 }
 
+function updatePressedOptions(selector, attribute, selectedValue) {
+  bookingDialogContent.querySelectorAll(selector).forEach(function(button) {
+    var isSelected = button.getAttribute(attribute) === selectedValue;
+    button.classList.toggle('is-selected', isSelected);
+    button.setAttribute('aria-pressed', String(isSelected));
+  });
+}
+
 function syncVisibleFields() {
   var dateInput = bookingDialogContent.querySelector('[name="booking-date"]');
   var nameInput = bookingDialogContent.querySelector('[name="booking-name"]');
@@ -343,31 +351,36 @@ function openBooking(specialist, service) {
 }
 
 function selectArea(key) {
+  if (bookingState.specialist === key) return;
+
   bookingState.specialist = key;
   bookingState.service = '';
   bookingState.date = '';
   bookingState.time = '';
-  renderDialog();
-  focusStep();
+
+  updatePressedOptions('[data-booking-area]', 'data-booking-area', key);
+
+  var serviceGrid = bookingDialogContent.querySelector('.booking-service-grid');
+  var nextButton = bookingDialogContent.querySelector('[data-booking-next]');
+  if (serviceGrid) serviceGrid.innerHTML = renderProcedures();
+  if (nextButton) nextButton.disabled = true;
+  showFeedback('');
 }
 
 function selectService(name) {
   bookingState.service = name;
-  renderDialog();
-  window.requestAnimationFrame(function() {
-    var nextButton = bookingDialogContent.querySelector('[data-booking-next]');
-    if (nextButton) nextButton.focus({ preventScroll: true });
-  });
+  updatePressedOptions('[data-booking-choice-service]', 'data-booking-choice-service', name);
+
+  var nextButton = bookingDialogContent.querySelector('[data-booking-next]');
+  if (nextButton) nextButton.disabled = false;
+  showFeedback('');
 }
 
 function selectTime(time) {
   syncVisibleFields();
   bookingState.time = time;
-  renderDialog();
-  window.requestAnimationFrame(function() {
-    var nextButton = bookingDialogContent.querySelector('[data-booking-next]');
-    if (nextButton) nextButton.focus({ preventScroll: true });
-  });
+  updatePressedOptions('[data-booking-time]', 'data-booking-time', time);
+  showFeedback('');
 }
 
 function goToStep(step) {
@@ -389,16 +402,15 @@ function handleSubmit(event) {
   if (!category) return;
 
   var message = [
-    'Olá! Meu nome é ' + bookingState.name + ' e vim pelo site da Vanna Clinic.',
+    'Olá! 👋 Gostaria de solicitar este agendamento:',
     '',
-    'Gostaria de solicitar este agendamento:',
-    'Área: ' + category.name,
-    'Procedimento: ' + bookingState.service,
-    'Data de preferência: ' + formatDate(bookingState.date),
-    'Horário de preferência: ' + bookingState.time,
-    'Profissional: ' + category.specialist,
+    '👤 *Nome:* ' + bookingState.name,
+    '✨ *Procedimento:* ' + bookingState.service,
+    '📅 *Data:* ' + formatDate(bookingState.date),
+    '🕐 *Horário:* ' + bookingState.time,
+    '👩‍⚕️ *Profissional:* ' + category.specialist,
     '',
-    'Caso esse horário não esteja disponível, pode me sugerir uma opção próxima?'
+    'Pode confirmar a disponibilidade, por favor?'
   ].join('\n');
 
   showFeedback('Abrindo o WhatsApp com os dados do agendamento…');
