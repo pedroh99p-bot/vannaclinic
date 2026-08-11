@@ -694,31 +694,106 @@
       background: var(--c-primary);
     }
     .service-directory {
-      position: relative;
+      width: min(100%, 980px);
+      margin-top: clamp(2rem, 4vw, 3.25rem);
+      margin-inline: auto;
+    }
+    .service-category-switch {
+      width: min(100%, 760px);
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(2rem, 5vw, 4.5rem);
-      margin-top: clamp(2rem, 4vw, 3.25rem);
+      gap: .4rem;
+      margin-inline: auto;
+      padding: .4rem;
+      border: 1px solid rgba(var(--c-primary-rgb), .28);
+      border-radius: 8px;
+      background: rgba(var(--c-surface-rgb), .66);
+      box-shadow: 0 12px 30px rgba(var(--c-text-rgb), .06);
     }
-    .service-directory::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 1px;
-      background: rgba(var(--c-primary-rgb), .28);
+    .service-category-option {
+      min-width: 0;
+      min-height: 4.75rem;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem .9rem;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--c-text-muted);
+      text-align: left;
+      cursor: pointer;
+      transition: background var(--duration) var(--ease), color var(--duration) var(--ease), border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+    }
+    .service-category-option:hover,
+    .service-category-option:focus-visible {
+      border-color: rgba(var(--c-primary-rgb), .36);
+      outline: none;
+    }
+    .service-category-option.is-active {
+      border-color: var(--c-primary-dark);
+      background: var(--c-accent-deep);
+      color: var(--c-text-on-dark);
+      box-shadow: 0 8px 22px rgba(var(--c-accent-deep-rgb), .18);
+    }
+    .service-category-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(var(--c-primary-rgb), .3);
+      border-radius: 50%;
+      background: var(--c-primary-soft);
+      color: var(--c-primary-dark);
+    }
+    .service-category-option.is-active .service-category-icon {
+      border-color: rgba(var(--c-bg-rgb), .28);
+      background: rgba(var(--c-bg-rgb), .1);
+      color: var(--c-logo-light);
+    }
+    .service-category-icon svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+    .service-category-copy {
+      min-width: 0;
+      display: grid;
+      gap: .2rem;
+    }
+    .service-category-copy strong {
+      color: inherit;
+      font-size: .8rem;
+      line-height: 1.25;
+    }
+    .service-category-copy small {
+      color: inherit;
+      font-size: .61rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      opacity: .72;
+      text-transform: uppercase;
+    }
+    .service-panels {
+      margin-top: clamp(1.8rem, 4vw, 2.8rem);
     }
     .service-specialist {
       min-width: 0;
+      animation: servicePanelIn .32s var(--ease) both;
     }
-    .service-specialist + .service-specialist {
-      padding-left: 0;
-      border-left: 0;
+    .service-specialist[hidden] {
+      display: none;
+    }
+    @keyframes servicePanelIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .service-specialist-header {
-      min-height: 10.5rem;
-      padding-bottom: 1.4rem;
+      max-width: 44rem;
+      min-height: 0;
+      margin: 0 auto 1.4rem;
+      padding-bottom: 0;
+      text-align: center;
     }
     .service-specialist-name {
       display: block;
@@ -732,27 +807,30 @@
     .service-specialist-header h3 {
       margin: 0;
       color: var(--c-accent-deep);
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3rem);
       line-height: 1;
     }
     .service-specialist-header p {
-      max-width: 30rem;
+      max-width: 40rem;
       margin: .85rem 0 0;
       color: var(--c-text-muted);
       line-height: 1.55;
     }
     .service-procedure-list {
       display: grid;
-      gap: .72rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .75rem;
     }
     .service-directory .servico-card {
       appearance: none;
+      position: relative;
       width: 100%;
-      min-height: 124px;
+      min-height: 116px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: .28rem 1rem;
-      padding: 1rem 1.05rem;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem;
       border: 1px solid rgba(var(--c-primary-rgb), .2);
       border-radius: 7px;
       background: rgba(var(--c-surface-rgb), .86);
@@ -775,44 +853,53 @@
       background: #fffaf2;
       box-shadow: inset 3px 0 0 var(--c-primary-dark);
     }
-    .servico-card-topline {
-      grid-column: 1 / -1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 1.1rem;
-    }
-    .servico-index {
+    .servico-card-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(var(--c-primary-rgb), .28);
+      border-radius: 50%;
+      background: var(--c-primary-soft);
       color: var(--c-primary-dark);
-      font-size: .67rem;
-      letter-spacing: .14em;
+      transition: transform var(--duration) var(--ease), background var(--duration) var(--ease);
+    }
+    .servico-card:hover .servico-card-icon,
+    .servico-card:focus-visible .servico-card-icon {
+      transform: scale(1.05);
+      background: var(--c-surface);
+    }
+    .servico-card-icon svg {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+    .servico-card-copy {
+      min-width: 0;
+      display: grid;
+      gap: .3rem;
     }
     .servico-badge {
-      padding: .22rem .48rem;
-      border: 1px solid rgba(var(--c-primary-rgb), .36);
-      border-radius: 999px;
+      position: absolute;
+      top: .55rem;
+      right: .65rem;
       color: var(--c-primary-dark);
-      font-size: .6rem;
+      font-size: .52rem;
       font-weight: 600;
       letter-spacing: .1em;
       text-transform: uppercase;
     }
     .servico-title {
-      grid-column: 1;
       font-family: var(--f-display);
-      font-size: 1.45rem;
+      font-size: 1.28rem;
       line-height: 1.1;
       color: var(--c-accent-deep);
     }
     .servico-description {
-      grid-column: 1;
       color: var(--c-text-muted);
-      font-size: .84rem;
+      font-size: .75rem;
       line-height: 1.45;
     }
     .servico-action {
-      grid-column: 2;
-      grid-row: 2 / 4;
       align-self: center;
       color: var(--c-primary-dark);
       font-size: 0;
@@ -1555,16 +1642,26 @@
       max-height: calc(100svh - 2rem);
     }
     .booking-dialog-shell {
-      height: min(700px, calc(100svh - 2rem));
-      min-height: min(590px, calc(100svh - 2rem));
+      min-height: 0;
       padding: clamp(1.25rem, 3vw, 1.8rem);
       overflow: hidden;
     }
-    #booking-dialog-content {
-      height: 100%;
+    .booking-dialog[open] .booking-dialog-shell {
+      animation: bookingModalIn .24s var(--ease) both;
+    }
+    .booking-dialog[open]::backdrop {
+      animation: bookingBackdropIn .2s ease-out both;
+    }
+    @keyframes bookingModalIn {
+      from { opacity: 0; transform: translateY(12px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes bookingBackdropIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     .booking-flow-form {
-      height: 100%;
+      max-height: calc(100svh - 5.6rem);
       min-height: 0;
       display: grid;
       grid-template-rows: auto auto minmax(0, 1fr) auto auto;
@@ -1621,13 +1718,19 @@
     }
     .booking-dialog-body {
       min-height: 0;
+      max-height: min(27rem, calc(100svh - 18rem));
       overflow-y: auto;
       padding: .2rem .35rem .5rem .05rem;
       scrollbar-width: thin;
       scrollbar-color: rgba(var(--c-primary-rgb), .45) transparent;
     }
     .booking-step-panel {
-      min-height: 100%;
+      min-height: 0;
+      animation: bookingStepIn .24s var(--ease) both;
+    }
+    @keyframes bookingStepIn {
+      from { opacity: 0; transform: translateX(8px); }
+      to { opacity: 1; transform: translateX(0); }
     }
     .booking-area-switch {
       margin: .15rem 0 .85rem;
@@ -1744,10 +1847,11 @@
       font-size: 1.35rem;
       line-height: 1.05;
     }
-    .booking-date-grid {
-      gap: .85rem;
+    .booking-schedule-fields {
+      display: grid;
+      gap: 1.15rem;
     }
-    .booking-date-grid label,
+    .booking-date-field,
     .booking-name-field {
       display: grid;
       gap: .45rem;
@@ -1757,7 +1861,7 @@
       letter-spacing: .06em;
       text-transform: uppercase;
     }
-    .booking-date-grid input,
+    .booking-date-field input,
     .booking-name-field input {
       width: 100%;
       min-height: 50px;
@@ -1771,11 +1875,70 @@
       letter-spacing: 0;
       text-transform: none;
     }
-    .booking-date-grid input:focus,
+    .booking-date-field input:focus,
     .booking-name-field input:focus {
       border-color: var(--c-primary-dark);
       outline: 2px solid rgba(var(--c-primary-rgb), .18);
       outline-offset: 1px;
+    }
+    .booking-time-field {
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .booking-time-field legend {
+      width: 100%;
+      margin-bottom: .55rem;
+      padding: 0;
+      color: var(--c-text-muted);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .booking-time-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .5rem;
+    }
+    .booking-time-option {
+      min-width: 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .38rem;
+      padding: .55rem .45rem;
+      border: 1px solid var(--c-border-strong);
+      border-radius: 6px;
+      background: var(--c-bg);
+      color: var(--c-text);
+      font: inherit;
+      font-size: .75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color var(--duration) var(--ease), background var(--duration) var(--ease), color var(--duration) var(--ease), transform var(--duration) var(--ease);
+    }
+    .booking-time-option:hover,
+    .booking-time-option:focus-visible {
+      transform: translateY(-1px);
+      border-color: var(--c-primary-dark);
+      outline: none;
+    }
+    .booking-time-option.is-selected {
+      border-color: var(--c-primary-dark);
+      background: var(--c-accent-deep);
+      color: var(--c-text-on-dark);
+      box-shadow: inset 3px 0 0 var(--c-primary);
+    }
+    .booking-time-option span {
+      display: grid;
+      place-items: center;
+    }
+    .booking-time-option svg {
+      width: .9rem;
+      height: .9rem;
     }
     .booking-field-note,
     .booking-name-field small,
@@ -1904,6 +2067,14 @@
       margin: .1rem 0 0;
       font-size: .68rem;
       text-align: right;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .service-specialist,
+      .booking-dialog[open] .booking-dialog-shell,
+      .booking-dialog[open]::backdrop,
+      .booking-step-panel {
+        animation: none;
+      }
     }
 
     .quiz-section {

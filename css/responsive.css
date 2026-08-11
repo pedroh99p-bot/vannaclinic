@@ -178,6 +178,7 @@
         padding: .76rem 1rem;
       }
       .service-panel-grid { gap: 1rem; }
+      .service-procedure-list { grid-template-columns: minmax(0, 1fr); }
       .booking-layout { gap: 1.8rem; }
       .booking-intro .section-title { max-width: 12ch; }
       .booking-choice-grid--services,
@@ -251,7 +252,7 @@
         max-height: calc(100svh - .75rem);
       }
       .booking-dialog-shell {
-        height: calc(100svh - .75rem);
+        height: auto;
         min-height: 0;
         max-height: calc(100svh - .75rem);
         padding: .9rem;
@@ -296,6 +297,7 @@
       }
       .booking-progress::before { top: .69rem; }
       .booking-dialog-body {
+        max-height: min(28rem, calc(100svh - 16.5rem));
         padding-right: .2rem;
       }
       .booking-service-grid {
@@ -327,8 +329,13 @@
       .booking-selection-strip strong {
         font-size: 1.18rem;
       }
-      .booking-date-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .booking-time-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: .42rem;
+      }
+      .booking-time-option {
+        min-height: 42px;
+        font-size: .68rem;
       }
       .booking-name-field {
         margin-top: .85rem;
@@ -398,12 +405,53 @@
       .specialist-member .specialist-bullets-mini {
         display: none;
       }
-      .service-directory .servico-card {
+      .service-category-switch {
+        gap: .3rem;
+        padding: .3rem;
+      }
+      .service-category-option {
+        min-height: 7.1rem;
         grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+        gap: .45rem;
+        padding: .7rem .45rem;
+        text-align: center;
+      }
+      .service-category-icon {
+        width: 2.15rem;
+        height: 2.15rem;
+      }
+      .service-category-copy strong {
+        font-size: .7rem;
+      }
+      .service-category-copy small {
+        font-size: .52rem;
+        line-height: 1.3;
+      }
+      .service-specialist-header {
+        margin-bottom: 1rem;
+      }
+      .service-specialist-header p {
+        font-size: .78rem;
+      }
+      .service-directory .servico-card {
+        min-height: 100px;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: .65rem;
+        padding: .8rem;
+      }
+      .servico-card-icon {
+        width: 2.35rem;
+        height: 2.35rem;
+      }
+      .servico-title {
+        font-size: 1.08rem;
+      }
+      .servico-description {
+        font-size: .68rem;
       }
       .servico-action {
-        grid-column: 1;
-        grid-row: auto;
-        margin-top: .25rem;
+        grid-column: 3;
+        margin-top: 0;
       }
     }

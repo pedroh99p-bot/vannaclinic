@@ -16,6 +16,12 @@ var bookingSteps = [
   { label: 'Confirmação', title: 'Confirme seu agendamento', description: 'Revise os dados antes de continuar para o WhatsApp.' }
 ];
 
+var bookingTimeSlots = [
+  '09:00', '10:00', '11:00',
+  '12:00', '14:00', '15:00',
+  '16:00', '17:00', '18:00'
+];
+
 function createInitialState() {
   return {
     step: 1,
@@ -160,6 +166,18 @@ function renderSelectionStrip(category, service) {
   ].join('\n');
 }
 
+function renderTimeOptions() {
+  return bookingTimeSlots.map(function(time) {
+    var active = bookingState.time === time;
+    return [
+      '<button type="button" class="booking-time-option' + (active ? ' is-selected' : '') + '"',
+      ' data-booking-time="' + time + '" aria-pressed="' + active + '">',
+      '  <span>' + quizIcons.clock + '</span>' + time,
+      '</button>'
+    ].join('\n');
+  }).join('\n');
+}
+
 function renderStep(category) {
   var service = getSelectedService();
 
@@ -176,11 +194,14 @@ function renderStep(category) {
     return [
       '<section class="booking-step-panel" aria-labelledby="booking-step-title">',
       renderSelectionStrip(category, service),
-      '  <div class="booking-date-grid">',
-      '    <label><span>Data preferida</span><input type="date" name="booking-date" min="' + getToday() + '" value="' + escapeHTML(bookingState.date) + '" required></label>',
-      '    <label><span>Horário preferido</span><input type="time" name="booking-time" step="1800" value="' + escapeHTML(bookingState.time) + '" required></label>',
+      '  <div class="booking-schedule-fields">',
+      '    <label class="booking-date-field"><span>Data preferida</span><input type="date" name="booking-date" min="' + getToday() + '" value="' + escapeHTML(bookingState.date) + '" required></label>',
+      '    <fieldset class="booking-time-field">',
+      '      <legend>Horário de preferência</legend>',
+      '      <div class="booking-time-grid">' + renderTimeOptions() + '</div>',
+      '    </fieldset>',
       '  </div>',
-      '  <p class="booking-field-note">A disponibilidade será confirmada pelo WhatsApp.</p>',
+      '  <p class="booking-field-note">Os horários são opções de preferência e a disponibilidade será confirmada pelo WhatsApp.</p>',
       '</section>'
     ].join('\n');
   }
@@ -239,7 +260,7 @@ function renderDialog() {
   if (!category || !stepCopy) return;
 
   bookingDialogContent.innerHTML = [
-    '<form class="booking-flow-form" id="booking-form">',
+    '<form class="booking-flow-form" id="booking-form" data-booking-step="' + bookingState.step + '">',
     '  <header class="booking-dialog-header">',
     '    <span class="booking-dialog-eyebrow">Agendamento · ' + bookingState.step + ' de ' + bookingSteps.length + '</span>',
     '    <h3 id="booking-dialog-title">' + escapeHTML(stepCopy.title) + '</h3>',
@@ -272,10 +293,8 @@ function showFeedback(message) {
 
 function syncVisibleFields() {
   var dateInput = bookingDialogContent.querySelector('[name="booking-date"]');
-  var timeInput = bookingDialogContent.querySelector('[name="booking-time"]');
   var nameInput = bookingDialogContent.querySelector('[name="booking-name"]');
   if (dateInput) bookingState.date = dateInput.value;
-  if (timeInput) bookingState.time = timeInput.value;
   if (nameInput) bookingState.name = nameInput.value.trim();
 }
 
@@ -289,10 +308,13 @@ function validateCurrentStep() {
 
   if (bookingState.step === 2) {
     var dateInput = bookingDialogContent.querySelector('[name="booking-date"]');
-    var timeInput = bookingDialogContent.querySelector('[name="booking-time"]');
-    if (!dateInput.reportValidity() || !timeInput.reportValidity()) return false;
+    if (!dateInput.reportValidity()) return false;
     if (bookingState.date < getToday()) {
       showFeedback('Escolha uma data a partir de hoje.');
+      return false;
+    }
+    if (!bookingState.time) {
+      showFeedback('Escolha um horário de preferência para continuar.');
       return false;
     }
   }
@@ -331,6 +353,16 @@ function selectArea(key) {
 
 function selectService(name) {
   bookingState.service = name;
+  renderDialog();
+  window.requestAnimationFrame(function() {
+    var nextButton = bookingDialogContent.querySelector('[data-booking-next]');
+    if (nextButton) nextButton.focus({ preventScroll: true });
+  });
+}
+
+function selectTime(time) {
+  syncVisibleFields();
+  bookingState.time = time;
   renderDialog();
   window.requestAnimationFrame(function() {
     var nextButton = bookingDialogContent.querySelector('[data-booking-next]');
@@ -399,6 +431,12 @@ export function initBooking() {
       return;
     }
 
+    var timeButton = event.target.closest('[data-booking-time]');
+    if (timeButton) {
+      selectTime(timeButton.getAttribute('data-booking-time'));
+      return;
+    }
+
     if (event.target.closest('[data-booking-next]')) {
       handleNext();
       return;
@@ -412,7 +450,6 @@ export function initBooking() {
 
   bookingDialogContent.addEventListener('input', function(event) {
     if (event.target.name === 'booking-date') bookingState.date = event.target.value;
-    if (event.target.name === 'booking-time') bookingState.time = event.target.value;
     if (event.target.name === 'booking-name') bookingState.name = event.target.value;
   });
 

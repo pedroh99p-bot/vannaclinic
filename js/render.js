@@ -495,34 +495,58 @@ function renderServices() {
   var directory = document.querySelector('.service-directory');
   if (!directory) return;
 
-  directory.innerHTML = client.services.categories.map(function(category) {
+  var categoryOrder = ['estetica', 'cilios'];
+  var categories = categoryOrder.map(function(key) {
+    return client.services.categories.find(function(category) {
+      return category.specialistKey === key;
+    });
+  }).filter(Boolean);
+
+  var switcher = categories.map(function(category, index) {
+    var isActive = index === 0;
+    var icon = category.specialistKey === 'cilios' ? client.quizIcons.cilios : client.quizIcons.syringe;
+    return [
+      '<button type="button" class="service-category-option' + (isActive ? ' is-active' : '') + '"',
+      '  id="service-tab-' + escapeHTML(category.id) + '" role="tab"',
+      '  aria-selected="' + isActive + '" aria-controls="service-panel-' + escapeHTML(category.id) + '"',
+      '  tabindex="' + (isActive ? '0' : '-1') + '" data-service-category="' + escapeHTML(category.id) + '">',
+      '  <span class="service-category-icon">' + icon + '</span>',
+      '  <span class="service-category-copy"><strong>' + escapeHTML(category.name) + '</strong><small>' + escapeHTML(category.specialist) + '</small></span>',
+      '</button>'
+    ].join('\n');
+  }).join('\n');
+
+  var panels = categories.map(function(category, categoryIndex) {
     var items = client.services.items[category.id] || [];
     var cards = items.map(function(item) {
       var featuredClass = item.featured ? ' is-featured' : '';
       var badge = item.badge ? '<span class="servico-badge">' + escapeHTML(item.badge) + '</span>' : '';
+      var icon = client.quizIcons[item.icon] || client.quizIcons.sparkles;
 
       return [
         '<button type="button" class="servico-card animate-scale' + featuredClass + '"',
         '  data-booking-specialist="' + escapeHTML(category.specialistKey) + '"',
         '  data-booking-service="' + escapeHTML(item.title) + '"',
         '  aria-label="Selecionar ' + escapeHTML(item.title) + ' com ' + escapeHTML(category.specialist) + '">',
-        '  <span class="servico-card-topline">',
-        '    <span class="servico-index">' + String(items.indexOf(item) + 1).padStart(2, '0') + '</span>',
-        badge,
+        '  <span class="servico-card-icon">' + icon + '</span>',
+        '  <span class="servico-card-copy">',
+        '    <span class="servico-title">' + escapeHTML(item.title) + '</span>',
+        '    <span class="servico-description">' + escapeHTML(item.description) + '</span>',
         '  </span>',
-        '  <span class="servico-title">' + escapeHTML(item.title) + '</span>',
-        '  <span class="servico-description">' + escapeHTML(item.description) + '</span>',
+        badge,
         '  <span class="servico-action" aria-hidden="true">Selecionar <span>→</span></span>',
         '</button>'
       ].join('\n');
     }).join('\n');
 
     return [
-      '<section class="service-specialist animate" aria-labelledby="service-' + escapeHTML(category.id) + '">',
+      '<section class="service-specialist' + (categoryIndex === 0 ? ' is-active' : '') + '"',
+      '  id="service-panel-' + escapeHTML(category.id) + '" role="tabpanel"',
+      '  aria-labelledby="service-tab-' + escapeHTML(category.id) + '"' + (categoryIndex === 0 ? '' : ' hidden') + '>',
       '  <header class="service-specialist-header">',
-      '    <span class="service-specialist-name">' + escapeHTML(category.specialist) + '</span>',
-      '    <h3 id="service-' + escapeHTML(category.id) + '">' + escapeHTML(category.name) + '</h3>',
-      '    <p>' + escapeHTML(category.lead) + '</p>',
+      '    <span class="service-specialist-name">Atendimento com ' + escapeHTML(category.specialist) + '</span>',
+      '    <h3>' + escapeHTML(category.name) + '</h3>',
+      '    <p>' + escapeHTML(category.lead) + ' Selecione um procedimento para continuar.</p>',
       '  </header>',
       '  <div class="service-procedure-list stagger">',
       cards,
@@ -531,6 +555,48 @@ function renderServices() {
     ].join('\n');
   }).join('\n');
 
+  directory.innerHTML = [
+    '<div class="service-category-switch" role="tablist" aria-label="Escolha a área e a profissional">',
+    switcher,
+    '</div>',
+    '<div class="service-panels">',
+    panels,
+    '</div>'
+  ].join('\n');
+
+  function activateCategory(option, moveFocus) {
+    var categoryId = option.getAttribute('data-service-category');
+    directory.querySelectorAll('[data-service-category]').forEach(function(button) {
+      var active = button === option;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-selected', String(active));
+      button.tabIndex = active ? 0 : -1;
+    });
+
+    directory.querySelectorAll('.service-specialist').forEach(function(panel) {
+      var active = panel.id === 'service-panel-' + categoryId;
+      panel.hidden = !active;
+      panel.classList.toggle('is-active', active);
+    });
+
+    if (moveFocus) option.focus();
+  }
+
+  directory.addEventListener('click', function(event) {
+    var option = event.target.closest('[data-service-category]');
+    if (option) activateCategory(option, false);
+  });
+
+  directory.addEventListener('keydown', function(event) {
+    var current = event.target.closest('[data-service-category]');
+    if (!current || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight')) return;
+
+    event.preventDefault();
+    var options = Array.from(directory.querySelectorAll('[data-service-category]'));
+    var direction = event.key === 'ArrowRight' ? 1 : -1;
+    var nextIndex = (options.indexOf(current) + direction + options.length) % options.length;
+    activateCategory(options[nextIndex], true);
+  });
 }
 
 // Helper text function for local use
