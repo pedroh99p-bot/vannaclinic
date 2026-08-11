@@ -4,6 +4,9 @@ export function initLoaderReveal(onComplete) {
   var loader = document.getElementById('page-loader');
   var curtain = document.getElementById('loader-curtain');
   var body = document.body;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var displayTime = reducedMotion ? 80 : 950;
+  var cleanupTime = reducedMotion ? 40 : 760;
   body.classList.remove('loading');
 
   function revealHero() {
@@ -32,10 +35,10 @@ export function initLoaderReveal(onComplete) {
       if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
       if (curtain && curtain.parentNode) curtain.parentNode.removeChild(curtain);
       if (onComplete) onComplete();
-    }, 430);
+    }, cleanupTime);
   }
 
-  setTimeout(dismiss, 220);
+  setTimeout(dismiss, displayTime);
 }
 
 export function initRevealFallback() {
