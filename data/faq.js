@@ -12,7 +12,7 @@ export const faq = {
     },
     {
       question: "Quanto tempo duram os resultados do Botox?",
-      answer: "Em média de 4 a 6 meses, dependendo da resposta metabólica de cada organismo e dos hábitos individuais do paciente."
+      answer: "Em média de 3 a 5 meses, dependendo da resposta metabólica de cada organismo e dos hábitos individuais do paciente."
     },
     {
       question: "Os procedimentos são dolorosos?",
