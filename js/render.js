@@ -44,13 +44,19 @@ export function renderSEO() {
   };
 
   setMeta('meta[name="description"]', 'content', client.seo.description);
-  setMeta('meta[name="keywords"]', 'content', client.seo.keywords);
   setMeta('meta[property="og:title"]', 'content', client.seo.title);
-  setMeta('meta[property="og:description"]', 'content', client.seo.description);
+  setMeta('meta[property="og:description"]', 'content', client.seo.socialDescription || client.seo.description);
   setMeta('meta[property="og:url"]', 'content', siteUrl);
+  setMeta('meta[property="og:site_name"]', 'content', client.seo.siteName || client.branding.name);
   setMeta('meta[property="og:image"]', 'content', ogImage);
+  setMeta('meta[property="og:image:width"]', 'content', client.seo.ogImageWidth);
+  setMeta('meta[property="og:image:height"]', 'content', client.seo.ogImageHeight);
+  setMeta('meta[property="og:image:alt"]', 'content', client.seo.ogImageAlt);
   setMeta('meta[property="og:locale"]', 'content', client.seo.locale);
+  setMeta('meta[name="twitter:title"]', 'content', client.seo.title);
+  setMeta('meta[name="twitter:description"]', 'content', client.seo.socialDescription || client.seo.description);
   setMeta('meta[name="twitter:image"]', 'content', ogImage);
+  setMeta('meta[name="twitter:image:alt"]', 'content', client.seo.ogImageAlt);
 
   var canonical = document.querySelector('link[rel="canonical"]');
   if (!canonical) {
@@ -70,38 +76,114 @@ export function renderSEO() {
   fav.href = client.branding.favicon;
 
   // JSON-LD structured data injection
-  var jsonLdScript = document.querySelector('script[type="application/ld+json"]');
+  var jsonLdScript = document.getElementById('structured-data');
   if (!jsonLdScript) {
     jsonLdScript = document.createElement('script');
+    jsonLdScript.id = 'structured-data';
     jsonLdScript.type = 'application/ld+json';
     document.head.appendChild(jsonLdScript);
   }
 
-  var addressParts = client.branding.address.split(' - ');
-  var street = addressParts[0] || '';
-  var neighborhood = addressParts[1] || '';
-  var cityState = addressParts[2] || '';
-  var zip = addressParts[3] || '';
+  var websiteId = siteUrl + '#website';
+  var businessId = siteUrl + '#business';
+  var webpageId = siteUrl + '#webpage';
+  var logo = toAbsoluteUrl(client.branding.logoIcon);
+  var address = client.seo.address || {};
+  var faqEntities = (client.faq.items || []).map(function(item) {
+    return {
+      '@type': 'Question',
+      'name': item.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': item.answer
+      }
+    };
+  });
+  var serviceOffers = Object.keys(client.services.items || {}).reduce(function(offers, categoryKey) {
+    return offers.concat((client.services.items[categoryKey] || []).map(function(item) {
+      return {
+        '@type': 'Offer',
+        'itemOffered': {
+          '@type': 'Service',
+          'name': item.title,
+          'description': item.description
+        }
+      };
+    }));
+  }, []);
+  var areaServed = (client.seo.areaServed || []).map(function(place, index) {
+    return {
+      '@type': index === 0 ? 'City' : 'Place',
+      'name': place
+    };
+  });
 
   var ldData = {
-    "@context": "https://schema.org",
-    "@type": "HealthAndBeautyBusiness",
-    "name": client.branding.name + " - " + client.branding.profession,
-    "description": client.seo.description,
-    "url": siteUrl,
-    "image": ogImage,
-    "telephone": client.seo.telephone,
-    "sameAs": [
-      client.contacts.instagramUrl
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": street,
-      "addressLocality": neighborhood,
-      "addressRegion": cityState,
-      "postalCode": zip,
-      "addressCountry": "BR"
-    }
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': websiteId,
+        'url': siteUrl,
+        'name': client.seo.siteName || client.branding.name,
+        'alternateName': client.seo.alternateName,
+        'inLanguage': client.seo.language || 'pt-BR',
+        'publisher': { '@id': businessId }
+      },
+      {
+        '@type': 'HealthAndBeautyBusiness',
+        '@id': businessId,
+        'name': client.branding.name,
+        'alternateName': client.seo.alternateName,
+        'description': client.seo.description,
+        'url': siteUrl,
+        'logo': {
+          '@type': 'ImageObject',
+          'url': logo,
+          'width': 1024,
+          'height': 1024
+        },
+        'image': ogImage,
+        'telephone': client.seo.telephone,
+        'sameAs': (client.seo.externalProfiles || [client.contacts.instagramUrl]).filter(Boolean),
+        'hasMap': client.contacts.googleMapsDirectionsUrl,
+        'address': {
+          '@type': 'PostalAddress',
+          'streetAddress': address.streetAddress,
+          'addressLocality': address.addressLocality,
+          'addressRegion': address.addressRegion,
+          'postalCode': address.postalCode,
+          'addressCountry': address.addressCountry || 'BR'
+        },
+        'areaServed': areaServed,
+        'hasOfferCatalog': {
+          '@type': 'OfferCatalog',
+          'name': 'Procedimentos da ' + client.branding.name,
+          'itemListElement': serviceOffers
+        }
+      },
+      {
+        '@type': 'WebPage',
+        '@id': webpageId,
+        'url': siteUrl,
+        'name': client.seo.title,
+        'description': client.seo.description,
+        'isPartOf': { '@id': websiteId },
+        'about': { '@id': businessId },
+        'inLanguage': client.seo.language || 'pt-BR',
+        'primaryImageOfPage': {
+          '@type': 'ImageObject',
+          'url': ogImage,
+          'width': client.seo.ogImageWidth,
+          'height': client.seo.ogImageHeight
+        }
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': siteUrl + '#faq',
+        'mainEntity': faqEntities
+      }
+    ]
   };
 
   jsonLdScript.textContent = JSON.stringify(ldData, null, 2);

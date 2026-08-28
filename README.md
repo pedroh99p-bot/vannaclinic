@@ -114,3 +114,22 @@ Os códigos de inicialização de Tags de Rastreamento (pixels) ficam isolados e
 * **HTML5 Semântico**: Estrutura robusta, acessível e otimizada para SEO.
 * **Vanilla CSS (CSS Variables)**: Estilos rápidos e fáceis de customizar através de Custom Properties.
 * **Vanilla JavaScript (ES6 Modules)**: Código nativo e limpo carregado via `<script type="module">` garantindo que não haja poluição do escopo global e melhorando o carregamento assíncrono.
+
+---
+
+## SEO e indexação no Google
+
+O domínio canônico do projeto é `https://vannaclinic.vercel.app/`. O HTML inicial contém title, description, canonical, Open Graph, Twitter Card, conteúdo principal e dados estruturados. Os arquivos públicos de descoberta são:
+
+* `robots.txt`
+* `sitemap.xml`
+* `site.webmanifest`
+
+Após uma alteração relevante de conteúdo, atualize o campo `lastmod` do `sitemap.xml`. Para iniciar ou acelerar a indexação, a proprietária da clínica deve:
+
+1. Cadastrar e verificar `https://vannaclinic.vercel.app/` no Google Search Console.
+2. Enviar `https://vannaclinic.vercel.app/sitemap.xml` na área **Sitemaps**.
+3. Usar **Inspeção de URL** na página inicial e solicitar indexação.
+4. Manter nome, endereço, telefone, categoria, fotos e horários consistentes no Perfil da Empresa no Google.
+
+O token ou arquivo de verificação do Search Console deve ser adicionado somente depois de ser fornecido pela conta oficial da clínica.

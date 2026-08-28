@@ -10,7 +10,7 @@ export const client = {
   // Configurações Gerais de Identidade e Branding
   branding: {
     name: "Vanna Clinic",
-    title: "Vanna Clinic | Estética Avançada com Naturalidade",
+    title: "Vanna Clinic | Estética Avançada no Itanhangá, RJ",
     profession: "Clínica de Estética Avançada",
     professionShort: "Estética Avançada",
     niche: "Estética Avançada",
@@ -21,7 +21,7 @@ export const client = {
     logoHorizontal: "assets/logo-horizontal.webp",
     logoIcon: "assets/logo-icon.webp",
     logoPreloader: "assets/logo-preloader.webp",
-    favicon: "assets/logo-icon.webp",
+    favicon: "assets/favicon.webp",
     specialistPhoto: "assets/specialist.webp",
     heroBg: "assets/images/hero-vanna.webp",
     heroBgDesktop: "assets/images/hero-vanna.webp",
@@ -29,13 +29,30 @@ export const client = {
   },
 
   seo: {
-    title: "Vanna Clinic | Estética Avançada com Naturalidade",
-    description: "Vanna Clinic na Barra da Tijuca. Procedimentos como Botox, Preenchimento e Bioestimuladores focados em naturalidade, sofisticação e resultados elegantes.",
-    keywords: "botox natural, preenchimento barra da tijuca, bioestimuladores, harmonização discreta, rejuvenescimento",
+    title: "Vanna Clinic | Estética Avançada no Itanhangá, RJ",
+    description: "Clínica de estética avançada no Itanhangá, próxima à Barra da Tijuca, RJ. Botox, preenchimento, bioestimuladores, cílios e sobrancelhas.",
+    socialDescription: "Botox, preenchimento, bioestimuladores, cílios e sobrancelhas com atendimento personalizado no Itanhangá, Rio de Janeiro.",
     siteUrl: "https://vannaclinic.vercel.app/",
+    siteName: "Vanna Clinic",
+    alternateName: "Vanna Clinic Saúde e Estética Avançada",
     ogImage: "assets/og-image.webp",
+    ogImageWidth: 1731,
+    ogImageHeight: 909,
+    ogImageAlt: "Vanna Clinic, estética avançada no Itanhangá, Rio de Janeiro",
     locale: "pt_BR",
-    telephone: "+55 (21) 97137-6433"
+    language: "pt-BR",
+    telephone: "+55 21 97137-6433",
+    address: {
+      streetAddress: "Estrada do Itanhangá, 483, sala 214, Itanhangui Plaza",
+      addressLocality: "Rio de Janeiro",
+      addressRegion: "RJ",
+      postalCode: "22753-005",
+      addressCountry: "BR"
+    },
+    areaServed: ["Rio de Janeiro", "Itanhangá", "Barra da Tijuca"],
+    externalProfiles: [
+      "https://instagram.com/vannaclinic"
+    ]
   },
 
   contacts: {

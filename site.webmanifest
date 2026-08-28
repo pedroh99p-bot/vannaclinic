@@ -1,0 +1,19 @@
+{
+  "name": "Vanna Clinic",
+  "short_name": "Vanna Clinic",
+  "description": "Estética avançada, cílios e sobrancelhas no Itanhangá, Rio de Janeiro.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFBF7",
+  "theme_color": "#A07E4C",
+  "icons": [
+    {
+      "src": "/assets/favicon.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
